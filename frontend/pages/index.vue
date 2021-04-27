@@ -20,13 +20,23 @@
         >
           GitHub
         </a>
+        <p>My name is {{ name }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ $axios }) {
+    const { data } = await $axios.get('http://localhost:5000/name')
+    // console.log(data)
+    const name = data.name
+    return {
+      name,
+    }
+  },
+}
 </script>
 
 <style>
