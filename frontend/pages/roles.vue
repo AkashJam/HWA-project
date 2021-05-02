@@ -31,7 +31,7 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    const { data } = await $axios.get('http://localhost:3000/name')
+    const { data } = await $axios.get('http://localhost:3000/api')
     // console.log(data)
     const name = data.name
     return {
