@@ -10,13 +10,11 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 ul {
   padding: 0;
 }
 #navbar > li {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: inline-block;
   align-content: center;
   font-weight: 300;
