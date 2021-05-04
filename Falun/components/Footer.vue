@@ -1,7 +1,7 @@
 <template>
   <div id="footer">
-    <hr />
     <ul id="navbar">
+      <hr />
       <li id="logo">FALUN</li>
       <li><NuxtLink to="/about">ABOUT US</NuxtLink></li>
       <li><NuxtLink to="/contacts">CONTACT US</NuxtLink></li>
@@ -20,10 +20,12 @@
         <a href="https://www.instagram.com"><i class="fa fa-instagram"></i> </a>
       </li>
       <li>
-        <a href="https://www.youtube.com"><i class="fa fa-youtube"></i> </a>
+        <a href="https://www.youtube.com"
+          ><i class="fa fa-youtube-play"></i>
+        </a>
       </li>
+      <hr />
     </ul>
-    <hr />
   </div>
 </template>
 
@@ -35,32 +37,39 @@ export default {}
 #footer {
   position: fixed;
   width: 100%;
-  height: 10%;
   right: 0px;
   bottom: 0px;
-  align-content: center;
   background: black;
 }
+#navbar {
+  position: relative;
+  top: 25%;
+}
 #logo {
-  color: teal !important;
-  font-weight: bolder !important;
-  font-size: 150% !important;
+  color: #0091b1;
+  font-weight: bold;
+  font-size: 150%;
 }
 hr {
-  border-color: teal;
-  border-width: 0px 0px thick;
-  margin: auto;
-  padding-top: 0.35%;
+  border-color: #0091b1;
+  border-width: 0px 0px thin;
 }
 li {
   display: inline-block;
-  font-size: 100% !important;
-  position: relative;
-  left: 0%;
+  font-size: 100%;
+  margin: 0% 2%;
+  color: white;
 }
-.fa {
-  position: relative;
-  right: 10%;
-  color: white !important;
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  margin: 0%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 </style>
