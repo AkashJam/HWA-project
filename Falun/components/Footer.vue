@@ -2,9 +2,10 @@
   <div id="footer">
     <ul id="navbar">
       <hr />
-      <li id="logo">FALUN</li>
+      <li id="logo"><NuxtLink to="/">FALUN</NuxtLink></li>
       <li><NuxtLink to="/about">ABOUT US</NuxtLink></li>
       <li><NuxtLink to="/contacts">CONTACT US</NuxtLink></li>
+      <li id="gap"></li>
       <li>
         <a href="https://www.facebook.com">
           <i class="fa fa-facebook-f"></i>
@@ -72,5 +73,8 @@ ul {
   margin: 0%;
   padding-left: 10%;
   padding-right: 10%;
+}
+#gap {
+  margin: 0% 22%;
 }
 </style>
