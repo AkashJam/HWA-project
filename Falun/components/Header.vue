@@ -1,47 +1,61 @@
 <template>
   <div id="header">
     <ul id="navbar">
-      <li><NuxtLink to="/roles">Roles</NuxtLink></li>
-      <li>Areas</li>
-      <li>Services</li>
-      <li>About us</li>
-      <li>Contact us</li>
+      <li><NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink></li>
+      <li><NuxtLink class="menu" to="/areas">Areas</NuxtLink></li>
+      <li><NuxtLink class="menu" to="/services">Services</NuxtLink></li>
+      <li><NuxtLink class="menu" to="/roles">Roles</NuxtLink></li>
+      <li><NuxtLink class="menu" to="/about">About us</NuxtLink></li>
+      <li><NuxtLink class="menu" to="/contacts">Contact us</NuxtLink></li>
     </ul>
   </div>
 </template>
 
 <style scoped>
 ul {
-  padding: 0;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  height: 5rem;
+  line-height: 5rem;
 }
 #navbar > li {
-  display: inline-block;
+  display: block;
   align-content: center;
-  font-weight: 300;
-  font-size: 30px;
-
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: 200;
+  font-size: 20px;
   color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 100%;
 }
 #header {
-  background-color: #75e6ff;
+  background-color: white;
   position: fixed;
   width: 100%;
   right: 0px;
   top: 0px;
-  align-content: center;
 }
-NuxtLink {
+#falun {
+  color: #0091b1;
+  font-family: 'Farro';
+  font-size: 200%;
+  font-weight: bold;
+}
+.menu {
   color: black;
   text-decoration: none;
+  height: auto;
+  height: max-content;
 }
-NuxtLink:visited {
+.menu:visited {
   color: black;
 }
-NuxtLink:hover {
-  color: white;
+#navbar > li:hover {
+  background-color: #f3f3f3;
 }
 </style>

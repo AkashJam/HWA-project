@@ -3,8 +3,9 @@
     <div>
       <Header />
     </div>
-    <div>
-      <h1 class="title">Home</h1>
+    <div id="body1">
+      <h1 class="title">Falun</h1>
+      <h2 class="subtitle">Inspiring your future</h2>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -46,14 +47,17 @@ export default {
 
 <style scoped>
 .container {
-  margin: 0 auto;
+  margin: 0;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #75e6ff;
+}
+#body1 {
   text-align: center;
 }
-
 .title {
   display: block;
   font-weight: 300;

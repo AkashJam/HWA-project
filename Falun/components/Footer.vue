@@ -48,6 +48,7 @@ export default {}
 #logo {
   color: #0091b1;
   font-weight: bold;
+  font-family: 'Farro';
   font-size: 150%;
 }
 hr {
