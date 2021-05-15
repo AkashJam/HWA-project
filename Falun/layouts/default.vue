@@ -1,10 +1,18 @@
 <template>
   <div>
-    <Nuxt />
+    <Header />
+    <div class="wrapper">
+      <Nuxt />
+    </div>
+    <Footer />
   </div>
 </template>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -16,8 +24,12 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   background-color: #75e6ff;
+  height: 100%;
+  margin: 0;
 }
-
+.wrapper {
+  min-height: calc(100vh - 60px);
+}
 *,
 *::before,
 *::after {

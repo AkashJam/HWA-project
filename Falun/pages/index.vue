@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <Header />
+      <!--<Header />-->
     </div>
     <div id="body1">
       <h1 class="title">Falun</h1>
@@ -27,13 +27,14 @@
       </div>
     </div>
     <div>
-      <Footer />
+      <!--<Footer />-->
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  layout: 'default',
   async asyncData({ $axios }) {
     const { data } = await $axios.get('http://localhost:3000/api/user/2')
     console.log(data)
@@ -47,9 +48,8 @@ export default {
 
 <style scoped>
 .container {
-  margin: 0;
+  padding-top: 100px;
   width: 100%;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

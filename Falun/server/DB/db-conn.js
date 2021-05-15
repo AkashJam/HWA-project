@@ -73,13 +73,13 @@ async function insertFakeData() {
   const firstUser = await User.create({
     name: 'John Doe',
     bio: 'Surfing and Rock Music',
-    emailID: 'johndoe@momail.com',
+    emailId: 'johndoe@momail.com',
     userRole: 'Designer',
   })
   const secondUser = await User.create({
     name: 'Jane Doe',
     bio: 'Clubbing and Rock Climbing',
-    emailID: 'janedoe@momail.com',
+    emailId: 'janedoe@momail.com',
     userRole: 'Web Developer',
   })
   const service1 = await Service.create({

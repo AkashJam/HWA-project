@@ -36,15 +36,18 @@ export default {}
 
 <style scoped>
 #footer {
-  position: fixed;
   width: 100%;
+  height: 60px;
+  /* position: fixed;
   right: 0px;
-  bottom: 0px;
+  bottom: 0px; */
   background: black;
 }
 #navbar {
+  padding-top: 15px;
+  /* margin-top: 10px;
   position: relative;
-  top: 25%;
+  top: 25%; */
 }
 #logo {
   color: #0091b1;
@@ -74,7 +77,7 @@ ul {
   padding-left: 10%;
   padding-right: 10%;
 }
-#gap {
+.fa {
   margin: 0% 22%;
 }
 </style>
