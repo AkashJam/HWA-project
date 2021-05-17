@@ -6,18 +6,10 @@
     <div>
       <h1 class="title">Services</h1>
       <div class="links">
-        <a
-          href="http://localhost:3000/services/service1"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="imagebox"
-        >
-          Service 1
-        </a>
+        <NuxtLink to="services/"><Card /></NuxtLink>
         <a
           href="http://localhost:3000/services/services2"
           target="_blank"
-          rel="noopener noreferrer"
           class="imagebox"
         >
           Service 2

@@ -34,6 +34,10 @@ async function init() {
     })
     return res.json(user)
   })
+  app.get('/areas', async (req, res) => {
+    const areas = await Area.findAll()
+    return res.json(areas)
+  })
 }
 
 init()
