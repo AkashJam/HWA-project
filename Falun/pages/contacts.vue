@@ -1,9 +1,6 @@
 <template>
   <div class="container">
     <div>
-      <Header />
-    </div>
-    <div>
       <h1 class="title">Contacts</h1>
       <div class="topics">
         <div class="offices">
@@ -49,15 +46,103 @@
         </gmap-map>
       </div>
       <div class="form">
-        <p>First Name</p>
-        <p>Last Name</p>
-        <p>Email</p>
-        <p>Subject</p>
-        <p>Message</p>
+        <div
+          v-if="success"
+          class="rounded bg-indigo-500 text-white text-lg p-4"
+        >
+          Great! Your message has been sent successfully. We will try to respond
+          quickly.
+        </div>
+        <form
+          v-else
+          class="grid grid-cols-1 gap-y-6"
+          @:submit.prevent="sendMessage"
+        >
+          <div v-if="errored" class="rounded bg-red-200 text-lg p-4">
+            Bummer, Something went wrong. Did you fill out all of the fields?
+          </div>
+          <div class="input-element">
+            <p class="msg">First Name</p>
+            <label for="first_name" class="sr-only">First name</label>
+            <div class="relative rounded-md shadow-sm">
+              <input
+                id="first_name"
+                v-model="first_name"
+                required
+                name="first_name"
+                class="in-box form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
+                placeholder="First name"
+              />
+            </div>
+          </div>
+          <div class="input-element">
+            <p class="msg">Last Name</p>
+            <label for="last_name" class="sr-only">Last name</label>
+            <div class="relative rounded-md shadow-sm">
+              <input
+                id="last_name"
+                v-model="last_name"
+                required
+                name="last_name"
+                class="in-box form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
+                placeholder="Last name"
+              />
+            </div>
+          </div>
+          <div class="input-element">
+            <p class="msg">Email</p>
+            <label for="email" class="sr-only">Email</label>
+            <div class="relative rounded-md shadow-sm">
+              <input
+                id="email"
+                v-model="email"
+                required
+                name="email"
+                class="in-box form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
+                placeholder="Email"
+              />
+            </div>
+          </div>
+          <div class="input-element">
+            <p class="msg">Subject</p>
+            <label for="subject" class="sr-only">Subject</label>
+            <div class="relative rounded-md shadow-sm">
+              <input
+                id="subject"
+                v-model="subject"
+                required
+                name="subject"
+                class="in-box form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
+                placeholder="Subject"
+              />
+            </div>
+          </div>
+          <div class="input-element">
+            <p class="msg">Message</p>
+            <label for="message" class="sr-only">Message</label>
+            <div class="relative rounded-md shadow-sm">
+              <textarea
+                id="message"
+                v-model="message"
+                required
+                name="message"
+                class="in-msg form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
+                placeholder="Message"
+              ></textarea>
+            </div>
+          </div>
+          <div class="sub">
+            <span class="inline-flex rounded-md shadow-sm">
+              <button
+                type="submit"
+                class="button-sub inline-flex justify-center py-3 px-6 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+              >
+                {{ loading ? 'Sending Message...' : 'Submit' }}
+              </button>
+            </span>
+          </div>
+        </form>
       </div>
-    </div>
-    <div>
-      <Footer />
     </div>
   </div>
 </template>
@@ -75,7 +160,38 @@ export default {
           position: { lat: 46.0, lng: 10.0 },
         },
       ],
+      loading: false,
+      success: false,
+      errored: false,
+      first_name: '',
+      last_name: '',
+      email: '',
+      subject: '',
+      message: '',
     }
+  },
+  methods: {
+    sendMessage() {
+      this.loading = true
+      this.$axios
+        .post('/messages', {
+          first_name: this.first_name,
+          last_name: this.last_name,
+          email: this.email,
+          subject: this.subject,
+          message: this.message,
+        })
+        .then((response) => {
+          this.success = true
+          this.errored = false
+        })
+        .catch(() => {
+          this.errored = true
+        })
+        .finally(() => {
+          this.loading = false
+        })
+    },
   },
 }
 </script>
@@ -85,7 +201,7 @@ export default {
   margin: 0; /*auto;*/
   width: 100%;
   min-height: 100vh;
-  display: flex;
+  display: grid; /* flex; */
   justify-content: center;
   /* align-items: center; */
   text-align: center;
@@ -103,7 +219,7 @@ export default {
 
   font-size: 80px;
   color: black;
-  margin-top: 88px;
+  margin-top: 80px;
 }
 
 .subtitle {
@@ -118,7 +234,7 @@ export default {
 
 .topics {
   display: inline-block;
-  margin-top: 0;
+  margin-top: 5vh;
   height: 500px;
   width: 500px;
 }
@@ -155,8 +271,61 @@ export default {
 
 .form {
   width: 100%;
-  height: 500px;
-  background-color: #75e6ff;
-  margin-top: 17vh;
+  height: 1000px;
+  margin-top: 10vh;
+}
+
+.input-element {
+  padding-bottom: 3vh;
+}
+
+.msg {
+  display: block;
+  text-align: left;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 230;
+  font-size: 50px;
+  color: black;
+  padding-bottom: 1vh;
+}
+
+.in-box {
+  width: 100%;
+  height: 5vh;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 100;
+  font-size: 40px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+.in-msg {
+  width: 100%;
+  height: 5vh;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 100;
+  font-size: 40px;
+  /* border: 0; */
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+.sub {
+  text-align: left;
+}
+
+.button-sub {
+  width: 200px;
+  height: 60px;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 100;
+  font-size: 40px;
 }
 </style>
