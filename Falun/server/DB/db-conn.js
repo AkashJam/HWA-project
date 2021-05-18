@@ -23,10 +23,7 @@ function defineDatabaseStructure() {
       bio: DataTypes.TEXT,
       emailId: DataTypes.STRING,
       userRole: DataTypes.STRING,
-      // profilePicture: {
-      //   type: DataTypes.STRING,
-      //   allowNull: true,
-      // },
+      profilePicture: DataTypes.STRING,
     },
     {
       underscored: true,
@@ -47,6 +44,7 @@ function defineDatabaseStructure() {
     {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
+      image: DataTypes.STRING,
     },
     {
       underscored: true,
@@ -75,21 +73,29 @@ async function insertFakeData() {
     bio: 'Surfing and Rock Music',
     emailId: 'johndoe@momail.com',
     userRole: 'Designer',
+    profilePicture:
+      'https://netstorage-tuko.akamaized.net/images/7837e1645580ee67.jpg?&imwidth=1200',
   })
   const secondUser = await User.create({
     name: 'Jane Doe',
     bio: 'Clubbing and Rock Climbing',
     emailId: 'janedoe@momail.com',
     userRole: 'Web Developer',
+    profilePicture:
+      'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29tYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80',
   })
   const service1 = await Service.create({
     name: 'Design & Development',
     description:
       'Design and develop responsive and dynamic websites for your company',
+    image:
+      'https://www.studioideagrafica.it/wp-content/uploads/2016/08/la-figura-del-web-designer.jpg',
   })
   const service2 = await Service.create({
     name: 'DevOps & Maintainance',
     description: 'Deployment and Database Maintainance for the website',
+    image:
+      'https://d210waafu5nnsw.cloudfront.net/fad1ff76-801d-4adb-be70-9ddfacfeda88/images/u086a4ff5217_original_opt.jpeg',
   })
   const area1 = await Area.create({
     name: 'Web Development',

@@ -1,11 +1,12 @@
 <template>
   <div id="footer">
+    <hr id="top" />
     <ul id="navbar">
-      <hr />
       <li id="logo"><NuxtLink to="/">FALUN</NuxtLink></li>
       <li><NuxtLink to="/about">ABOUT US</NuxtLink></li>
       <li><NuxtLink to="/contacts">CONTACT US</NuxtLink></li>
-      <li id="gap"></li>
+    </ul>
+    <ul id="social">
       <li>
         <a href="https://www.facebook.com">
           <i class="fa fa-facebook-f"></i>
@@ -25,8 +26,8 @@
           ><i class="fa fa-youtube-play"></i>
         </a>
       </li>
-      <hr />
     </ul>
+    <hr id="bottom" />
   </div>
 </template>
 
@@ -38,16 +39,12 @@ export default {}
 #footer {
   width: 100%;
   height: 60px;
-  /* position: fixed;
-  right: 0px;
-  bottom: 0px; */
   background: black;
+  padding: 0% 10%;
 }
 #navbar {
-  padding-top: 15px;
-  /* margin-top: 10px;
-  position: relative;
-  top: 25%; */
+  float: left;
+  width: 50%;
 }
 #logo {
   color: #0091b1;
@@ -55,15 +52,31 @@ export default {}
   font-family: 'Farro';
   font-size: 150%;
 }
+#social {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
 hr {
   border-color: #0091b1;
   border-width: 0px 0px thin;
 }
+#top {
+  padding-top: 10px;
+}
+#bottom {
+  margin-bottom: 10px;
+  width: 100%;
+}
 li {
+  float: inherit;
   display: inline-block;
   font-size: 100%;
-  margin: 0% 2%;
+  height: 100% !important;
+  margin: 0% 5%;
   color: white;
+  display: flex;
+  align-items: center;
 }
 a,
 a:visited,
@@ -72,12 +85,8 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
-ul {
-  margin: 0%;
-  padding-left: 10%;
-  padding-right: 10%;
-}
 .fa {
-  margin: 0% 22%;
+  font-size: 120%;
+  padding-top: 10px;
 }
 </style>

@@ -2,6 +2,9 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
   target: 'server',
+  env: {
+    BASE_URL: '', // Development URL
+  },
   serverMiddleware: [
     {
       path: '/api',
