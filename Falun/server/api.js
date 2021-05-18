@@ -49,6 +49,21 @@ async function init() {
     })
     return res.json(service)
   })
+  // API to get all the areas
+  app.get('/area', async (req, res) => {
+    const services = await Area.findAll()
+    return res.json(services)
+  })
+  // API to get an area by ID.
+  // This one will return also the services
+  app.get('/area/:id', async (req, res) => {
+    const { id } = req.params
+    const service = await Area.findOne({
+      where: { id },
+      include: { model: Service },
+    })
+    return res.json(service)
+  })
 }
 
 init()

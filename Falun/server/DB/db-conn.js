@@ -74,7 +74,7 @@ async function insertFakeData() {
     emailId: 'johndoe@momail.com',
     userRole: 'Designer',
     profilePicture:
-      'https://netstorage-tuko.akamaized.net/images/7837e1645580ee67.jpg?&imwidth=1200',
+      'https://cdn.shopify.com/s/files/1/0045/5104/9304/t/27/assets/AC_ECOM_SITE_2020_REFRESH_1_INDEX_M2_THUMBS-V2-1.jpg?v=8913815134086573859',
   })
   const secondUser = await User.create({
     name: 'Jane Doe',
@@ -82,7 +82,7 @@ async function insertFakeData() {
     emailId: 'janedoe@momail.com',
     userRole: 'Web Developer',
     profilePicture:
-      'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d29tYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80',
+      'https://img.freepik.com/free-photo/portrait-confident-beautiful-brunette-woman-turning-face-camera-with-dreamy-look-white_1258-19144.jpg?size=626&ext=jpg',
   })
   const service1 = await Service.create({
     name: 'Design & Development',
@@ -97,9 +97,21 @@ async function insertFakeData() {
     image:
       'https://d210waafu5nnsw.cloudfront.net/fad1ff76-801d-4adb-be70-9ddfacfeda88/images/u086a4ff5217_original_opt.jpeg',
   })
+  const service3 = await Service.create({
+    name: 'Dashboards',
+    description:
+      'Creating beautiful and insightful dashboards for your enterprise',
+  })
   const area1 = await Area.create({
     name: 'Web Development',
     description: 'Handle the transistion of the company into the internet',
+  })
+  const area2 = await Area.create({
+    name: 'Big Data & Analytics',
+    description: 'Visualize and interpretate your data efficiently',
+  })
+  const area3 = await Area.create({
+    name: 'Machine Learning/Blockchain',
   })
 
   await service1.addUser(firstUser.id)
@@ -108,6 +120,8 @@ async function insertFakeData() {
   await service2.addUser(secondUser.id)
   await area1.addService(service1.id)
   await area1.addService(service2.id)
+  await area2.addService(service3.id)
+  await area3.addService(service3.id)
 }
 /**
  * Function to initialize the database. This is exported and called in the main api.js file

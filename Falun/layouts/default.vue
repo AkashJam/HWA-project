@@ -50,6 +50,19 @@ html {
   background-color: #3b8070;
 }
 
+.imagebox {
+  display: inline-block;
+  width: 373px;
+  height: 449px;
+  background: hsl(0, 0%, 90%);
+  padding: 200px 150px;
+  margin: 30px;
+}
+
+.imagebox:hover {
+  color: #fff;
+  background-color: #3b8070;
+}
 .button--grey {
   display: inline-block;
   border-radius: 4px;
