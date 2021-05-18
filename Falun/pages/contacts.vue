@@ -2,65 +2,53 @@
   <div class="container">
     <div>
       <h1 class="title">Contacts</h1>
-      <div class="topics">
-        <div class="offices">
-          <h2 class="subtitle">Our Offices</h2>
-          <p class="info">
-            Italy
-            <br />
-            Piazza Leonardo da Vinci, 32
-            <br />
-            20133 Milano
-            <br />
-            T: +39 239 912 3991
-          </p>
+      <div class="cols">
+        <div class="topics">
+          <div class="offices">
+            <h2 class="subtitle">Our Offices</h2>
+            <p class="info sans-cento">
+              Italy
+              <br />
+              Piazza Leonardo da Vinci, 32
+              <br />
+              20133 Milano
+              <br />
+              T: +39 239 912 3991
+            </p>
+          </div>
+          <br />
+          <div class="emails">
+            <h2 class="subtitle">Contact emails</h2>
+            <p class="email sans-cento">
+              ilaria.ronconi@mail.polimi.it
+              <br />
+              pietro.boschini@mail.polimi.it
+              <br />
+              akashaloysius.james@mail.polimi.it
+              <br />
+              andres.gonzalez@mail.polimi.it
+            </p>
+          </div>
         </div>
-        <br />
-        <div class="emails">
-          <h2 class="subtitle">Contact emails</h2>
-          <p class="email">
-            ilaria.ronconi@mail.polimi.it
-            <br />
-            pietro.boschini@mail.polimi.it
-            <br />
-            akashaloysius.james@mail.polimi.it
-            <br />
-            andres.gonzalez@mail.polimi.it
-          </p>
+        <div class="map">
+          <gmap-map
+            :center="center"
+            :zoom="12"
+            style="width: 500px; height: 500px"
+          >
+            <gmap-maker
+              v-for="(m, index) in markers"
+              :key="index"
+              :position="m.position"
+              :clickable="true"
+              :draggable="true"
+              @click="center = m.position"
+            ></gmap-maker>
+          </gmap-map>
         </div>
-      </div>
-      <div class="map">
-        <gmap-map
-          :center="center"
-          :zoom="12"
-          style="width: 500px; height: 500px"
-        >
-          <gmap-maker
-            v-for="(m, index) in markers"
-            :key="index"
-            :position="m.position"
-            :clickable="true"
-            :draggable="true"
-            @click="center = m.position"
-          ></gmap-maker>
-        </gmap-map>
       </div>
       <div class="form">
-        <div
-          v-if="success"
-          class="rounded bg-indigo-500 text-white text-lg p-4"
-        >
-          Great! Your message has been sent successfully. We will try to respond
-          quickly.
-        </div>
-        <form
-          v-else
-          class="grid grid-cols-1 gap-y-6"
-          @:submit.prevent="sendMessage"
-        >
-          <div v-if="errored" class="rounded bg-red-200 text-lg p-4">
-            Bummer, Something went wrong. Did you fill out all of the fields?
-          </div>
+        <form class="grid grid-cols-1 gap-y-6" @submit.prevent="sendMessage">
           <div class="input-element">
             <p class="msg">First Name</p>
             <label for="first_name" class="sr-only">First name</label>
@@ -70,7 +58,7 @@
                 v-model="first_name"
                 required
                 name="first_name"
-                class="in-box form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
+                class="in-box sans-cento form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
                 placeholder="First name"
               />
             </div>
@@ -84,7 +72,7 @@
                 v-model="last_name"
                 required
                 name="last_name"
-                class="in-box form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
+                class="in-box sans-cento form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
                 placeholder="Last name"
               />
             </div>
@@ -98,7 +86,7 @@
                 v-model="email"
                 required
                 name="email"
-                class="in-box form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
+                class="in-box sans-cento form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
                 placeholder="Email"
               />
             </div>
@@ -112,7 +100,7 @@
                 v-model="subject"
                 required
                 name="subject"
-                class="in-box form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
+                class="in-box sans-cento form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
                 placeholder="Subject"
               />
             </div>
@@ -126,7 +114,8 @@
                 v-model="message"
                 required
                 name="message"
-                class="in-msg form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
+                rows="4"
+                class="in-msg sans-cento form-input block w-full py-3 px-4 placeholder-gray-500 transition ease-in-out duration-150"
                 placeholder="Message"
               ></textarea>
             </div>
@@ -135,11 +124,22 @@
             <span class="inline-flex rounded-md shadow-sm">
               <button
                 type="submit"
-                class="button-sub inline-flex justify-center py-3 px-6 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+                class="button-sub sans-cento inline-flex justify-center py-3 px-6 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+                @click="sendMessage()"
               >
-                {{ loading ? 'Sending Message...' : 'Submit' }}
+                Submit
               </button>
             </span>
+            <div
+              v-if="success"
+              class="rounded bg-indigo-500 text-white text-lg p-4"
+            >
+              Great! Your message has been sent successfully. We will try to
+              respond quickly.
+            </div>
+            <div v-if="errored" class="rounded bg-red-200 text-lg p-4">
+              Bummer, Something went wrong. Did you fill out all of the fields?
+            </div>
           </div>
         </form>
       </div>
@@ -160,7 +160,6 @@ export default {
           position: { lat: 46.0, lng: 10.0 },
         },
       ],
-      loading: false,
       success: false,
       errored: false,
       first_name: '',
@@ -172,9 +171,8 @@ export default {
   },
   methods: {
     sendMessage() {
-      this.loading = true
       this.$axios
-        .post('/messages', {
+        .post('insert', {
           first_name: this.first_name,
           last_name: this.last_name,
           email: this.email,
@@ -188,9 +186,6 @@ export default {
         .catch(() => {
           this.errored = true
         })
-        .finally(() => {
-          this.loading = false
-        })
     },
   },
 }
@@ -201,11 +196,17 @@ export default {
   margin: 0; /*auto;*/
   width: 100%;
   min-height: 100vh;
-  display: grid; /* flex; */
+  display: flex;
   justify-content: center;
   /* align-items: center; */
   text-align: center;
   background-color: #ffd178;
+}
+
+.sans-cento {
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 100;
 }
 
 .title {
@@ -220,11 +221,10 @@ export default {
   font-size: 80px;
   color: black;
   margin-top: 80px;
+  margin-bottom: 5vh;
 }
 
 .subtitle {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 230;
   font-size: 50px;
   color: black;
@@ -232,21 +232,32 @@ export default {
   margin: 0;
 }
 
-.topics {
+.cols {
+  display: flex;
+  gap: 10em;
+}
+
+.cols > * {
+  width: 100%;
+}
+
+/* .topics {
   display: inline-block;
   margin-top: 5vh;
   height: 500px;
   width: 500px;
-}
+} */
+
+/* .map {
+  display: inline-block;
+  margin-left: 10vw;
+} */
 
 .emails {
   margin-top: 11vh;
 }
 
 .info {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 100;
   font-size: 30px;
   color: black;
   text-align: initial;
@@ -254,9 +265,6 @@ export default {
 }
 
 .email {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 100;
   font-size: 25px;
   color: black;
   text-align: initial;
@@ -264,15 +272,10 @@ export default {
   text-decoration: underline;
 }
 
-.map {
-  display: inline-block;
-  margin-left: 10vw;
-}
-
 .form {
   width: 100%;
-  height: 1000px;
   margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
 .input-element {
@@ -282,8 +285,6 @@ export default {
 .msg {
   display: block;
   text-align: left;
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 230;
   font-size: 50px;
   color: black;
@@ -293,9 +294,6 @@ export default {
 .in-box {
   width: 100%;
   height: 5vh;
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 100;
   font-size: 40px;
   border: 0;
   outline: 0;
@@ -305,12 +303,8 @@ export default {
 
 .in-msg {
   width: 100%;
-  height: 5vh;
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 100;
+  height: 25vh;
   font-size: 40px;
-  /* border: 0; */
   outline: 0;
   background: transparent;
   border-bottom: 1px solid black;
@@ -323,9 +317,6 @@ export default {
 .button-sub {
   width: 200px;
   height: 60px;
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 100;
   font-size: 40px;
 }
 </style>
