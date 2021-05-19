@@ -62,17 +62,17 @@ export default {
 }
 .img-sec {
   float: left;
-  margin-left: 5rem;
+  margin: 0vh 5vw;
 }
 .profile-pic {
-  height: 30vw;
+  max-height: 40vh;
   width: auto;
 }
 .info-sec {
   display: flex;
   align-items: center;
-  height: 30vw;
-  padding: 3rem 5rem;
+  height: 40vh;
+  padding: 3vh 5vw;
 }
 .user-info {
   text-align: left;
@@ -82,7 +82,7 @@ export default {
   text-align: center;
 }
 .service-sec {
-  margin: 0rem 5rem;
+  margin: 0vh 5vw;
 }
 .service {
   width: calc(100% / 3);
@@ -98,7 +98,7 @@ export default {
   padding: 20px 10px;
 }
 li {
-  padding: 1rem;
+  padding: 1vh;
 }
 h4 {
   margin-bottom: 10px;

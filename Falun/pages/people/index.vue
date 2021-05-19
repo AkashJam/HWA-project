@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style scoped>
+#start {
+  padding-top: 15vh;
+  padding-left: 1vw;
+}
 .user-grid {
   display: grid;
   grid-template-columns: repeat(5, calc(100% / 5));
@@ -40,9 +44,8 @@ export default {
   cursor: pointer;
   margin-bottom: 20px;
 }
-#start {
-  padding-top: 10vh;
-  padding-left: 1vw;
+.img {
+  height: 40vh !important;
 }
 h2 {
   text-align: center;
