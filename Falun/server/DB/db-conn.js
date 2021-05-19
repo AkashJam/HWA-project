@@ -101,6 +101,14 @@ async function insertFakeData() {
     name: 'Dashboards',
     description:
       'Creating beautiful and insightful dashboards for your enterprise',
+    image: 'https://blog.trello.com/hs-fs/DashboardFinal.png',
+  })
+  const service4 = await Service.create({
+    name: 'Recommender Systems',
+    description:
+      'Provide intelligent recommendations to users based on their interests and actions',
+    image:
+      'https://ourcodeworld.com/public-media/articles/articleocw-5e02cb556727f.webp',
   })
   const area1 = await Area.create({
     name: 'Web Development',
@@ -118,10 +126,13 @@ async function insertFakeData() {
   await service1.addUser(secondUser.id)
   await service2.addUser(firstUser.id)
   await service2.addUser(secondUser.id)
+  await service3.addUser(firstUser.id)
+  await service4.addUser(firstUser.id)
   await area1.addService(service1.id)
   await area1.addService(service2.id)
   await area2.addService(service3.id)
   await area3.addService(service3.id)
+  await area3.addService(service4.id)
 }
 /**
  * Function to initialize the database. This is exported and called in the main api.js file

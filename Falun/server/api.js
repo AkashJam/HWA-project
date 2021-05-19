@@ -5,12 +5,6 @@ const express = require('express')
 
 const app = express()
 
-app.get('/', (req, res) => {
-  return res.json({
-    name: 'John Doe',
-  })
-})
-
 // We need this one if we send data inside the body as JSON
 app.use(express.json())
 

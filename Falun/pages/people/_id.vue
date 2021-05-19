@@ -2,21 +2,21 @@
   <div>
     <div id="start">
       <div class="img-sec">
-        <img class="profile-pic" :src="profilePicture" />
+        <img class="profile-pic" :src="data.profilePicture" />
       </div>
       <div class="info-sec">
         <ul class="user-info">
           <li>
-            <h2>{{ name }}</h2>
+            <h2>{{ data.name }}</h2>
           </li>
           <li>
-            {{ userRole }}
+            {{ data.userRole }}
           </li>
           <li>
-            {{ emailId }}
+            {{ data.emailId }}
           </li>
           <li>
-            {{ bio }}
+            {{ data.bio }}
           </li>
         </ul>
       </div>
@@ -30,13 +30,7 @@
           class="service"
           @click="goToService(`/service/${service.id}`)"
         >
-          <div class="card">
-            <div
-              class="img"
-              :style="{ 'background-image': `url(${service.image})` }"
-            ></div>
-            <h4>{{ service.name }}</h4>
-          </div>
+          <CardView :image="service.image" :title="service.name"> </CardView>
         </div>
       </div>
     </div>
@@ -47,21 +41,10 @@
 export default {
   async asyncData({ $axios, route }) {
     const id = await route.params.id
-    console.log('this url', process.env.BASE_URL)
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/user/${id}`)
-    console.log(data)
-    const name = data.name
-    const bio = data.bio
-    const emailId = data.emailId
-    const userRole = data.userRole
-    const profilePicture = data.profilePicture
     const services = data.services
     return {
-      name,
-      bio,
-      emailId,
-      userRole,
-      profilePicture,
+      data,
       services,
     }
   },
@@ -82,21 +65,13 @@ export default {
   margin-left: 5rem;
 }
 .profile-pic {
-  height: 40vh;
+  height: 30vw;
   width: auto;
-}
-.img {
-  width: 100%;
-  height: 20vw;
-  margin: auto;
-  background-size: cover;
-  background-position: center;
-  margin: 10px 0px;
 }
 .info-sec {
   display: flex;
   align-items: center;
-  height: 40vh;
+  height: 30vw;
   padding: 3rem 5rem;
 }
 .user-info {
@@ -110,13 +85,14 @@ export default {
   margin: 0rem 5rem;
 }
 .service {
+  width: calc(100% / 3);
   cursor: pointer;
   margin-bottom: 20px;
+  display: inline-block;
 }
 #service-scroll {
-  display: grid;
-  grid-template-columns: repeat(3, calc(100% / 3));
-  grid-gap: 10px;
+  overflow: auto;
+  white-space: nowrap;
 }
 .card {
   padding: 20px 10px;
@@ -127,5 +103,13 @@ li {
 h4 {
   margin-bottom: 10px;
   text-align: center;
+}
+.img {
+  width: 100%;
+  height: 20vw;
+  margin: auto;
+  background-size: cover;
+  background-position: center;
+  margin: 10px 0px;
 }
 </style>
