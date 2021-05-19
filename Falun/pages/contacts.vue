@@ -33,7 +33,7 @@
         <div class="map">
           <gmap-map
             :center="center"
-            :zoom="12"
+            :zoom="14"
             style="width: 500px; height: 500px"
           >
             <gmap-maker
