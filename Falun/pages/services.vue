@@ -1,9 +1,6 @@
 <template>
   <div class="container">
     <div>
-      <Header />
-    </div>
-    <div>
       <h1 class="title">Services</h1>
       <div class="links">
         <NuxtLink to="services/"><Card /></NuxtLink>

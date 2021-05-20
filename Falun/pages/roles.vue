@@ -1,9 +1,6 @@
 <template>
   <div class="container">
     <div>
-      <Header />
-    </div>
-    <div>
       <h1 class="title">Roles</h1>
       <div class="links">
         <a

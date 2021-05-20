@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:akashjames@localhost:5432/FalunTest'
+  'postgres://postgres:24101997@localhost:5433/FalunTest'
 )
 // Production
 // const pg = require('pg')
@@ -34,6 +34,7 @@ function defineDatabaseStructure() {
     {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
+      image: DataTypes.STRING,
     },
     {
       underscored: true,
@@ -113,13 +114,20 @@ async function insertFakeData() {
   const area1 = await Area.create({
     name: 'Web Development',
     description: 'Handle the transistion of the company into the internet',
+    image:
+      'https://manofy.com/wp-content/uploads/2020/05/website-development.jpg',
   })
   const area2 = await Area.create({
     name: 'Big Data & Analytics',
     description: 'Visualize and interpretate your data efficiently',
+    image:
+      'https://www.b-fast.it/wp-content/uploads/2020/05/come-monitorare-gli-eventi-personalizzati-di-google-analytics-in-wordpress.jpg',
   })
   const area3 = await Area.create({
     name: 'Machine Learning/Blockchain',
+    description: 'Research and development on the latest technology',
+    image:
+      'https://toolboxcoworking.com/uploads/_1240xAUTO_resize_center-center_90_none/machine-learning-cybersecurity-applications.png',
   })
 
   await service1.addUser(firstUser.id)

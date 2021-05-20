@@ -1,8 +1,5 @@
 <template>
   <div class="container">
-    <div>
-      <!--<Header />-->
-    </div>
     <div id="body1">
       <h1 class="title">Falun</h1>
       <h2 class="subtitle">Inspiring your future</h2>
