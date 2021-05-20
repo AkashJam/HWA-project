@@ -4,7 +4,7 @@
       <li><NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink></li>
       <li><NuxtLink class="menu" to="/areas">Areas</NuxtLink></li>
       <li><NuxtLink class="menu" to="/services">Services</NuxtLink></li>
-      <li><NuxtLink class="menu" to="/roles">Roles</NuxtLink></li>
+      <li><NuxtLink class="menu" to="/people">People</NuxtLink></li>
       <li><NuxtLink class="menu" to="/about">About us</NuxtLink></li>
       <li><NuxtLink class="menu" to="/contacts">Contact us</NuxtLink></li>
     </ul>
