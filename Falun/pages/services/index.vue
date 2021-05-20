@@ -1,14 +1,14 @@
 <template>
   <div id="start">
-    <h2>Meet the team</h2>
-    <div class="user-grid">
+    <h2>Services</h2>
+    <div class="service-grid">
       <div
-        v-for="(user, userIndex) of users"
-        :key="'user-' + userIndex"
-        class="user"
-        @click="goToUser(`/people/${user.id}`)"
+        v-for="(service, serviceIndex) of services"
+        :key="'service-' + serviceIndex"
+        class="service"
+        @click="goToService(`/services/${service.id}`)"
       >
-        <CardView :image="user.profilePicture" :title="user.name"> </CardView>
+        <CardView :image="service.image" :title="service.name"> </CardView>
       </div>
     </div>
   </div>
@@ -17,13 +17,13 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    const { data } = await $axios.get(`${process.env.BASE_URL}/api/user`)
+    const { data } = await $axios.get(`${process.env.BASE_URL}/api/service`)
     console.log(data)
-    const users = data
-    return { users }
+    const services = data
+    return { services }
   },
   methods: {
-    goToUser(path) {
+    goToService(path) {
       this.$router.push({ path })
     },
   },
@@ -35,12 +35,12 @@ export default {
   padding-top: 15vh;
   padding-left: 1vw;
 }
-.user-grid {
+.service-grid {
   display: grid;
   grid-template-columns: repeat(5, calc(100% / 5));
   grid-gap: 10px;
 }
-.user {
+.service {
   cursor: pointer;
   margin-bottom: 20px;
 }

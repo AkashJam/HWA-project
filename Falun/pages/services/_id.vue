@@ -2,35 +2,29 @@
   <div>
     <div id="start">
       <div class="img-sec">
-        <img class="profile-pic" :src="data.profilePicture" />
+        <img class="profile-pic" :src="data.image" />
       </div>
       <div class="info-sec">
-        <ul class="user-info">
+        <ul class="service-info">
           <li>
             <h2>{{ data.name }}</h2>
           </li>
           <li>
-            {{ data.userRole }}
-          </li>
-          <li>
-            {{ data.emailId }}
-          </li>
-          <li>
-            {{ data.bio }}
+            {{ data.description }}
           </li>
         </ul>
       </div>
     </div>
-    <div class="service-sec">
-      <h2 class="title">Services</h2>
-      <div id="service-scroll">
+    <div class="user-sec">
+      <h2 class="title">Team</h2>
+      <div id="user-scroll">
         <div
-          v-for="(service, serviceIndex) of services"
-          :key="'service-' + serviceIndex"
-          class="service"
-          @click="goToService(`/service/${service.id}`)"
+          v-for="(user, userIndex) of users"
+          :key="'user-' + userIndex"
+          class="user"
+          @click="goToUser(`/user/${user.id}`)"
         >
-          <CardView :image="service.image" :title="service.name"> </CardView>
+          <CardView :image="user.profilePicture" :title="user.name"> </CardView>
         </div>
       </div>
     </div>
@@ -41,15 +35,17 @@
 export default {
   async asyncData({ $axios, route }) {
     const id = await route.params.id
-    const { data } = await $axios.get(`${process.env.BASE_URL}/api/user/${id}`)
-    const services = data.services
+    const { data } = await $axios.get(
+      `${process.env.BASE_URL}/api/service/${id}`
+    )
+    const users = data.users
     return {
       data,
-      services,
+      users,
     }
   },
   methods: {
-    goToService(path) {
+    goToUser(path) {
       this.$router.push({ path })
     },
   },
@@ -74,23 +70,23 @@ export default {
   height: 40vh;
   padding: 3vh 5vw;
 }
-.user-info {
+.service-info {
   text-align: left;
   list-style-type: none;
 }
 .title {
   text-align: center;
 }
-.service-sec {
+.user-sec {
   margin: 0vh 5vw;
 }
-.service {
+.user {
   width: calc(100% / 3);
   cursor: pointer;
   margin-bottom: 20px;
   display: inline-block;
 }
-#service-scroll {
+#user-scroll {
   overflow: auto;
   white-space: nowrap;
 }
