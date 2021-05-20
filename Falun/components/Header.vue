@@ -1,44 +1,39 @@
 <template>
   <div id="header">
-    <ul id="navbar">
-      <li><NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink></li>
-      <li><NuxtLink class="menu" to="/areas">Areas</NuxtLink></li>
-      <li><NuxtLink class="menu" to="/services">Services</NuxtLink></li>
-      <li><NuxtLink class="menu" to="/people">People</NuxtLink></li>
-      <li><NuxtLink class="menu" to="/about">About us</NuxtLink></li>
-      <li><NuxtLink class="menu" to="/contacts">Contact us</NuxtLink></li>
-    </ul>
+    <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
+    <a class="btn" @click="show = !show"><i class="fa fa-bars fa-2x"></i></a>
+    <div v-show="show || windowWidth > 600" id="nav">
+      <NuxtLink class="menu" to="/areas">Areas</NuxtLink>
+      <NuxtLink class="menu" to="/services">Services</NuxtLink>
+      <NuxtLink class="menu" to="/people">People</NuxtLink>
+      <NuxtLink class="menu" to="/about">About us</NuxtLink>
+      <NuxtLink class="menu" to="/contacts">Contact us</NuxtLink>
+    </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      show: true,
+      windowWidth: window.innerWidth,
+    }
+  },
+}
+</script>
 
 <style scoped>
-ul {
-  display: flex;
-  align-items: center;
-  padding: 0px;
-  margin: 0px;
-  height: 5rem;
-  line-height: 5rem;
-}
-#navbar > li {
-  display: block;
-  align-content: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-weight: 200;
-  font-size: 20px;
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  padding-right: 10px;
-  padding-left: 10px;
-  height: 100%;
-}
 #header {
   background-color: white;
   position: fixed;
   width: 100%;
   right: 0px;
   top: 0px;
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  height: 50px;
+  line-height: 50px;
 }
 #falun {
   color: #0091b1;
@@ -49,13 +44,59 @@ ul {
 .menu {
   color: black;
   text-decoration: none;
-  height: auto;
-  height: max-content;
+  height: inherit;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  display: block;
+  align-content: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: 200;
+  font-size: 18px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
 }
 .menu:visited {
   color: black;
 }
-#navbar > li:hover {
+.menu:hover {
   background-color: #f3f3f3;
+}
+.menu.nuxt-link-exact-active {
+  background-color: #f3f3f3;
+  color: black;
+}
+#falun.nuxt-link-exact-active {
+  background-color: white;
+}
+.btn {
+  display: none;
+}
+#nav {
+  display: inherit;
+}
+@media (max-width: 600px) {
+  #header {
+    display: block;
+  }
+  #nav > * {
+    background-color: white;
+  }
+  .btn {
+    display: flex;
+    float: right;
+    margin-top: -50px;
+    align-content: center;
+    height: 50px;
+    width: 50px;
+  }
+  i {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+  }
 }
 </style>
