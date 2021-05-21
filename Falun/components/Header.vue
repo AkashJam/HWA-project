@@ -39,6 +39,7 @@ ul {
   width: 100%;
   right: 0px;
   top: 0px;
+  z-index: 200;
 }
 #falun {
   color: #0091b1;
