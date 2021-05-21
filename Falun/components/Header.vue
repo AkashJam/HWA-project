@@ -18,11 +18,7 @@
   width: 100%;
   right: 0px;
   top: 0px;
-  display: flex;
-  padding: 0px;
-  margin: 0px;
-  height: 50px;
-  line-height: 50px;
+  z-index: 200;
 }
 #falun {
   color: #0091b1;
