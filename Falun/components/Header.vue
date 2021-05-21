@@ -2,7 +2,7 @@
   <div id="header">
     <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
     <a class="btn" @click="show = !show"><i class="fa fa-bars fa-2x"></i></a>
-    <div v-show="show || windowWidth > 600" id="nav">
+    <div id="nav">
       <NuxtLink class="menu" to="/areas">Areas</NuxtLink>
       <NuxtLink class="menu" to="/services">Services</NuxtLink>
       <NuxtLink class="menu" to="/people">People</NuxtLink>
@@ -11,17 +11,6 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      show: true,
-      windowWidth: window.innerWidth,
-    }
-  },
-}
-</script>
-
 <style scoped>
 #header {
   background-color: white;
@@ -76,7 +65,7 @@ export default {
 #nav {
   display: inherit;
 }
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
   #header {
     display: block;
   }
@@ -98,5 +87,5 @@ export default {
     line-height: 50px;
     text-align: center;
   }
-}
+}*/
 </style>

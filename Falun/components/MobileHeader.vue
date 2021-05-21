@@ -1,14 +1,25 @@
 <template>
   <div id="header">
     <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
-    <NuxtLink class="menu" to="/areas">Areas</NuxtLink>
-    <NuxtLink class="menu" to="/services">Services</NuxtLink>
-    <NuxtLink class="menu" to="/people">People</NuxtLink>
-    <NuxtLink class="menu" to="/about">About us</NuxtLink>
-    <NuxtLink class="menu" to="/contacts">Contact us</NuxtLink>
-    <button @click="showMobileMenu()">BURGER</button>
+    <a class="btn" @click="show = !show"><i class="fa fa-bars fa-2x"></i></a>
+    <div v-show="show" id="nav" @click="show = !show">
+      <NuxtLink class="menu" to="/areas">Areas</NuxtLink>
+      <NuxtLink class="menu" to="/services">Services</NuxtLink>
+      <NuxtLink class="menu" to="/people">People</NuxtLink>
+      <NuxtLink class="menu" to="/about">About us</NuxtLink>
+      <NuxtLink class="menu" to="/contacts">Contact us</NuxtLink>
+    </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      show: false,
+    }
+  },
+}
+</script>
 
 <style scoped>
 #header {
@@ -17,7 +28,7 @@
   width: 100%;
   right: 0px;
   top: 0px;
-  display: block;
+  display: flex;
   padding: 0px;
   margin: 0px;
   height: 50px;
@@ -54,5 +65,35 @@
 .menu.nuxt-link-exact-active {
   background-color: #f3f3f3;
   color: black;
+}
+#falun.nuxt-link-exact-active {
+  background-color: white;
+}
+.btn {
+  display: none;
+}
+#nav {
+  display: inherit;
+}
+#header {
+  display: block;
+}
+#header > * {
+  background-color: white;
+}
+.btn {
+  display: flex;
+  float: right;
+  margin-top: -50px;
+  align-content: center;
+  height: 50px;
+  width: 50px;
+}
+i {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  line-height: 50px;
+  text-align: center;
 }
 </style>

@@ -1,13 +1,30 @@
 <template>
   <div>
-    <Header />
+    <Header v-if="!mobile" />
+    <Mobileheader v-if="mobile" />
     <div class="wrapper">
       <Nuxt />
     </div>
     <Footer />
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      mobile: false,
+    }
+  },
+  updated() {
+    this.handleView()
+  },
+  methods: {
+    handleView() {
+      this.mobile = window.innerWidth < 600
+    },
+  },
+}
+</script>
 <style>
 * {
   margin: 0;
@@ -50,19 +67,6 @@ html {
   background-color: #3b8070;
 }
 
-.imagebox {
-  display: inline-block;
-  width: 373px;
-  height: 449px;
-  background: hsl(0, 0%, 90%);
-  padding: 200px 150px;
-  margin: 30px;
-}
-
-.imagebox:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
 .button--grey {
   display: inline-block;
   border-radius: 4px;
