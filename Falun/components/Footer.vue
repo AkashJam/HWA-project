@@ -1,5 +1,5 @@
 <template>
-  <div id="footer">
+  <div id="footer1">
     <hr id="top" />
     <ul id="navbar">
       <li id="logo"><NuxtLink to="/">FALUN</NuxtLink></li>
@@ -36,15 +36,13 @@ export default {}
 </script>
 
 <style scoped>
-#footer {
-  width: 100%;
-  height: 60px;
-  background: black;
-  padding: 0% 10%;
+ul {
+  height: inherit;
 }
 #navbar {
   float: left;
   width: 50%;
+  position: flex;
 }
 #logo {
   color: #0091b1;
@@ -69,14 +67,14 @@ hr {
   width: 100%;
 }
 li {
-  float: inherit;
-  display: inline-block;
   font-size: 100%;
-  height: 100% !important;
   margin: 0% 5%;
   color: white;
-  display: flex;
   align-items: center;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  word-break: keep-all;
 }
 a,
 a:visited,

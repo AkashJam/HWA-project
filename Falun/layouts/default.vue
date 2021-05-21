@@ -1,11 +1,11 @@
 <template>
   <div>
-    <Header v-if="!mobile" />
-    <Mobileheader v-if="mobile" />
+    <Header v-if="!mobile" class="header" />
+    <Mobileheader v-if="mobile" class="header" />
     <div class="wrapper">
       <Nuxt />
     </div>
-    <Footer />
+    <Footer id="foot" />
   </div>
 </template>
 <script>
@@ -30,6 +30,7 @@ export default {
   margin: 0;
   padding: 0;
 }
+
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -44,8 +45,14 @@ html {
   height: 100%;
   margin: 0;
 }
+.header {
+  z-index: 3;
+}
 .wrapper {
-  min-height: calc(100vh - 60px);
+  min-height: 100vh;
+  z-index: 2;
+  position: relative;
+  background-color: #75e6ff;
 }
 *,
 *::before,
@@ -80,5 +87,17 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+#foot {
+  position: sticky;
+  display: inline-block;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: black;
+  text-align: center;
+  z-index: 1;
+  width: 100%;
 }
 </style>

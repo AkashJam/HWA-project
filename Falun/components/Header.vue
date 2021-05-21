@@ -36,15 +36,16 @@
   height: inherit;
   padding-right: 1.5vw;
   padding-left: 1.5vw;
-  display: block;
+  display: inline-block;
   align-content: center;
   margin-top: 0px;
   margin-bottom: 0px;
   font-weight: 200;
-  font-size: 18px;
+  font-size: calc(10px+0.5vw);
   color: black;
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
+  word-break: keep-all;
 }
 .menu:visited {
   color: black;
