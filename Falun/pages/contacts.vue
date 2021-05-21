@@ -48,7 +48,12 @@
         </div>
       </div>
       <div class="form">
-        <form class="grid grid-cols-1 gap-y-6" @submit.prevent="sendMessage">
+        <form
+          class="grid grid-cols-1 gap-y-6"
+          action="/messages"
+          method="post"
+          @submit.prevent="sendMessage"
+        >
           <div class="input-element">
             <p class="msg">First Name</p>
             <label for="first_name" class="sr-only">First name</label>
@@ -125,7 +130,6 @@
               <button
                 type="submit"
                 class="button-sub sans-cento inline-flex justify-center py-3 px-6 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
-                @click="sendMessage()"
               >
                 Submit
               </button>
@@ -170,22 +174,8 @@ export default {
     }
   },
   methods: {
-    sendMessage() {
-      this.$axios
-        .post('insert', {
-          first_name: this.first_name,
-          last_name: this.last_name,
-          email: this.email,
-          subject: this.subject,
-          message: this.message,
-        })
-        .then((response) => {
-          this.success = true
-          this.errored = false
-        })
-        .catch(() => {
-          this.errored = true
-        })
+    sendMessage(e) {
+      e.target.reset()
     },
   },
 }
