@@ -9,28 +9,28 @@
           <li>
             <h2>{{ data.name }}</h2>
           </li>
-          <li>
+          <li class="role">
             {{ data.userRole }}
           </li>
           <li>
             {{ data.emailId }}
           </li>
-          <li>
+          <li class="bio">
             {{ data.bio }}
           </li>
         </ul>
       </div>
-    </div>
-    <div class="service-sec">
-      <h2 class="title">Services</h2>
-      <div id="service-scroll">
-        <div
-          v-for="(service, serviceIndex) of services"
-          :key="'service-' + serviceIndex"
-          class="service"
-          @click="goToService(`/service/${service.id}`)"
-        >
-          <CardView :image="service.image" :title="service.name"> </CardView>
+      <div class="service-sec">
+        <h2 id="title">Services</h2>
+        <div id="service-scroll">
+          <div
+            v-for="(service, serviceIndex) of services"
+            :key="'service-' + serviceIndex"
+            class="service"
+            @click="goToService(`/service/${service.id}`)"
+          >
+            <CardView :image="service.image" :title="service.name"> </CardView>
+          </div>
         </div>
       </div>
     </div>
@@ -57,59 +57,83 @@ export default {
 </script>
 <style scoped>
 #start {
-  padding-top: 15vh;
-  margin-bottom: 2rem;
+  padding-top: 10vh;
 }
 .img-sec {
   float: left;
-  margin: 0vh 5vw;
+  margin: 3vh 5vw;
+  padding: 0px 10px;
 }
 .profile-pic {
-  max-height: 40vh;
+  height: 40vh;
   width: auto;
 }
 .info-sec {
-  display: flex;
   align-items: center;
+  display: flex;
   height: 40vh;
-  padding: 3vh 5vw;
+  margin: 5vh 5vw;
 }
 .user-info {
   text-align: left;
   list-style-type: none;
 }
-.title {
-  text-align: center;
+@media (max-width: 700px) {
+  .profile-pic {
+    max-width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 1000px) {
+  .img-sec {
+    float: none;
+    text-align: center;
+  }
+  .info-sec {
+    flex: none;
+    align-items: initial;
+    height: auto;
+    padding: 0px 10px;
+  }
 }
 .service-sec {
-  margin: 0vh 5vw;
+  margin: 5vh 5vw;
+  height: 45vh;
 }
 .service {
+  height: 35vh;
   width: calc(100% / 3);
   cursor: pointer;
   margin-bottom: 20px;
   display: inline-block;
 }
 #service-scroll {
+  height: 40vh;
   overflow: auto;
   white-space: nowrap;
 }
-.card {
-  padding: 20px 10px;
+@media (max-width: 1000px) {
+  .service {
+    width: calc(100% / 2);
+  }
 }
-li {
-  padding: 1vh;
+@media (max-width: 600px) {
+  .service {
+    width: 100%;
+  }
 }
-h4 {
-  margin-bottom: 10px;
+.bio {
+  padding-top: 2vh;
+  font-style: italic;
+}
+.role {
+  padding-bottom: 2vh;
+}
+h2 {
+  font-size: xx-large;
+  padding-bottom: 20px;
+}
+#title {
   text-align: center;
-}
-.img {
-  width: 100%;
-  height: 20vw;
-  margin: auto;
-  background-size: cover;
-  background-position: center;
-  margin: 10px 0px;
 }
 </style>

@@ -77,4 +77,17 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+::-webkit-scrollbar {
+  width: 0em;
+  height: 0em;
+}
+::-webkit-scrollbar-button {
+  background: #ccc;
+}
+::-webkit-scrollbar-track-piece {
+  background: #888;
+}
+::-webkit-scrollbar-thumb {
+  background: #eee;
+}
 </style>

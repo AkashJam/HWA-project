@@ -34,24 +34,38 @@ export default {
 #start {
   padding-top: 15vh;
   padding-left: 1vw;
+  padding-right: 1vw;
+  padding-bottom: 5vh;
 }
 .user-grid {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(5, calc(100% / 5));
-  grid-gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1vw;
 }
 .user {
+  width: 100%;
+  height: 40vh;
   cursor: pointer;
   margin-bottom: 20px;
 }
-.img {
-  height: 40vh !important;
+@media (max-width: 1300px) {
+  .user-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .user {
+    height: 35vh;
+  }
+}
+@media (max-width: 900px) {
+  .user-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .user {
+    height: 30vh;
+  }
 }
 h2 {
-  text-align: center;
-}
-p {
-  height: 60px;
   text-align: center;
 }
 </style>
