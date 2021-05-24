@@ -49,7 +49,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #75e6ff;
 }
 #body1 {
   text-align: center;
