@@ -34,6 +34,7 @@ function defineDatabaseStructure() {
     {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
+      image: DataTypes.STRING,
     },
     {
       underscored: true,
@@ -209,14 +210,20 @@ async function insertFakeData() {
   const area1 = await Area.create({
     name: 'Web Development',
     description: 'Handle the transistion of the company into the internet',
+    image:
+      'https://manofy.com/wp-content/uploads/2020/05/website-development.jpg',
   })
   const area2 = await Area.create({
     name: 'Big Data & Analytics',
     description: 'Visualize and interpretate your data efficiently',
+    image:
+      'https://www.b-fast.it/wp-content/uploads/2020/05/come-monitorare-gli-eventi-personalizzati-di-google-analytics-in-wordpress.jpg',
   })
   const area3 = await Area.create({
     name: 'Machine Learning',
-    description: 'Automates decision making',
+    description: 'Research the latest technology and automate decision making',
+    image:
+      'https://toolboxcoworking.com/uploads/_1240xAUTO_resize_center-center_90_none/machine-learning-cybersecurity-applications.png',
   })
   const area4 = await Area.create({
     name: 'Cyber Security',

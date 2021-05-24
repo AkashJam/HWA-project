@@ -1,18 +1,36 @@
 <template>
   <div>
-    <Header />
+    <Header v-if="!mobile" class="header" />
+    <Mobileheader v-if="mobile" class="header" />
     <div class="wrapper">
       <Nuxt />
     </div>
-    <Footer />
+    <Footer id="foot" />
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      mobile: false,
+    }
+  },
+  updated() {
+    this.handleView()
+  },
+  methods: {
+    handleView() {
+      this.mobile = window.innerWidth < 600
+    },
+  },
+}
+</script>
 <style>
 * {
   margin: 0;
   padding: 0;
 }
+
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -23,12 +41,19 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  background-color: #75e6ff;
+  background-color: #f1fffa;
   height: 100%;
   margin: 0;
+  color: #353535;
+}
+.header {
+  z-index: 3;
 }
 .wrapper {
-  min-height: calc(100vh - 60px);
+  min-height: 88.8vh;
+  z-index: 2;
+  position: relative;
+  background-color: #f1fffa;
 }
 *,
 *::before,
@@ -50,19 +75,6 @@ html {
   background-color: #3b8070;
 }
 
-.imagebox {
-  display: inline-block;
-  width: 373px;
-  height: 449px;
-  background: hsl(0, 0%, 90%);
-  padding: 200px 150px;
-  margin: 30px;
-}
-
-.imagebox:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
 .button--grey {
   display: inline-block;
   border-radius: 4px;
@@ -89,5 +101,12 @@ html {
 }
 ::-webkit-scrollbar-thumb {
   background: #eee;
+}
+#foot {
+  display: inline-block;
+  padding: 1rem;
+  background-color: #464e47;
+  text-align: center;
+  width: 100%;
 }
 </style>

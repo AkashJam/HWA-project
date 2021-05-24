@@ -2,12 +2,15 @@
   <div>
     <div id="start">
       <div class="img-sec">
-        <img class="profile-pic" :src="data.profilePicture" />
+        <div
+          class="profile-pic"
+          :style="{ 'background-image': `url(${data.profilePicture})` }"
+        ></div>
       </div>
       <div class="info-sec">
         <ul class="user-info">
           <li>
-            <h2>{{ data.name }}</h2>
+            <h2 class="name">{{ data.name }}</h2>
           </li>
           <li class="role">
             {{ data.userRole }}
@@ -57,54 +60,56 @@ export default {
 </script>
 <style scoped>
 #start {
-  padding-top: 10vh;
+  padding: 10vh 0vh;
 }
 .img-sec {
   float: left;
   margin: 3vh 5vw;
-  padding: 0px 10px;
+  padding-top: 10px;
 }
 .profile-pic {
-  height: 40vh;
-  width: auto;
+  height: 50vh;
+  width: 45vh;
+  background-size: cover;
+  background-position: center;
 }
 .info-sec {
   align-items: center;
   display: flex;
-  height: 40vh;
+  height: 50vh;
   margin: 5vh 5vw;
 }
 .user-info {
   text-align: left;
   list-style-type: none;
-}
-@media (max-width: 700px) {
-  .profile-pic {
-    max-width: 100%;
-    height: auto;
-  }
+  padding: 5vh 5vw;
 }
 @media (max-width: 1000px) {
   .img-sec {
     float: none;
     text-align: center;
   }
+  .profile-pic {
+    width: inherit;
+    max-width: 50vh;
+    margin: auto;
+  }
   .info-sec {
     flex: none;
     align-items: initial;
     height: auto;
-    padding: 0px 10px;
   }
 }
 .service-sec {
   margin: 5vh 5vw;
+  padding: 1vh;
   height: 45vh;
+  background-color: #ccfccb;
 }
 .service {
   height: 35vh;
   width: calc(100% / 3);
   cursor: pointer;
-  margin-bottom: 20px;
   display: inline-block;
 }
 #service-scroll {
@@ -112,12 +117,12 @@ export default {
   overflow: auto;
   white-space: nowrap;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1400px) {
   .service {
     width: calc(100% / 2);
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .service {
     width: 100%;
   }
@@ -129,7 +134,7 @@ export default {
 .role {
   padding-bottom: 2vh;
 }
-h2 {
+.name {
   font-size: xx-large;
   padding-bottom: 20px;
 }

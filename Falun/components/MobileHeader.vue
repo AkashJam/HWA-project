@@ -2,7 +2,7 @@
   <div id="header">
     <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
     <a class="btn" @click="show = !show"><i class="fa fa-bars fa-2x"></i></a>
-    <div id="nav">
+    <div v-show="show" id="nav" @click="show = !show">
       <NuxtLink class="menu" to="/areas">Areas</NuxtLink>
       <NuxtLink class="menu" to="/services">Services</NuxtLink>
       <NuxtLink class="menu" to="/people">People</NuxtLink>
@@ -11,9 +11,19 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      show: false,
+    }
+  },
+}
+</script>
+
 <style scoped>
 #header {
-  /* background-color: white; */
+  background-color: white;
   position: fixed;
   width: 100%;
   right: 0px;
@@ -23,10 +33,9 @@
   margin: 0px;
   height: 50px;
   line-height: 50px;
-  background-color: #96e6b3;
 }
 #falun {
-  color: #1b9aaa;
+  color: #0091b1;
   font-family: 'Farro';
   font-size: 200%;
   font-weight: bold;
@@ -37,15 +46,15 @@
   height: inherit;
   padding-right: 1.5vw;
   padding-left: 1.5vw;
-  display: inline-block;
+  display: block;
   align-content: center;
   margin-top: 0px;
   margin-bottom: 0px;
   font-weight: 200;
-  font-size: calc(10px+0.5vw);
+  font-size: 18px;
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
-  word-break: keep-all;
 }
 .menu:visited {
   color: black;
@@ -66,27 +75,25 @@
 #nav {
   display: inherit;
 }
-/*@media (max-width: 600px) {
-  #header {
-    display: block;
-  }
-  #nav > * {
-    background-color: white;
-  }
-  .btn {
-    display: flex;
-    float: right;
-    margin-top: -50px;
-    align-content: center;
-    height: 50px;
-    width: 50px;
-  }
-  i {
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
-    line-height: 50px;
-    text-align: center;
-  }
-}*/
+#header {
+  display: block;
+}
+#header > * {
+  background-color: white;
+}
+.btn {
+  display: flex;
+  float: right;
+  margin-top: -50px;
+  align-content: center;
+  height: 50px;
+  width: 50px;
+}
+i {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  line-height: 50px;
+  text-align: center;
+}
 </style>
