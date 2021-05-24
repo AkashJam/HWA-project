@@ -24,6 +24,7 @@
   height: 50px;
   line-height: 50px;
   background-color: #96e6b3;
+  z-index: 200;
 }
 #falun {
   color: #1b9aaa;
