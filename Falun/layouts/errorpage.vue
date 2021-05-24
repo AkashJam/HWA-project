@@ -1,6 +1,6 @@
 <template>
   <div id="falun" class="error">
-    Ops! something went wrong:
+    Oops! something went wrong:<br />
     <NuxtLink id="home" to="/">Go to Home page</NuxtLink>
   </div>
 </template>
@@ -20,7 +20,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  background-color: #75e6ff;
+  background-color: #f8f4dd;
   height: 100%;
   margin: 0;
 }

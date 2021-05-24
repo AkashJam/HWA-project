@@ -1,5 +1,5 @@
 <template>
-  <div id="footer1">
+  <div id="footer">
     <hr id="top" />
     <ul id="navbar">
       <li id="logo"><NuxtLink to="/">FALUN</NuxtLink></li>
@@ -42,10 +42,10 @@ ul {
 #navbar {
   float: left;
   width: 50%;
-  position: flex;
+  text-align: left;
 }
 #logo {
-  color: #0091b1;
+  color: #1b9aaa;
   font-weight: bold;
   font-family: 'Farro';
   font-size: 150%;
@@ -56,7 +56,7 @@ ul {
   text-align: right;
 }
 hr {
-  border-color: #0091b1;
+  border-color: #1b9aaa;
   border-width: 0px 0px thin;
 }
 #top {

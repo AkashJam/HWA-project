@@ -13,15 +13,21 @@
 </template>
 <style scoped>
 #header {
-  background-color: white;
+  /* background-color: white; */
   position: fixed;
   width: 100%;
   right: 0px;
   top: 0px;
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #96e6b3;
   z-index: 200;
 }
 #falun {
-  color: #0091b1;
+  color: #1b9aaa;
   font-family: 'Farro';
   font-size: 200%;
   font-weight: bold;
@@ -38,7 +44,6 @@
   margin-bottom: 0px;
   font-weight: 200;
   font-size: calc(10px+0.5vw);
-  color: black;
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   word-break: keep-all;

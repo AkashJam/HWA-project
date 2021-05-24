@@ -17,7 +17,13 @@ export default {
 </script>
 
 <style scoped>
+.card-view {
+  height: 100%;
+  width: 100%;
+}
 .card {
+  height: 100%;
+  width: 100%;
   padding: 20px 10px;
 }
 h4 {
@@ -26,7 +32,7 @@ h4 {
 }
 .img {
   width: 100%;
-  height: 20vw;
+  height: 100%;
   margin: auto;
   background-size: cover;
   background-position: center;
