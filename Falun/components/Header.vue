@@ -1,19 +1,49 @@
 <template>
   <div id="header">
-    <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
-    <a class="btn" @click="show = !show"><i class="fa fa-bars fa-2x"></i></a>
-    <div id="nav">
-      <NuxtLink class="menu" to="/areas">Areas</NuxtLink>
-      <NuxtLink class="menu" to="/services">Services</NuxtLink>
-      <NuxtLink class="menu" to="/people">People</NuxtLink>
-      <NuxtLink class="menu" to="/about">About us</NuxtLink>
-      <NuxtLink class="menu" to="/contacts">Contact us</NuxtLink>
+    <div id="headerdesk">
+      <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
+      <div id="nav">
+        <NuxtLink class="menu" to="/areas">Areas</NuxtLink>
+        <NuxtLink class="menu" to="/services">Services</NuxtLink>
+        <NuxtLink class="menu" to="/people">People</NuxtLink>
+        <NuxtLink class="menu" to="/about">About us</NuxtLink>
+        <NuxtLink class="menu" to="/contacts">Contact us</NuxtLink>
+      </div>
+    </div>
+    <div id="headermobile">
+      <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
+      <a class="btn" @click="show = !show"><i class="fa fa-bars fa-2x"></i></a>
+      <div
+        id="nav1"
+        :style="{ display: show ? 'block' : 'none' }"
+        @click="toggle()"
+      >
+        <NuxtLink class="menumobile" to="/areas">Areas</NuxtLink>
+        <NuxtLink class="menumobile" to="/services">Services</NuxtLink>
+        <NuxtLink class="menumobile" to="/people">People</NuxtLink>
+        <NuxtLink class="menumobile" to="/about">About us</NuxtLink>
+        <NuxtLink class="menumobile" to="/contacts">Contact us</NuxtLink>
+      </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      show: false,
+    }
+  },
+  methods: {
+    toggle() {
+      this.show = !this.show
+    },
+  },
+}
+</script>
 <style scoped>
-#header {
-  /* background-color: white; */
+/* header of desktop standard */
+#headerdesk {
   position: fixed;
   width: 100%;
   right: 0px;
@@ -23,14 +53,16 @@
   margin: 0px;
   height: 50px;
   line-height: 50px;
-  background-color: #96e6b3;
-  z-index: 200;
+  background-color: white;
+  z-index: 3;
 }
 #falun {
   color: #1b9aaa;
   font-family: 'Farro';
   font-size: 200%;
   font-weight: bold;
+  height: 50px;
+  line-height: 50px;
 }
 .menu {
   color: black;
@@ -54,30 +86,63 @@
 .menu:hover {
   background-color: #f3f3f3;
 }
-.menu.nuxt-link-exact-active {
-  background-color: #f3f3f3;
+
+.menumobile {
+  color: black;
+  text-decoration: none;
+  padding-left: 1.5vw;
+  display: inherit;
+  align-content: center;
+  font-size: 18px;
+  height: 100%;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+}
+.menumobile:visited {
   color: black;
 }
+.menumobile:hover {
+  background-color: #f3f3f3;
+}
+/*
 #falun.nuxt-link-exact-active {
   background-color: white;
 }
+*/
+#nav1 {
+  display: none;
+}
+/* mobile header */
+#headermobile {
+  position: fixed;
+  width: 100%;
+  right: 0px;
+  top: 0px;
+  padding: 0px;
+  margin: 0px;
+  z-index: 3;
+  background-color: #ffffff;
+}
+/* don't show the mobile button*/
 .btn {
   display: none;
 }
-#nav {
-  display: inherit;
-}
-/*@media (max-width: 600px) {
-  #header {
-    display: block;
+@media (max-width: 600px) {
+  /*hide desktop header*/
+  #headerdesk {
+    display: none;
   }
-  #nav > * {
+  /*show mobile header*/
+  #headermobile {
+    display: inline-block;
+  }
+  #nav1 {
     background-color: white;
   }
+  /* property of button*/
   .btn {
     display: flex;
     float: right;
-    margin-top: -50px;
     align-content: center;
     height: 50px;
     width: 50px;
@@ -89,5 +154,10 @@
     line-height: 50px;
     text-align: center;
   }
-}*/
+}
+@media (min-width: 600px) {
+  #headermobile {
+    display: none;
+  }
+}
 </style>

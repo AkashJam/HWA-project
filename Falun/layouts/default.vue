@@ -1,31 +1,16 @@
 <template>
-  <div>
-    <Header v-if="!mobile" class="header" />
-    <Mobileheader v-if="mobile" class="header" />
+  <div id="bo">
+    <Header class="header" />
     <div class="wrapper">
       <Nuxt />
     </div>
     <Footer id="foot" />
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      mobile: false,
-    }
-  },
-  updated() {
-    this.handleView()
-  },
-  methods: {
-    handleView() {
-      this.mobile = window.innerWidth < 600
-    },
-  },
-}
-</script>
 <style>
+#bo {
+  height: 100%;
+}
 * {
   margin: 0;
   padding: 0;
@@ -64,7 +49,7 @@ html {
 .button--green {
   display: inline-block;
   border-radius: 4px;
-  border: 1px solid #3b8070;
+  border: 1px solid #38ac5f;
   color: #3b8070;
   text-decoration: none;
   padding: 10px 30px;
