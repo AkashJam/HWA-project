@@ -1,31 +1,31 @@
 <template>
   <div>
     <div id="start">
-      <div class="img-sec">
-        <img class="profile-pic" :src="data.image" />
-      </div>
-      <div class="info-sec">
-        <ul class="user-info">
-          <li>
-            <h2>{{ data.name }}</h2>
-          </li>
-          <li>
-            {{ data.description }}
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="service-sec">
-      <h2 class="title">Services</h2>
-      <div id="service-scroll">
-        <div
-          v-for="(service, serviceIndex) of services"
-          :key="'service-' + serviceIndex"
-          class="service"
-          @click="goToService(`/service/${service.id}`)"
-        >
-          <CardView :image="service.image" :title="service.name"> </CardView>
+      <div class="img" :style="{ 'background-image': `url(${data.image})` }">
+        <div class="desc">
+          <h2 class="name">{{ data.name }}</h2>
+          <h5 class="descri">{{ data.description }}</h5>
         </div>
+      </div>
+      <div class="info-sec"></div>
+      <h3 id="title">Service</h3>
+      <div
+        v-for="(service, serviceIndex) of services"
+        :key="'service-' + serviceIndex"
+        class="service"
+        @click="goToService(`/service/${service.id}`)"
+      >
+        <CardViewArea :image="service.image" :title="service.name">
+        </CardViewArea>
+      </div>
+      <h3 id="title">Team</h3>
+      <div
+        v-for="(user, userIndex) of users"
+        :key="'user-' + userIndex"
+        class="user"
+        @click="goToUser(`/user/${user.id}`)"
+      >
+        <CardViewArea :image="user.image" :title="user.name"> </CardViewArea>
       </div>
     </div>
   </div>
@@ -37,13 +37,18 @@ export default {
     const id = await route.params.id
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area/${id}`)
     const services = data.services
+    const users = data.users
     return {
       data,
       services,
+      users,
     }
   },
   methods: {
     goToService(path) {
+      this.$router.push({ path })
+    },
+    goToUser(path) {
       this.$router.push({ path })
     },
   },
@@ -51,59 +56,59 @@ export default {
 </script>
 <style scoped>
 #start {
-  padding-top: 15vh;
-  margin-bottom: 2rem;
+  padding: 0vh 0vh;
 }
-.img-sec {
-  float: left;
-  margin: 0vh 5vw;
-}
-.profile-pic {
-  max-height: 40vh;
-  width: auto;
-}
-.info-sec {
-  display: flex;
-  align-items: center;
-  height: 40vh;
-  padding: 3vh 5vw;
-}
-.user-info {
-  text-align: left;
-  list-style-type: none;
-}
-.title {
+h2 {
+  font-size: xx-large;
   text-align: center;
+  color: white;
 }
-.service-sec {
-  margin: 0vh 5vw;
-}
-.service {
-  width: calc(100% / 3);
-  cursor: pointer;
-  margin-bottom: 20px;
-  display: inline-block;
-}
-#service-scroll {
-  overflow: auto;
-  white-space: nowrap;
-}
-.card {
-  padding: 20px 10px;
-}
-li {
-  padding: 1vh;
-}
-h4 {
-  margin-bottom: 10px;
+h5 {
+  font-size: x-large;
   text-align: center;
+  color: white;
+}
+h3 {
+  font-size: large;
+  text-align: center;
+  color: black;
+}
+.desc {
+  background-color: black;
+  opacity: 0.9;
+  width: 100%;
 }
 .img {
+  align-items: center;
   width: 100%;
-  height: 20vw;
-  margin: auto;
+  height: 100vh;
+  min-height: 40vh;
   background-size: cover;
   background-position: center;
-  margin: 10px 0px;
+  display: flex;
+  margin: 0;
 }
+.service {
+  height: auto;
+}
+/*
+@media (max-width: 1000px) {
+  .service {
+    height: 35vh;
+    width: calc(100% / 3);
+    cursor: pointer;
+    display: inline-block;
+  }
+}
+@media (max-width: 1400px) {
+  .service {
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 700px) {
+  .service {
+    width: 100%;
+  }
+}
+*/
 </style>

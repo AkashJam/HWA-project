@@ -8,9 +8,8 @@
     >
       <div class="desc">
         <h2>
-          The Falun Team encompasses people from all over the world, giving it a
-          truly international experience. Their work embodies the Falun life,
-          providing innovative designs and making the most of your resources
+          Falun works in various areas giving to your company a 360° consultancy
+          offer that spans from Web Design to Machine Learning
         </h2>
       </div>
     </div>
@@ -21,7 +20,12 @@
         class="area"
         @click="goToArea(`/areas/${area.id}`)"
       >
-        <CardView :image="area.image" :title="area.name"> </CardView>
+        <CardViewArea
+          :image="area.image"
+          :title="area.name"
+          :description="area.description"
+        >
+        </CardViewArea>
       </div>
     </div>
   </div>
@@ -52,59 +56,18 @@ export default {
   padding: 1vh;
 }
 .area-grid {
-  width: 100%;
+  width: auto;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 1vw;
+  margin-right: 15vw;
+  margin-left: 15vw;
 }
 .area {
   width: 100%;
-  height: 40vh;
+  height: 60vh;
   cursor: pointer;
-  margin-bottom: 20px;
-}
-@media (max-width: 1500px) {
-  .area-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .area {
-    height: 35vh;
-  }
-}
-@media (max-width: 1100px) {
-  .area-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .area {
-    height: 30vh;
-  }
-}
-@media (max-width: 700px) {
-  .area-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .area {
-    height: 30vh;
-  }
-  /* .desc {
-    font-size: x-small;
-  } */
-}
-@media (max-height: 900px) {
-  .desc {
-    font-size: x-small;
-  }
-}
-h2 {
-  text-align: center;
-}
-.img {
-  align-items: center;
-  width: 100%;
-  height: 40vw;
-  min-height: 40vh;
-  background-size: cover;
-  background-position: center;
+  margin-bottom: 60px;
 }
 .desc {
   padding: 10vw;

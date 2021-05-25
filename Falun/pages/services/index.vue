@@ -1,6 +1,12 @@
 <template>
   <div id="start">
-    <h2>Services</h2>
+    <div class="desc">
+      <h2>
+        The Falun Team encompasses people from all over the world, giving it a
+        truly international experience. Their work embodies the Falun life,
+        providing innovative designs and making the most of your resources
+      </h2>
+    </div>
     <div class="service-grid">
       <div
         v-for="(service, serviceIndex) of services"
