@@ -35,7 +35,7 @@
 export default {
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area`)
-    console.log(data)
+    // console.log(data)
     const areas = data
     return { areas }
   },

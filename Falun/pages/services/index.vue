@@ -1,11 +1,18 @@
 <template>
   <div id="start">
-    <div class="desc">
-      <h2>
-        The Falun Team encompasses people from all over the world, giving it a
-        truly international experience. Their work embodies the Falun life,
-        providing innovative designs and making the most of your resources
-      </h2>
+    <div
+      class="img"
+      :style="{
+        'background-image': `url(https://www.ittechglobalservices.com/images/digital-services.jpg)`,
+      }"
+    >
+      <div class="desc">
+        <h2>
+          The Falun Team encompasses people from all over the world, giving it a
+          truly international experience. Their work embodies the Falun life,
+          providing innovative designs and making the most of your resources
+        </h2>
+      </div>
     </div>
     <div class="service-grid">
       <div
@@ -24,7 +31,7 @@
 export default {
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/service`)
-    console.log(data)
+    // console.log(data)
     const services = data
     return { services }
   },

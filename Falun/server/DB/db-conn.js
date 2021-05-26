@@ -166,7 +166,7 @@ async function insertFakeData() {
         bio: 'My interests are art and architecture. "In three words I can sum up everything I have learned about life: it goes on." -Robert Frost',
         emailId: 'louishill@momail.com',
         userRole: 'CEO Cyber Security Area',
-        profilePicture: 'https://www.lifebrain.it/main/wp-content/uploads/2019/01/checkup_uomo.jpg',
+        profilePicture: 'https://www.mantruckandbus.com/fileadmin/_processed_/b/e/csm_Elektrobatterien_Johannes_OEhl_a793651366.jpg',
     })
     const service1 = await Service.create({
         name: 'Design & Development',
