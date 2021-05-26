@@ -31,20 +31,14 @@
           </div>
         </div>
         <div class="map">
-          <gmap-map
-            :center="center"
-            :zoom="14"
-            style="width: 500px; height: 500px"
-          >
-            <gmap-maker
-              v-for="(m, index) in markers"
-              :key="index"
-              :position="m.position"
-              :clickable="true"
-              :draggable="true"
-              @click="center = m.position"
-            ></gmap-maker>
-          </gmap-map>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.5714918725!2d9.224921214843471!3d45.4784352791011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6f232436f25%3A0x636222c502d7acd!2sPiazza%20Leonardo%20da%20Vinci%2C%20Milano%20MI!5e0!3m2!1sit!2sit!4v1622022508132!5m2!1sit!2sit"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
       <div class="form">
@@ -192,7 +186,9 @@ export default {
   text-align: center;
   background-color: #ffd178;
 }
-
+.map {
+  height: 50vh;
+}
 .sans-cento {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -200,15 +196,12 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
-  font-weight: 300;
+  font-weight: 600;
   /* font-size: 100px;
   color: #35495e; */
   letter-spacing: 1px;
-
-  font-size: 80px;
+  font-size: 30px;
   color: black;
   margin-top: 80px;
   margin-bottom: 5vh;
@@ -216,7 +209,7 @@ export default {
 
 .subtitle {
   font-weight: 230;
-  font-size: 50px;
+  font-size: large;
   color: black;
   text-align: initial;
   margin: 0;
@@ -231,31 +224,19 @@ export default {
   width: 100%;
 }
 
-/* .topics {
-  display: inline-block;
-  margin-top: 5vh;
-  height: 500px;
-  width: 500px;
-} */
-
-/* .map {
-  display: inline-block;
-  margin-left: 10vw;
-} */
-
 .emails {
   margin-top: 11vh;
 }
 
 .info {
-  font-size: 30px;
+  font-size: medium;
   color: black;
   text-align: initial;
   margin: 0;
 }
 
 .email {
-  font-size: 25px;
+  font-size: medium;
   color: black;
   text-align: initial;
   margin: 0;
@@ -276,7 +257,7 @@ export default {
   display: block;
   text-align: left;
   font-weight: 230;
-  font-size: 50px;
+  font-size: large;
   color: black;
   padding-bottom: 1vh;
 }
@@ -284,7 +265,7 @@ export default {
 .in-box {
   width: 100%;
   height: 5vh;
-  font-size: 40px;
+  font-size: medium;
   border: 0;
   outline: 0;
   background: transparent;
@@ -294,7 +275,7 @@ export default {
 .in-msg {
   width: 100%;
   height: 25vh;
-  font-size: 40px;
+  font-size: 2vw;
   outline: 0;
   background: transparent;
   border-bottom: 1px solid black;
@@ -307,6 +288,14 @@ export default {
 .button-sub {
   width: 200px;
   height: 60px;
-  font-size: 40px;
+  font-size: 2vw;
+}
+@media (max-width: 900px) {
+  .cols {
+    display: block;
+  }
+  .map {
+    margin-top: 5vh;
+  }
 }
 </style>
