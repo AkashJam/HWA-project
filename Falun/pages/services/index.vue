@@ -8,9 +8,8 @@
     >
       <div class="desc">
         <h2>
-          The Falun Team encompasses people from all over the world, giving it a
-          truly international experience. Their work embodies the Falun life,
-          providing innovative designs and making the most of your resources
+          We are equipped with an updated technical knowledge to serve our
+          customers properly. Our method of application maintains the industry.
         </h2>
       </div>
     </div>
