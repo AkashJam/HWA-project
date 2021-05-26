@@ -2,13 +2,11 @@
   <div id="header">
     <div id="headerdesk">
       <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
-      <div id="nav">
-        <NuxtLink class="menu" to="/areas">Areas</NuxtLink>
-        <NuxtLink class="menu" to="/services">Services</NuxtLink>
-        <NuxtLink class="menu" to="/people">People</NuxtLink>
-        <NuxtLink class="menu" to="/about">About us</NuxtLink>
-        <NuxtLink class="menu" to="/contacts">Contact us</NuxtLink>
-      </div>
+      <NuxtLink class="menu" to="/areas">Areas</NuxtLink>
+      <NuxtLink class="menu" to="/services">Services</NuxtLink>
+      <NuxtLink class="menu" to="/people">People</NuxtLink>
+      <NuxtLink class="menu" to="/about">About us</NuxtLink>
+      <NuxtLink class="menu" to="/contacts">Contact us</NuxtLink>
     </div>
     <div id="headermobile">
       <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
@@ -47,7 +45,7 @@ export default {
   position: fixed;
   width: 100%;
   right: 0px;
-  top: 0px;
+  top: -1px;
   display: flex;
   padding: 0px;
   margin: 0px;
@@ -68,17 +66,18 @@ export default {
   color: black;
   text-decoration: none;
   height: inherit;
-  padding-right: 1.5vw;
-  padding-left: 1.5vw;
+  padding-right: 7px;
+  padding-left: 7px;
   display: inline-block;
   align-content: center;
+  text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
   font-weight: 200;
-  font-size: calc(10px+0.5vw);
-  font-family: Arial, Helvetica, sans-serif;
-  height: 100%;
+  font-size: 18px;
   word-break: keep-all;
+  width: 13vw;
+  min-width: max-content;
 }
 .menu:visited {
   color: black;

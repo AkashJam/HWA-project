@@ -228,6 +228,7 @@ async function insertFakeData() {
   const area4 = await Area.create({
     name: 'Cyber Security',
     description: 'Protects your information from online threats',
+    image: 'https://www.spegea.it/wp-content/uploads/2020/11/Cybersecurity.jpg',
   })
 
   await service1.addUser(firstUser.id)

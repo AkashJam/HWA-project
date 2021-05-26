@@ -7,25 +7,28 @@
           <h5 class="descri">{{ data.description }}</h5>
         </div>
       </div>
-      <div class="info-sec"></div>
-      <h3 id="title">Service</h3>
-      <div
-        v-for="(service, serviceIndex) of services"
-        :key="'service-' + serviceIndex"
-        class="service"
-        @click="goToService(`/service/${service.id}`)"
-      >
-        <CardViewArea :image="service.image" :title="service.name">
-        </CardViewArea>
+      <h3 id="title">Related services</h3>
+      <div class="area-grid">
+        <div
+          v-for="(service, serviceIndex) of services"
+          :key="'service-' + serviceIndex"
+          class="area"
+          @click="goToService(`/services/${service.id}`)"
+        >
+          <CardViewArea :image="service.image" :title="service.name">
+          </CardViewArea>
+        </div>
       </div>
       <h3 id="title">Team</h3>
-      <div
-        v-for="(user, userIndex) of users"
-        :key="'user-' + userIndex"
-        class="user"
-        @click="goToUser(`/user/${user.id}`)"
-      >
-        <CardViewArea :image="user.image" :title="user.name"> </CardViewArea>
+      <div class="area-grid">
+        <div
+          v-for="(user, userIndex) of users"
+          :key="'user-' + userIndex"
+          class="area"
+          @click="goToUser(`/users/${user.id}`)"
+        >
+          <CardViewArea :image="user.image" :title="user.name"> </CardViewArea>
+        </div>
       </div>
     </div>
   </div>
@@ -68,10 +71,26 @@ h5 {
   text-align: center;
   color: white;
 }
-h3 {
-  font-size: large;
+#title {
+  font-size: x-large;
   text-align: center;
   color: black;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.area-grid {
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1vw;
+  margin-right: 15vw;
+  margin-left: 15vw;
+}
+.area {
+  width: 100%;
+  height: 60vh;
+  cursor: pointer;
+  margin-bottom: 60px;
 }
 .desc {
   background-color: black;
@@ -88,9 +107,7 @@ h3 {
   display: flex;
   margin: 0;
 }
-.service {
-  height: auto;
-}
+
 /*
 @media (max-width: 1000px) {
   .service {
