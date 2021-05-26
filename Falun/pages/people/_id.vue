@@ -30,7 +30,7 @@
             v-for="(service, serviceIndex) of services"
             :key="'service-' + serviceIndex"
             class="service"
-            @click="goToService(`/service/${service.id}`)"
+            @click="goToService(`/services/${service.id}`)"
           >
             <CardView :image="service.image" :title="service.name"> </CardView>
           </div>
