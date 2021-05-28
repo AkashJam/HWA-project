@@ -4,6 +4,7 @@ export default {
   target: 'server',
   env: {
     BASE_URL: '', // Development URL
+    configurationId: 'a7e2372d-c216-48e4-947c-e9e1e508246b',
   },
   serverMiddleware: [
     {
@@ -43,7 +44,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/vue2-google-maps.js' }],
+  plugins: ['~/plugins/mmcc.js', { src: '~/plugins/vue2-google-maps.js' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

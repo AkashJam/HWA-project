@@ -3,10 +3,34 @@
     <Header class="header" />
     <div class="wrapper">
       <Nuxt />
+      <chat :chat-list="list" />
     </div>
     <Footer id="foot" />
   </div>
 </template>
+<script>
+import Chat from '~/components/Chat'
+import MMCCMixin from '~/mixins/mmcc-mixin'
+export default {
+  components: {
+    Chat,
+  },
+  mixins: [MMCCMixin],
+  data() {
+    return {
+      mobile: false,
+    }
+  },
+  updated() {
+    this.handleView()
+  },
+  methods: {
+    handleView() {
+      this.mobile = window.innerWidth < 600
+    },
+  },
+}
+</script>
 <style>
 * {
   margin: 0;
