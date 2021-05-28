@@ -1,12 +1,116 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"],
-      "~~/*": ["./*"],
-      "@@/*": ["./*"]
+  "name": "Falun chatbot config",
+  "data": {
+    "kb": {
+      "first_or": {
+        "initials": [
+          "Pick left or right!",
+          "Do you want to go to left or right?"
+        ],
+        "choices": [
+          {
+            "id": "right",
+            "intents": [
+              "I want to go to right",
+              "right"
+            ],
+            "utterance": [
+              "Ah.. right...",
+              "Uff, right again",
+              "Okay, so let's go right"
+            ],
+            "payload": {
+              "openGuidePopup": true,
+              "customGuide": "/"
+            }
+          },
+          {
+            "id": "left",
+            "intents": [
+              "I want to go left",
+              "left"
+            ],
+            "payload": {
+              "openContactPopup": true
+            }
+          }
+        ],
+        "quit": {
+          "intents": [
+            "quit",
+            "no",
+            "reset"
+          ],
+          "utterance": [
+            "ok bye"
+          ]
+        },
+        "unknown": "Option not available. Options: left or right"
+      },
+      "left": "Hello, this is the first left guide one",
+      "left2": {
+        "initials": [
+          "Welcome to the second left..."
+        ],
+        "completed": {
+          "utterance": "You completed the guide!",
+          "payload": {}
+        }
+      },
+      "steps_v": [
+        "/pages/left_1",
+        "/pages/left_2"
+      ],
+      "continue_v": [
+        "ok",
+        "continue",
+        "proceed"
+      ],
+      "stay_message": "I don't understand. Do you want to continue?"
+    },
+    "process": {
+      "activities": [
+        {
+          "my_id": "start",
+          "next_id": "first_or",
+          "my_type": "START",
+          "callback": "start"
+        },
+        {
+          "my_id": "first_or",
+          "next_id": "end",
+          "my_type": "XOR",
+          "callback": "generic_xor",
+          "choices": [
+            "left",
+            "right"
+          ]
+        },
+        {
+          "my_id": "left",
+          "next_id": "left2",
+          "my_type": "TASK",
+          "callback": "guide"
+        },
+        {
+          "my_id": "left2",
+          "next_id": null,
+          "my_type": "TASK",
+          "callback": "guide"
+        },
+        {
+          "my_id": "right",
+          "next_id": null,
+          "my_type": "TASK",
+          "callback": "guide"
+        },
+        {
+          "my_id": "end",
+          "next_id": "start",
+          "my_type": "END"
+        }
+      ],
+      "first_activity_id": "start"
     }
-  },
-  "exclude": ["node_modules", ".nuxt", "dist"]
+  }
 }

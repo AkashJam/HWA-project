@@ -2,14 +2,22 @@
   <div>
     <Header v-if="!mobile" class="header" />
     <Mobileheader v-if="mobile" class="header" />
+    <!-- <mmcc-init-connection :configuration-id="configurationId" /> -->
     <div class="wrapper">
       <Nuxt />
+      <chat :chat-list="list" />
     </div>
     <Footer id="foot" />
   </div>
 </template>
 <script>
+import Chat from '~/components/Chat'
+import MMCCMixin from '~/mixins/mmcc-mixin'
 export default {
+  components: {
+    Chat,
+  },
+  mixins: [MMCCMixin],
   data() {
     return {
       mobile: false,
