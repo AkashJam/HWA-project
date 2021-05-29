@@ -41,6 +41,7 @@ export default {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area/${id}`)
     const services = data.services
     const users = data.users
+    console.log(data)
     return {
       data,
       services,

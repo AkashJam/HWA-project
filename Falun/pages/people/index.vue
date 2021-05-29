@@ -1,19 +1,9 @@
 <template>
   <div id="start">
-    <div
-      class="img"
-      :style="{
-        'background-image': `url(https://www.jll.it/images/people/people-photography/can-we-build-a-happy-workplace.jpg)`,
-      }"
-    >
-      <div class="desc">
-        <h2>
-          The Falun Team encompasses people from all over the world, giving it a
-          truly international experience. Their work embodies the Falun life,
-          providing innovative designs and making the most of your resources
-        </h2>
-      </div>
-    </div>
+    <PageDescript
+      :image="'https://www.jll.it/images/people/people-photography/can-we-build-a-happy-workplace.jpg'"
+      :description="'The Falun Team encompasses people from all over the world, giving it a truly international experience. Their work embodies the Falun life, providing innovative designs and making the most of your resources'"
+    ></PageDescript>
     <div class="team">
       <h2>Meet the team</h2>
       <div class="user-grid">
@@ -92,28 +82,7 @@ export default {
     font-size: x-small;
   } */
 }
-@media (max-height: 900px) {
-  .desc {
-    font-size: x-small;
-  }
-}
 h2 {
   text-align: center;
-}
-.img {
-  align-items: center;
-  width: 100%;
-  height: 40vw;
-  min-height: 40vh;
-  background-size: cover;
-  background-position: center;
-}
-.desc {
-  padding: 10vw;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  color: #f1fffa;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>

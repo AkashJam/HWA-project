@@ -30,9 +30,22 @@
             v-for="(service, serviceIndex) of services"
             :key="'service-' + serviceIndex"
             class="service"
-            @click="goToService(`/service/${service.id}`)"
+            @click="goToService(`/services/${service.id}`)"
           >
             <CardView :image="service.image" :title="service.name"> </CardView>
+          </div>
+        </div>
+      </div>
+      <div class="service-sec">
+        <h2 id="title">Areas</h2>
+        <div id="service-scroll">
+          <div
+            v-for="(area, areaIndex) of filteredAreas"
+            :key="'area-' + areaIndex"
+            class="service"
+            @click="goToService(`/areas/${area.id}`)"
+          >
+            <CardView :image="area.image" :title="area.name"> </CardView>
           </div>
         </div>
       </div>
@@ -46,10 +59,31 @@ export default {
     const id = await route.params.id
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/user/${id}`)
     const services = data.services
+    // console.log(services)
     return {
       data,
       services,
     }
+  },
+  computed: {
+    filteredAreas() {
+      const areas = []
+      areas.push(this.services[0].area)
+      for (let i = 1; i < this.services.length; i++) {
+        let repeat = false
+        for (let j = 0; j < areas.length; j++) {
+          if (this.services[i].area_id === areas[j].id) {
+            repeat = true
+            break
+          }
+        }
+        if (!repeat) {
+          areas.push(this.services[i].area)
+        }
+      }
+      // console.log(areas)
+      return areas
+    },
   },
   methods: {
     goToService(path) {

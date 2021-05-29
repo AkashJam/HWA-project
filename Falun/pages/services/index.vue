@@ -1,18 +1,9 @@
 <template>
   <div id="start">
-    <div
-      class="img"
-      :style="{
-        'background-image': `url(https://www.ittechglobalservices.com/images/digital-services.jpg)`,
-      }"
-    >
-      <div class="desc">
-        <h2>
-          We are equipped with an updated technical knowledge to serve our
-          customers properly. Our method of application maintains the industry.
-        </h2>
-      </div>
-    </div>
+    <PageDescript
+      :image="'https://www.ittechglobalservices.com/images/digital-services.jpg'"
+      :description="'We are equipped with an updated technical knowledge to serve our customers properly. Our method of application maintains the industry.'"
+    ></PageDescript>
     <div class="service-grid">
       <div
         v-for="(service, serviceIndex) of services"
