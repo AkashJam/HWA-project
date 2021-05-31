@@ -80,28 +80,7 @@ export default {
     font-size: x-small;
   } */
 }
-@media (max-height: 900px) {
-  .desc {
-    font-size: x-small;
-  }
-}
 h2 {
   text-align: center;
-}
-.img {
-  align-items: center;
-  width: 100%;
-  height: 40vw;
-  min-height: 40vh;
-  background-size: cover;
-  background-position: center;
-}
-.desc {
-  padding: 10vw;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  color: #f1fffa;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>

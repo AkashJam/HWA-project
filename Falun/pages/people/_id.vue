@@ -26,11 +26,15 @@
       <div class="service-sec">
         <h2 id="title">Services</h2>
         <div id="service-scroll">
+          <div v-if="scroll">
+            <i class="fa fa-arrow-left"></i>
+            <i class="fa fa-arrow-right"></i>
+          </div>
           <div
             v-for="(service, serviceIndex) of services"
             :key="'service-' + serviceIndex"
             class="service"
-            @click="goToService(`/services/${service.id}`)"
+            @click="goToItem(`/services/${service.id}`)"
           >
             <CardView :image="service.image" :title="service.name"> </CardView>
           </div>
@@ -43,7 +47,7 @@
             v-for="(area, areaIndex) of filteredAreas"
             :key="'area-' + areaIndex"
             class="service"
-            @click="goToService(`/areas/${area.id}`)"
+            @click="goToItem(`/areas/${area.id}`)"
           >
             <CardView :image="area.image" :title="area.name"> </CardView>
           </div>
@@ -59,10 +63,10 @@ export default {
     const id = await route.params.id
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/user/${id}`)
     const services = data.services
-    // console.log(services)
     return {
       data,
       services,
+      scroll: false,
     }
   },
   computed: {
@@ -81,13 +85,39 @@ export default {
           areas.push(this.services[i].area)
         }
       }
-      // console.log(areas)
       return areas
     },
+    // showScroll() {
+    //   return this.scroll
+    // },
+  },
+  updated() {
+    this.allowScroll()
+  },
+  mounted() {
+    window.addEventListener('scroll', this.allowScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.allowScroll)
   },
   methods: {
-    goToService(path) {
+    goToItem(path) {
       this.$router.push({ path })
+    },
+    allowScroll() {
+      console.log(window.innerWidth, this.services.length)
+      if (
+        window.innerWidth / this.services.length <= 360 ||
+        this.services.length > 3
+      ) {
+        this.scroll = true
+        console.log('needs scroll')
+      } else {
+        this.scroll = false
+        console.log('no scroll')
+      }
+      console.log(this.scroll)
+      return this.scroll
     },
   },
 }
@@ -118,7 +148,7 @@ export default {
   list-style-type: none;
   padding: 5vh 5vw;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1080px) {
   .img-sec {
     float: none;
     text-align: center;
@@ -137,29 +167,39 @@ export default {
 .service-sec {
   margin: 5vh 5vw;
   padding: 1vh;
-  height: 45vh;
   background-color: #ccfccb;
 }
 .service {
-  height: 35vh;
+  height: 20vw;
   width: calc(100% / 3);
   cursor: pointer;
   display: inline-block;
+  text-align: center;
+  margin-bottom: 3vh;
 }
 #service-scroll {
-  height: 40vh;
   overflow: auto;
   white-space: nowrap;
+  text-align: center;
 }
-@media (max-width: 1400px) {
+.fa-arrow-left,
+.fa-arrow-right {
+  display: ;
+}
+@media (max-width: 1080px) {
   .service {
     width: calc(100% / 2);
+    height: 30vw;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   .service {
     width: 100%;
+    height: 50vw;
   }
+  /* #service-scroll {
+    width: 100% !important;
+  } */
 }
 .bio {
   padding-top: 2vh;

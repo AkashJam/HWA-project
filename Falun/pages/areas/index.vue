@@ -54,18 +54,4 @@ export default {
   margin-right: 15vw;
   margin-left: 15vw;
 }
-.area {
-  width: 100%;
-  height: 60vh;
-  cursor: pointer;
-  margin-bottom: 60px;
-}
-.desc {
-  padding: 10vw;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  color: #f1fffa;
-  background-color: rgba(0, 0, 0, 0.5);
-}
 </style>
