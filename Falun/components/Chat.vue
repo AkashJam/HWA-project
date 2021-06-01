@@ -16,6 +16,7 @@
       <input
         v-model="messageToSend"
         type="text"
+        placeholder="Enter text here"
         @keypress.enter="sendMessage"
       />
     </div>
@@ -36,7 +37,7 @@ export default {
   data() {
     return {
       messageToSend: '',
-      isOpen: true,
+      isOpen: false,
     }
   },
   methods: {
@@ -52,6 +53,10 @@ export default {
       }
       WebSocketEventBus.$emit('send', packet)
       this.messageToSend = ''
+      setTimeout(() => {
+        const elem = document.getElementById('chat-window')
+        elem.scrollTop = elem.scrollHeight
+      }, 100)
     },
   },
 }
@@ -66,10 +71,13 @@ export default {
   padding: 10px;
   float: right;
 
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   right: 0;
   margin-right: 5px;
+  /* margin-bottom: 5px; */
+  margin-bottom: 12vh;
+  position: fixed;
 }
 .button img {
   width: 100%;
@@ -77,14 +85,18 @@ export default {
 .chat-container {
   border: 1px solid black;
   border-radius: 4px;
-  height: 500px;
-  width: 300px;
-  position: absolute;
+  height: 50vh;
+  width: 25vw;
+  min-width: 200px;
+  /* position: absolute; */
   bottom: 60px;
   right: 0px;
   z-index: 200;
   background-color: white;
   margin-right: 5px;
+  /* margin-bottom: 10px; */
+  margin-bottom: 12.5vh;
+  position: fixed;
 }
 .chat-window {
   overflow-y: scroll;
@@ -116,8 +128,10 @@ input {
   width: 100%;
   position: absolute;
   z-index: 20;
-  height: 7%;
+  height: 35px;
   border: 1px solid black;
-  margin-top: -5px;
+  border-radius: 4px;
+  padding-left: 5px;
+  font-size: inherit;
 }
 </style>

@@ -1,116 +1,296 @@
 {
-  "name": "Falun chatbot config",
-  "data": {
-    "kb": {
-      "first_or": {
-        "initials": [
-          "Pick left or right!",
-          "Do you want to go to left or right?"
-        ],
-        "choices": [
-          {
-            "id": "right",
+    "name": "Falun chatbot config",
+    "data": {
+      "kb": {
+        "first_xor": {
+          "initials": [
+            "Welcome to Falun, would you like to explore the website or contact the company?"
+          ],
+          "choices": [
+            {
+              "id": "explore",
+              "intents": [
+                "explore"
+              ],
+              "payload": {
+                "openContactPopup": true
+              }
+            },
+            {
+              "id": "contact",
+              "intents": [
+                "contact"
+              ],
+              "payload": {
+                "openContactPopup": true
+              }
+            },
+            {
+              "id": "areas",
+              "intents": [
+                "I want to go to areas",
+                "I want to go to Areas",
+                "areas",
+                "Areas"
+              ],
+              "payload": {
+                "openContactPopup": true
+              }
+            },
+            {
+              "id": "services",
+              "intents": [
+                "I want to go to services",
+                "I want to go to Services",
+                "services",
+                "Services"
+              ],
+              "utterance": [
+                "You are now in services",
+                "Awesome",
+                "Okay, let's go to services"
+              ],
+              "payload": {
+                "guide": "/services"
+              }
+            },
+            {
+              "id": "people",
+              "intents": [
+                "I want to go to people",
+                "I want to go to People",
+                "people",
+                "People"
+              ],
+              "utterance": [
+                "You are now in people",
+                "Awesome",
+                "Okay, let's go to people"
+              ],
+              "payload": {
+                "guide": "people"
+              }
+            },
+            {
+              "id": "about",
+              "intents": [
+                "I want to go to about",
+                "I want to go to About",
+                "about",
+                "About"
+              ],
+              "utterance": [
+                "You are now in about",
+                "Awesome",
+                "Okay, let's go to about"
+              ],
+              "payload": {
+                "openGuidePopup": true,
+                "customGuide": "/about"
+              }
+            },
+            {
+              "id": "contacts",
+              "intents": [
+                "contacts",
+                "contact us",
+                "Contacts",
+                "Contact Us",
+                "Contact us"
+              ],
+              "utterance": [
+                "Write 'continue' to proceed"
+              ],
+              "payload": {
+                "openGuidePopup": true,
+                "customGuide": "/contacts"
+              }
+            }
+          ],
+          "quit": {
             "intents": [
-              "I want to go to right",
-              "right"
+              "quit",
+              "no",
+              "reset"
             ],
             "utterance": [
-              "Ah.. right...",
-              "Uff, right again",
-              "Okay, so let's go right"
-            ],
-            "payload": {
-              "openGuidePopup": true,
-              "customGuide": "/"
-            }
+              "ok bye"
+            ]
           },
-          {
-            "id": "left",
-            "intents": [
-              "I want to go left",
-              "left"
-            ],
+          "unknown": "Option not available. Options: areas, services, people, about us, contacts"
+        },
+        "home": "I will guide you through the site. Welcome to the homepage",
+        "explore": {
+          "initials": [
+            "This is Falun's chatbot, I will guide you through the website. You are currently in the homepage. Do you want to continue?"
+          ],
+          "completed": {
+            "utterance": "You are now in the 'About' page.",
+            "payload": {}
+          }
+        },
+        "contact": {
+          "initials": [
+            "Do you want to fill a form or go to the contact us page?"
+          ],
+          "choices": [
+            {
+              "id": "contact us page",
+              "intents": [
+                "contact us page",
+                "contacts",
+                "contact us",
+                "contact"
+              ],
+              "payload": {
+                "guide": "/contacts"
+              }
+            },
+            {
+              "id": "form",
+              "intents": [
+                "I want to fill a form",
+                "fill a form",
+                "Fill a form",
+                "form",
+                "Form"
+              ],
+              "payload": {
+                "guide": "/contacts#form"
+              },
+              "completed": {
+                "utterance": "This is the contact us page",
+                "payload": {}
+              }
+            }
+          ],
+          "completed": {
+            "utterance": "This is the contact us page",
+            "payload": {}
+          }
+        },
+        "areas": {
+          "initials": [
+            "Write 'continue' to proceed"
+          ],
+          "completed": {
+            "utterance": "Welcome to areas page. Do you want to do something else?",
             "payload": {
-              "openContactPopup": true
+                "guide": "/areas"
             }
           }
+        },
+        "about": "Welcome to the About page of our website. Here you can find all the information of our company.",
+        "end": "The process is completed. Chatbot has finished.",
+        "steps_v": [
+          "/",
+          "/areas",
+          "/services",
+          "/people",
+          "/about",
+          "/contacts",
+          "/areas",
+          "/areas/1"
         ],
-        "quit": {
-          "intents": [
-            "quit",
-            "no",
-            "reset"
-          ],
-          "utterance": [
-            "ok bye"
-          ]
-        },
-        "unknown": "Option not available. Options: left or right"
-      },
-      "left": "Hello, this is the first left guide one",
-      "left2": {
-        "initials": [
-          "Welcome to the second left..."
+        "continue_v": [
+          "ok",
+          "yes",
+          "continue",
+          "proceed"
         ],
-        "completed": {
-          "utterance": "You completed the guide!",
-          "payload": {}
-        }
+        "guide_v": [
+          "guide"
+        ],
+        "stay_message": "I don't understand. Do you want to continue?"
       },
-      "steps_v": [
-        "/pages/left_1",
-        "/pages/left_2"
-      ],
-      "continue_v": [
-        "ok",
-        "continue",
-        "proceed"
-      ],
-      "stay_message": "I don't understand. Do you want to continue?"
-    },
-    "process": {
-      "activities": [
-        {
-          "my_id": "start",
-          "next_id": "first_or",
-          "my_type": "START",
-          "callback": "start"
-        },
-        {
-          "my_id": "first_or",
-          "next_id": "end",
-          "my_type": "XOR",
-          "callback": "generic_xor",
-          "choices": [
-            "left",
-            "right"
-          ]
-        },
-        {
-          "my_id": "left",
-          "next_id": "left2",
-          "my_type": "TASK",
-          "callback": "guide"
-        },
-        {
-          "my_id": "left2",
-          "next_id": null,
-          "my_type": "TASK",
-          "callback": "guide"
-        },
-        {
-          "my_id": "right",
-          "next_id": null,
-          "my_type": "TASK",
-          "callback": "guide"
-        },
-        {
-          "my_id": "end",
-          "next_id": "start",
-          "my_type": "END"
-        }
-      ],
-      "first_activity_id": "start"
+      "process": {
+        "activities": [
+          {
+            "my_id": "start",
+            "next_id": "first_xor",
+            "my_type": "START",
+            "callback": "start"
+          },
+          {
+            "my_id": "first_xor",
+            "next_id": "end",
+            "my_type": "XOR",
+            "callback": "generic_xor",
+            "choices": [
+              "explore",
+              "contact",
+              "areas",
+              "services",
+              "people",
+              "about",
+              "contacts"
+            ]
+          },
+          {
+            "my_id": "explore",
+            "next_id": "about",
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "contact",
+            "next_id": "end",
+            "my_type": "XOR",
+            "callback": "generic_xor",
+            "choices": [
+              "contact us page",
+              "form"
+            ]
+          },
+          {
+            "my_id": "contact us page",
+            "next_id": null,
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "form",
+            "next_id": null,
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "areas",
+            "next_id": "start",
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "services",
+            "next_id": "first_xor",
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "people",
+            "next_id": "first_xor",
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "about",
+            "next_id": null,
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "contacts",
+            "next_id": "first_xor",
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "end",
+            "next_id": "start",
+            "my_type": "END"
+          }
+        ],
+        "first_activity_id": "start"
+      }
     }
   }
-}

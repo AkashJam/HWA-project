@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <h1 class="title">Contacts</h1>
-      <div class="cols">
+      <div id="cols" class="cols">
         <div class="topics">
           <div class="offices">
             <h2 class="subtitle">Our Offices</h2>
@@ -47,14 +47,14 @@
           </gmap-map>
         </div>
       </div>
-      <div class="form">
+      <div id="form" class="form">
         <form
           class="grid grid-cols-1 gap-y-6"
           action="/messages"
           method="post"
           @submit.prevent="sendMessage"
         >
-          <div class="input-element">
+          <div id="fname" class="input-element">
             <p class="msg">First Name</p>
             <label for="first_name" class="sr-only">First name</label>
             <div class="relative rounded-md shadow-sm">

@@ -4,7 +4,7 @@ export default {
   target: 'server',
   env: {
     BASE_URL: '', // Development URL
-    configurationId: 'a7e2372d-c216-48e4-947c-e9e1e508246b',
+    configurationId: 'b320972e-8881-4df5-8a86-21e95e67239b',
   },
   serverMiddleware: [
     {
