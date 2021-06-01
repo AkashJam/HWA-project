@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <div id="start">
-      <div class="img-sec">
-        <img class="profile-pic" :src="data.image" />
-      </div>
-      <div class="info-sec">
-        <ul class="service-info">
-          <li>
-            <h2>{{ data.name }}</h2>
-          </li>
-          <li>
-            {{ data.description }}
-          </li>
-        </ul>
-      </div>
+  <div id="start">
+    <div class="img-sec">
+      <img class="profile-pic" :src="data.image" />
+    </div>
+    <div class="info-sec">
+      <ul class="service-info">
+        <li>
+          <h2>{{ data.name }}</h2>
+        </li>
+        <li>
+          {{ data.description }}
+        </li>
+      </ul>
     </div>
     <div class="user-sec">
       <h2 class="title">Team</h2>
@@ -53,8 +51,7 @@ export default {
 </script>
 <style scoped>
 #start {
-  padding-top: 15vh;
-  margin-bottom: 2rem;
+  padding: 10vh 0vh;
 }
 .img-sec {
   float: left;
@@ -81,6 +78,7 @@ export default {
   margin: 0vh 5vw;
 }
 .user {
+  height: 20vw;
   width: calc(100% / 3);
   cursor: pointer;
   margin-bottom: 20px;

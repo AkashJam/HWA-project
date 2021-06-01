@@ -24,7 +24,7 @@ export default {
 .card {
   height: 100%;
   width: 100%;
-  padding: 20px 10px;
+  padding: 10px;
 }
 h4 {
   margin-bottom: 10px;

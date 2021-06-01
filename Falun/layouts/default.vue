@@ -1,30 +1,12 @@
 <template>
-  <div>
-    <Header v-if="!mobile" class="header" />
-    <Mobileheader v-if="mobile" class="header" />
+  <div id="bo">
+    <Header class="header" />
     <div class="wrapper">
       <Nuxt />
     </div>
     <Footer id="foot" />
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      mobile: false,
-    }
-  },
-  updated() {
-    this.handleView()
-  },
-  methods: {
-    handleView() {
-      this.mobile = window.innerWidth < 600
-    },
-  },
-}
-</script>
 <style>
 * {
   margin: 0;
@@ -50,7 +32,7 @@ html {
   z-index: 3;
 }
 .wrapper {
-  min-height: 88.8vh;
+  min-height: 92vh;
   z-index: 2;
   position: relative;
   background-color: #f1fffa;
@@ -64,7 +46,7 @@ html {
 .button--green {
   display: inline-block;
   border-radius: 4px;
-  border: 1px solid #3b8070;
+  border: 1px solid #38ac5f;
   color: #3b8070;
   text-decoration: none;
   padding: 10px 30px;
@@ -105,6 +87,7 @@ html {
 #foot {
   display: inline-block;
   padding: 1rem;
+  position: absolute;
   background-color: #464e47;
   text-align: center;
   width: 100%;
