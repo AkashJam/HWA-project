@@ -1,30 +1,36 @@
 <template>
   <div>
     <div id="start">
-      <div class="img-sec">
-        <img class="profile-pic" :src="data.image" />
+      <div class="img" :style="{ 'background-image': `url(${data.image})` }">
+        <div class="desc">
+          <h2 class="name">{{ data.name }}</h2>
+          <h5 class="descri">{{ data.description }}</h5>
+        </div>
       </div>
-      <div class="info-sec">
-        <ul class="user-info">
-          <li>
-            <h2>{{ data.name }}</h2>
-          </li>
-          <li>
-            {{ data.description }}
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="service-sec">
-      <h2 class="title">Services</h2>
-      <div id="service-scroll">
+      <h3 id="title">Related services</h3>
+      <div class="area-grid">
         <div
           v-for="(service, serviceIndex) of services"
           :key="'service-' + serviceIndex"
-          class="service"
-          @click="goToService(`/service/${service.id}`)"
+          class="area"
+          @click="goToItem(`/services/${service.id}`)"
         >
-          <CardView :image="service.image" :title="service.name"> </CardView>
+          <CardViewArea :image="service.image" :title="service.name">
+          </CardViewArea>
+        </div>
+      </div>
+      <div class="service-sec">
+        <h2 id="team-title">Team</h2>
+        <div id="service-scroll">
+          <div
+            v-for="(user, userIndex) of filteredMembers"
+            :key="'user-' + userIndex"
+            class="service"
+            @click="goToItem(`/users/${user.id}`)"
+          >
+            <CardView :image="user.profilePicture" :title="user.name">
+            </CardView>
+          </div>
         </div>
       </div>
     </div>
@@ -37,13 +43,36 @@ export default {
     const id = await route.params.id
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area/${id}`)
     const services = data.services
+    console.log(services[0].users[0])
     return {
       data,
       services,
     }
   },
+  computed: {
+    filteredMembers() {
+      const members = []
+      members.push(this.services[0].users[0])
+      for (let i = 0; i < this.services.length; i++) {
+        let repeat = false
+        for (let j = 0; j < this.services[i].users.length; j++) {
+          for (let k = 0; k < members.length; k++) {
+            if (this.services[i].users[j].id === members[k].id) {
+              repeat = true
+              break
+            }
+          }
+          if (!repeat) {
+            members.push(this.services[i].users[j])
+            console.log(members)
+          }
+        }
+      }
+      return members
+    },
+  },
   methods: {
-    goToService(path) {
+    goToItem(path) {
       this.$router.push({ path })
     },
   },
@@ -51,59 +80,109 @@ export default {
 </script>
 <style scoped>
 #start {
-  padding-top: 15vh;
-  margin-bottom: 2rem;
+  padding: 5vh 0vh;
 }
-.img-sec {
-  float: left;
-  margin: 0vh 5vw;
+h2 {
+  font-size: xx-large;
+  text-align: center;
+  color: white;
 }
-.profile-pic {
-  max-height: 40vh;
+h5 {
+  font-size: x-large;
+  text-align: center;
+  color: white;
+}
+#title {
+  font-size: x-large;
+  text-align: center;
+  color: black;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.area-grid {
   width: auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1vw;
+  margin-right: 15vw;
+  margin-left: 15vw;
 }
-.info-sec {
-  display: flex;
-  align-items: center;
-  height: 40vh;
-  padding: 3vh 5vw;
-}
-.user-info {
-  text-align: left;
-  list-style-type: none;
-}
-.title {
-  text-align: center;
-}
-.service-sec {
-  margin: 0vh 5vw;
-}
-.service {
-  width: calc(100% / 3);
+.area {
+  width: 100%;
+  height: 60vh;
   cursor: pointer;
-  margin-bottom: 20px;
-  display: inline-block;
+  margin-bottom: 60px;
 }
-#service-scroll {
-  overflow: auto;
-  white-space: nowrap;
-}
-.card {
-  padding: 20px 10px;
-}
-li {
-  padding: 1vh;
-}
-h4 {
-  margin-bottom: 10px;
-  text-align: center;
+.desc {
+  background-color: black;
+  opacity: 0.9;
+  width: 100%;
 }
 .img {
+  align-items: center;
   width: 100%;
-  height: 20vw;
-  margin: auto;
+  height: 100vh;
+  min-height: 40vh;
   background-size: cover;
   background-position: center;
-  margin: 10px 0px;
+  display: flex;
+  margin: 0;
 }
+.service-sec {
+  /* margin: 5vh 5vw; */
+  padding: 1vh;
+  /* background-color: #ccfccb; */
+}
+.service {
+  height: 20vw;
+  width: calc(100% / 5);
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 3vh;
+}
+#service-scroll {
+  /* overflow: auto;
+  white-space: nowrap; */
+  text-align: center;
+}
+@media (max-width: 1080px) {
+  .service {
+    width: calc(100% / 4);
+    height: 30vw;
+  }
+}
+@media (max-width: 720px) {
+  .service {
+    width: calc(100% / 3);
+    height: 50vw;
+  }
+  /* #service-scroll {
+    width: 100% !important;
+  } */
+}
+#team-title {
+  text-align: center;
+  color: black;
+}
+/*
+@media (max-width: 1000px) {
+  .service {
+    height: 35vh;
+    width: calc(100% / 3);
+    cursor: pointer;
+    display: inline-block;
+  }
+}
+@media (max-width: 1400px) {
+  .service {
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 700px) {
+  .service {
+    width: 100%;
+  }
+}
+*/
 </style>

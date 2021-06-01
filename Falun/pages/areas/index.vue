@@ -1,14 +1,22 @@
 <template>
   <div id="start">
-    <h2>Areas</h2>
-    <div class="user-grid">
+    <PageDescript
+      :image="'https://miro.com/blog/wp-content/uploads/2020/10/organize-their-Miro-boards-for-trainings-and-workshops.svg'"
+      :description="'Falun works in various areas giving to your company a 360° consultancy offer that spans from Web Design to Machine Learning'"
+    ></PageDescript>
+    <div class="area-grid">
       <div
         v-for="(area, areaIndex) of areas"
         :key="'area-' + areaIndex"
-        class="user"
+        class="area"
         @click="goToArea(`/areas/${area.id}`)"
       >
-        <CardView :image="area.image" :title="area.name"> </CardView>
+        <CardViewArea
+          :image="area.image"
+          :title="area.name"
+          :description="area.description"
+        >
+        </CardViewArea>
       </div>
     </div>
   </div>
@@ -18,7 +26,7 @@
 export default {
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area`)
-    console.log(data)
+    // console.log(data)
     const areas = data
     return { areas }
   },
@@ -32,26 +40,18 @@ export default {
 
 <style scoped>
 #start {
-  padding-top: 15vh;
-  padding-left: 1vw;
+  padding: 4vh 0vh;
 }
-.user-grid {
+.team {
+  margin-top: 5vh;
+  padding: 1vh;
+}
+.area-grid {
+  width: auto;
   display: grid;
-  grid-template-columns: repeat(5, calc(100% / 5));
-  grid-gap: 10px;
-}
-.user {
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-.img {
-  height: 40vh !important;
-}
-h2 {
-  text-align: center;
-}
-p {
-  height: 60px;
-  text-align: center;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1vw;
+  margin-right: 15vw;
+  margin-left: 15vw;
 }
 </style>

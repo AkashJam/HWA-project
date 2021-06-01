@@ -1,6 +1,5 @@
 <template>
   <div id="footer">
-    <hr id="top" />
     <ul id="navbar">
       <li id="logo"><NuxtLink to="/">FALUN</NuxtLink></li>
       <li><NuxtLink to="/about">ABOUT US</NuxtLink></li>
@@ -27,7 +26,6 @@
         </a>
       </li>
     </ul>
-    <hr id="bottom" />
   </div>
 </template>
 
@@ -54,10 +52,6 @@ ul {
   float: right;
   width: 50%;
   text-align: right;
-}
-hr {
-  border-color: #1b9aaa;
-  border-width: 0px 0px thin;
 }
 #top {
   padding-top: 10px;

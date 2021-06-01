@@ -54,6 +54,7 @@ function defineDatabaseStructure() {
   // Creating the 1 -> N association between Areas and Services, UserService
   // More on association: https://sequelize.org/master/manual/assocs.html
   Area.hasMany(Service, { foreignKey: 'area_id' })
+  Service.belongsTo(Area, { foreignKey: 'area_id' })
   Service.belongsToMany(User, { through: 'UserServices' })
   User.belongsToMany(Service, { through: 'UserServices' })
   db._tables = {
@@ -167,6 +168,42 @@ async function insertFakeData() {
     profilePicture:
       'https://ak.picdn.net/shutterstock/videos/24960599/thumb/1.jpg',
   })
+  const twelvethUser = await User.create({
+    name: 'Virginia H. Oswalt',
+    bio:
+      'My interests are guitar and music. "Tell me and I forget. Teach me and I remember. Involve me and I learn." -Benjamin Franklin',
+    emailId: 'virginiaoswalt@momail.com',
+    userRole: 'Head of Web Development',
+    profilePicture:
+      'https://images.idgesg.net/images/article/2020/01/women-in-it_daphne-jones-100828118-large.jpg',
+  })
+  const thirteenthUser = await User.create({
+    name: 'Frank D. Stepp',
+    bio:
+      'My interests are chess and online gaming. "Life is what happens when you are busy making other plans." -John Lennon',
+    emailId: 'frankstepp@momail.com',
+    userRole: 'Head of Big Data & Analytics',
+    profilePicture:
+      'https://dentelle.co.uk/wp-content/uploads/2016/02/botox-for-men.jpg',
+  })
+  const fourteenthUser = await User.create({
+    name: 'Alexander Simpson',
+    bio:
+      'My interests are volleyball and home brewing. "In the end, it is not the years in your life that count. It is the life in your years." -Abraham Lincoln',
+    emailId: 'alexandersimpson@momail.com',
+    userRole: 'Head of Machine Learning',
+    profilePicture:
+      'https://images.vanityfair.it/wp-content/uploads/2021/02/05152837/GettyImages-1186179742-4.jpg',
+  })
+  const fifthteenthUser = await User.create({
+    name: 'Louis Hill',
+    bio:
+      'My interests are art and architecture. "In three words I can sum up everything I have learned about life: it goes on." -Robert Frost',
+    emailId: 'louishill@momail.com',
+    userRole: 'Head of Cyber Security',
+    profilePicture:
+      'https://www.mantruckandbus.com/fileadmin/_processed_/b/e/csm_Elektrobatterien_Johannes_OEhl_a793651366.jpg',
+  })
   const service1 = await Service.create({
     name: 'Design & Development',
     description:
@@ -198,14 +235,14 @@ async function insertFakeData() {
     description:
       'Analyze market trends to create strategies and for development and marketing',
     image:
-      'https://ourcodeworld.com/public-media/articles/articleocw-5e02cb556727f.webp',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyKGC74fg7x9rF7akCp9qhHG6LjeZd8I2gAiyKJxrQlbrf8IicevCan93lh-aeIof37qM&usqp=CAU',
   })
   const service6 = await Service.create({
     name: 'Network Security',
     description:
       'Secure private information using firewalls and restrictive code syntax',
     image:
-      'https://ourcodeworld.com/public-media/articles/articleocw-5e02cb556727f.webp',
+      'https://data-science-blog.com/wp-content/uploads/2020/01/ecommerce-1030x597.jpg',
   })
   const area1 = await Area.create({
     name: 'Web Development',
@@ -228,16 +265,19 @@ async function insertFakeData() {
   const area4 = await Area.create({
     name: 'Cyber Security',
     description: 'Protects your information from online threats',
+    image: 'https://www.spegea.it/wp-content/uploads/2020/11/Cybersecurity.jpg',
   })
 
   await service1.addUser(firstUser.id)
   await service1.addUser(secondUser.id)
   await service1.addUser(sixthUser.id)
   await service1.addUser(seventhUser.id)
+  await service1.addUser(twelvethUser.id)
   await service2.addUser(tenthUser.id)
   await service2.addUser(secondUser.id)
   await service2.addUser(sixthUser.id)
   await service2.addUser(seventhUser.id)
+  await service2.addUser(twelvethUser.id)
   await service3.addUser(secondUser.id)
   await service3.addUser(firstUser.id)
   await service3.addUser(thirdUser.id)
@@ -250,13 +290,14 @@ async function insertFakeData() {
   await service5.addUser(thirdUser.id)
   await service5.addUser(ninthUser.id)
   await service5.addUser(eleventhUser.id)
+  await service5.addUser(thirteenthUser.id)
   await service6.addUser(fourthUser.id)
   await service6.addUser(eighthUser.id)
+  await service6.addUser(fifthteenthUser.id)
   await area1.addService(service1.id)
   await area1.addService(service2.id)
   await area2.addService(service3.id)
   await area2.addService(service5.id)
-  await area3.addService(service3.id)
   await area3.addService(service4.id)
   await area4.addService(service6.id)
 }
