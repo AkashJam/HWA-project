@@ -204,6 +204,15 @@ async function insertFakeData() {
     profilePicture:
       'https://www.mantruckandbus.com/fileadmin/_processed_/b/e/csm_Elektrobatterien_Johannes_OEhl_a793651366.jpg',
   })
+  const sixteenthUser = await User.create({
+    name: 'Barney Stinson',
+    bio:
+      'My interests are art and architecture. "In three words I can sum up everything I have learned about life: it goes on." -Robert Frost',
+    emailId: 'barneystinson@momail.com',
+    userRole: 'CEO',
+    profilePicture:
+      'https://www.mantruckandbus.com/fileadmin/_processed_/b/e/csm_Elektrobatterien_Johannes_OEhl_a793651366.jpg',
+  })
   const service1 = await Service.create({
     name: 'Design & Development',
     description:
