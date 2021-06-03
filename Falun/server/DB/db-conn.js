@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:akashjames@localhost:5432/FalunTest'
+  'postgres://postgres:cucchiaio@localhost:5433/FalunTest'
 )
 // Production
 // const pg = require('pg')
@@ -204,15 +204,6 @@ async function insertFakeData() {
     profilePicture:
       'https://www.mantruckandbus.com/fileadmin/_processed_/b/e/csm_Elektrobatterien_Johannes_OEhl_a793651366.jpg',
   })
-  const sixteenthUser = await User.create({
-    name: 'Barney Stinson',
-    bio:
-      'My interests are art and architecture. "In three words I can sum up everything I have learned about life: it goes on." -Robert Frost',
-    emailId: 'barneystinson@momail.com',
-    userRole: 'CEO',
-    profilePicture:
-      'https://www.mantruckandbus.com/fileadmin/_processed_/b/e/csm_Elektrobatterien_Johannes_OEhl_a793651366.jpg',
-  })
   const service1 = await Service.create({
     name: 'Design & Development',
     description:
@@ -296,6 +287,7 @@ async function insertFakeData() {
   await service4.addUser(ninthUser.id)
   await service4.addUser(tenthUser.id)
   await service4.addUser(eleventhUser.id)
+  await service4.addUser(fourteenthUser.id)
   await service5.addUser(thirdUser.id)
   await service5.addUser(ninthUser.id)
   await service5.addUser(eleventhUser.id)
