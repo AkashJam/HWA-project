@@ -39,9 +39,11 @@ export default {
       `${process.env.BASE_URL}/api/service/${id}`
     )
     const users = data.users
+    const area = data.areas
     return {
       data,
       users,
+      area,
     }
   },
   methods: {

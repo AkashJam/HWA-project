@@ -56,12 +56,12 @@ export default {
   padding: 1vh;
 }
 .area-grid {
-  width: auto;
+  width: 80%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 1vw;
-  margin-right: 15vw;
-  margin-left: 15vw;
+  margin-right: auto;
+  margin-left: auto;
 }
 .area {
   width: 100%;

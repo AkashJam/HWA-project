@@ -3,9 +3,19 @@
     <div>
       <h1 class="title">Contacts</h1>
       <div class="cols">
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.5714918725!2d9.224921214843471!3d45.4784352791011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6f232436f25%3A0x636222c502d7acd!2sPiazza%20Leonardo%20da%20Vinci%2C%20Milano%20MI!5e0!3m2!1sit!2sit!4v1622022508132!5m2!1sit!2sit"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
         <div class="topics">
           <div class="offices">
-            <h2 class="subtitle">Our Offices</h2>
+            <h2 class="subtitle">Our Office</h2>
             <p class="info sans-cento">
               Italy
               <br />
@@ -29,16 +39,6 @@
               andres.gonzalez@mail.polimi.it
             </p>
           </div>
-        </div>
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.5714918725!2d9.224921214843471!3d45.4784352791011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6f232436f25%3A0x636222c502d7acd!2sPiazza%20Leonardo%20da%20Vinci%2C%20Milano%20MI!5e0!3m2!1sit!2sit!4v1622022508132!5m2!1sit!2sit"
-            width="100%"
-            height="100%"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-          ></iframe>
         </div>
       </div>
       <div class="form">
@@ -145,36 +145,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      center: { lat: 45.478116, lng: 9.227403 },
-      markers: [
-        {
-          position: { lat: 45.478116, lng: 9.227403 },
-        },
-        {
-          position: { lat: 46.0, lng: 10.0 },
-        },
-      ],
-      success: false,
-      errored: false,
-      first_name: '',
-      last_name: '',
-      email: '',
-      subject: '',
-      message: '',
-    }
-  },
-  methods: {
-    sendMessage(e) {
-      e.target.reset()
-    },
-  },
-}
-</script>
-
 <style scoped>
 .container {
   margin: 0; /*auto;*/
@@ -182,12 +152,18 @@ export default {
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  padding-right: 10vw;
+  padding-left: 10vw;
   /* align-items: center; */
   text-align: center;
   background-color: #ffd178;
+  flex-direction: column;
 }
 .map {
   height: 50vh;
+  width: 50vw;
+  float: right;
 }
 .sans-cento {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -208,16 +184,15 @@ export default {
 }
 
 .subtitle {
-  font-weight: 230;
+  font-weight: 400;
   font-size: large;
   color: black;
-  text-align: initial;
-  margin: 0;
+  text-align: right;
 }
 
 .cols {
   display: flex;
-  gap: 10em;
+  gap: 4vw;
 }
 
 .cols > * {
@@ -233,6 +208,7 @@ export default {
   color: black;
   text-align: initial;
   margin: 0;
+  text-align: right;
 }
 
 .email {
@@ -241,6 +217,7 @@ export default {
   text-align: initial;
   margin: 0;
   text-decoration: underline;
+  text-align: right;
 }
 
 .form {
@@ -290,12 +267,26 @@ export default {
   height: 60px;
   font-size: 2vw;
 }
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .cols {
     display: block;
   }
   .map {
     margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+  .subtitle {
+    text-align: left;
+  }
+  .email {
+    text-align: left;
+    margin-top: 3vh;
+  }
+  .emails {
+    margin-top: 3vh;
+  }
+  .info {
+    text-align: left;
   }
 }
 </style>

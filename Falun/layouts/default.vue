@@ -30,6 +30,7 @@ html {
 }
 .header {
   z-index: 3;
+  background-color: #f3f3f3;
 }
 .wrapper {
   min-height: 88.8vh;
