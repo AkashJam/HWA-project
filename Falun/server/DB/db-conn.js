@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:akashjames@localhost:5432/FalunTest'
+  'postgres://postgres:cucchiaio@localhost:5433/FalunTest'
 )
 // Production
 // const pg = require('pg')
@@ -287,6 +287,7 @@ async function insertFakeData() {
   await service4.addUser(ninthUser.id)
   await service4.addUser(tenthUser.id)
   await service4.addUser(eleventhUser.id)
+  await service4.addUser(fourteenthUser.id)
   await service5.addUser(thirdUser.id)
   await service5.addUser(ninthUser.id)
   await service5.addUser(eleventhUser.id)
