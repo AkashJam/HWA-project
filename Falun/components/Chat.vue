@@ -14,14 +14,15 @@
         </div>
       </div>
       <input
+        v-if="isOpen"
         v-model="messageToSend"
         type="text"
-        placeholder="Enter text here"
+        placeholder="Type a message..."
         @keypress.enter="sendMessage"
       />
     </div>
     <div class="button" @click="isOpen = !isOpen">
-      <img src="https://img.icons8.com/ios-filled/452/chat--v1.png" alt="" />
+      <img src="~/assets/chatbot.svg" alt="" />
     </div>
   </div>
 </template>
@@ -66,44 +67,48 @@ export default {
 .button {
   height: 60px;
   width: 60px;
-  border: 1px solid black;
   border-radius: 100%;
   padding: 10px;
   float: right;
-
-  /* position: absolute; */
   bottom: 0;
   right: 0;
-  margin-right: 5px;
-  /* margin-bottom: 5px; */
-  margin-bottom: 12vh;
+  margin-right: 25px;
+  margin-bottom: 25px;
   position: fixed;
+  cursor: pointer;
+  background-color: rgba(252, 252, 252, 0.75);
+  border: 1px solid;
+  border-color: rgb(200, 200, 200, 0.5);
 }
 .button img {
   width: 100%;
 }
 .chat-container {
-  border: 1px solid black;
-  border-radius: 4px;
-  height: 50vh;
+  border-radius: 40px;
+  height: 40vh;
   width: 25vw;
   min-width: 200px;
-  /* position: absolute; */
+  min-height: 200px;
   bottom: 60px;
   right: 0px;
   z-index: 200;
-  background-color: white;
-  margin-right: 5px;
-  /* margin-bottom: 10px; */
-  margin-bottom: 12.5vh;
+  background-color: rgb(252, 252, 252, 0.25);
+  margin-right: 25px;
+  margin-bottom: 40px;
   position: fixed;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid;
+  border-color: rgb(200, 200, 200, 0.25);
 }
 .chat-window {
   overflow-y: scroll;
-  height: calc(100% - 34px);
+  /* height: calc(100% - 34px); */
+  height: 22.1em; /* 88.7%; */
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .message {
-  width: calc(100% - 8px);
   display: flex;
   justify-content: flex-end;
 }
@@ -111,27 +116,37 @@ export default {
   justify-content: flex-start;
 }
 .message-content {
-  padding: 5px 10px;
-  margin: 4px;
-  width: auto;
-  background: #f3f3f3;
+  padding: 15px 20px;
+  margin: 5px 15px 5px 15px;
+  width: fit-content;
+  max-width: 20vw;
+  min-width: 100px;
+  background: rgba(200, 200, 200, 0.75);
   color: black;
-  border: 1px solid black;
-  border-radius: 4px;
+  border-radius: 30px;
+  text-align: right;
+  font-weight: 425;
 }
 .message-content.sender {
-  background: black;
-  color: white;
-  border: 1px solid black;
+  background: rgb(252, 252, 252, 0.75);
+  color: black;
+  text-align: left;
+  min-width: 100px;
 }
 input {
-  width: 100%;
-  position: absolute;
+  width: 25vw;
+  min-width: 200px;
+  position: fixed;
   z-index: 20;
-  height: 35px;
-  border: 1px solid black;
-  border-radius: 4px;
-  padding-left: 5px;
+  height: 45px;
+  border: transparent;
+  border-radius: 0 0 40px 40px;
   font-size: inherit;
+  /* bottom: 60px; */
+  right: 0;
+  /* margin-bottom: 40px; */
+  /* margin-right: 25px; */
+  background-color: rgba(200, 200, 200, 0.75);
+  padding-left: 35px;
 }
 </style>
