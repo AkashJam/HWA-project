@@ -43,7 +43,7 @@ export default {
     const id = await route.params.id
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area/${id}`)
     const services = data.services
-    console.log(services[0].users[0])
+    console.log(services[0])
     return {
       data,
       services,
@@ -54,8 +54,10 @@ export default {
       const members = []
       members.push(this.services[0].users[0])
       for (let i = 0; i < this.services.length; i++) {
-        let repeat = false
+        console.log('entering service', this.services[i].id)
         for (let j = 0; j < this.services[i].users.length; j++) {
+          let repeat = false
+          console.log('checking user', this.services[i].users[j].id)
           for (let k = 0; k < members.length; k++) {
             if (this.services[i].users[j].id === members[k].id) {
               repeat = true

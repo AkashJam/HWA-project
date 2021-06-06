@@ -25,11 +25,11 @@
       </div>
       <div class="service-sec">
         <h2 id="title">Services</h2>
-        <div id="service-scroll">
-          <div v-if="scroll">
-            <i class="fa fa-arrow-left"></i>
-            <i class="fa fa-arrow-right"></i>
-          </div>
+        <div v-if="scroll">
+          <i class="fa fa-arrow-left" @click="scrollLeft()"></i>
+          <i class="fa fa-arrow-right" @click="scrollRight()"></i>
+        </div>
+        <div id="service-scroll" ref="scroll">
           <div
             v-for="(service, serviceIndex) of services"
             :key="'service-' + serviceIndex"
@@ -87,37 +87,42 @@ export default {
       }
       return areas
     },
-    // showScroll() {
-    //   return this.scroll
-    // },
   },
   updated() {
     this.allowScroll()
   },
   mounted() {
-    window.addEventListener('scroll', this.allowScroll)
+    window.addEventListener('resize', this.allowScroll)
   },
   beforeDestroy() {
-    window.removeEventListener('scroll', this.allowScroll)
+    window.removeEventListener('resize', this.allowScroll)
   },
   methods: {
     goToItem(path) {
       this.$router.push({ path })
     },
     allowScroll() {
-      console.log(window.innerWidth, this.services.length)
       if (
         window.innerWidth / this.services.length <= 360 ||
         this.services.length > 3
       ) {
         this.scroll = true
-        console.log('needs scroll')
       } else {
         this.scroll = false
-        console.log('no scroll')
       }
-      console.log(this.scroll)
       return this.scroll
+    },
+    scrollLeft() {
+      const num =
+        window.innerWidth <= 720 ? 1 : window.innerWidth <= 1080 ? 2 : 3
+      const offset = this.$refs.scroll.clientWidth / num
+      this.$refs.scroll.scrollLeft -= offset
+    },
+    scrollRight() {
+      const num =
+        window.innerWidth <= 720 ? 1 : window.innerWidth <= 1080 ? 2 : 3
+      const offset = this.$refs.scroll.clientWidth / num
+      this.$refs.scroll.scrollLeft += offset
     },
   },
 }
@@ -182,9 +187,11 @@ export default {
   white-space: nowrap;
   text-align: center;
 }
-.fa-arrow-left,
+.fa-arrow-left {
+  float: left;
+}
 .fa-arrow-right {
-  display: ;
+  float: right;
 }
 @media (max-width: 1080px) {
   .service {

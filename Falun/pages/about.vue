@@ -1,8 +1,8 @@
 <template>
   <div id="start">
     <PageDescript
-      :image="'https://www.jll.it/images/people/people-photography/can-we-build-a-happy-workplace.jpg'"
-      :description="'The Falun Team encompasses people from all over the world, giving it a truly international experience. Their work embodies the Falun life, providing innovative designs and making the most of your resources'"
+      :image="'https://datarob.com/content/images/2019/10/lead-generation-for-IT-company.jpg'"
+      :description="'Our mission is to increase the ability of the company to understand and communicate its technology through the internet and simplify the transition into web to maximize its potential'"
     ></PageDescript>
   </div>
 </template>
