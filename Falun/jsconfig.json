@@ -204,13 +204,13 @@
           },
           {
             "my_id": "contact us page",
-            "next_id": null,
+            "next_id": "end",
             "my_type": "TASK",
             "callback": "guide"
           },
           {
             "my_id": "msg",
-            "next_id": null,
+            "next_id": "end",
             "my_type": "TASK",
             "callback": "guide"
           },
