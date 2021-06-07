@@ -10,7 +10,10 @@
             {
               "id": "explore",
               "intents": [
-                "explore"
+                "explore",
+                "explore website",
+                "Explore",
+                "Explore website"
               ],
               "payload": {
                 "openContactPopup": true
@@ -19,91 +22,15 @@
             {
               "id": "contact",
               "intents": [
-                "contact"
+                "contact",
+                "contact company",
+                "contact the company",
+                "Contact",
+                "Contact company",
+                "Contact the company"
               ],
               "payload": {
                 "openContactPopup": true
-              }
-            },
-            {
-              "id": "areas",
-              "intents": [
-                "I want to go to areas",
-                "I want to go to Areas",
-                "areas",
-                "Areas"
-              ],
-              "payload": {
-                "openContactPopup": true
-              }
-            },
-            {
-              "id": "services",
-              "intents": [
-                "I want to go to services",
-                "I want to go to Services",
-                "services",
-                "Services"
-              ],
-              "utterance": [
-                "You are now in services",
-                "Awesome",
-                "Okay, let's go to services"
-              ],
-              "payload": {
-                "guide": "/services"
-              }
-            },
-            {
-              "id": "people",
-              "intents": [
-                "I want to go to people",
-                "I want to go to People",
-                "people",
-                "People"
-              ],
-              "utterance": [
-                "You are now in people",
-                "Awesome",
-                "Okay, let's go to people"
-              ],
-              "payload": {
-                "guide": "people"
-              }
-            },
-            {
-              "id": "about",
-              "intents": [
-                "I want to go to about",
-                "I want to go to About",
-                "about",
-                "About"
-              ],
-              "utterance": [
-                "You are now in about",
-                "Awesome",
-                "Okay, let's go to about"
-              ],
-              "payload": {
-                "openGuidePopup": true,
-                "customGuide": "/about"
-              }
-            },
-            {
-              "id": "contacts",
-              "intents": [
-                "contacts",
-                "contact us",
-                "Contacts",
-                "Contact Us",
-                "Contact us"
-              ],
-              "utterance": [
-                "Write 'continue' to proceed"
-              ],
-              "payload": {
-                "openGuidePopup": true,
-                "customGuide": "/contacts"
               }
             }
           ],
@@ -117,7 +44,7 @@
               "ok bye"
             ]
           },
-          "unknown": "Option not available. Options: areas, services, people, about us, contacts"
+          "unknown": "Option not available. Options: explore or contact company"
         },
         "home": "I will guide you through the site. Welcome to the homepage",
         "explore": {
@@ -125,13 +52,12 @@
             "This is Falun's chatbot, I will guide you through the website. You are currently in the homepage. Do you want to continue?"
           ],
           "completed": {
-            "utterance": "You are now in the 'About' page.",
             "payload": {}
           }
         },
         "contact": {
           "initials": [
-            "Do you want to fill a form or go to the contact us page?"
+            "Do you want to send a message or go to the contact us page?"
           ],
           "choices": [
             {
@@ -142,55 +68,104 @@
                 "contact us",
                 "contact"
               ],
+              "utterance": "Contact us however you prefer.",
               "payload": {
                 "guide": "/contacts"
               }
             },
             {
-              "id": "form",
+              "id": "msg",
               "intents": [
-                "I want to fill a form",
-                "fill a form",
-                "Fill a form",
-                "form",
-                "Form"
+                "I want to send a message",
+                "send a message",
+                "Send a message",
+                "send message",
+                "Send message",
+                "message",
+                "Message"
               ],
+              "utterance": "Send us a message!",
               "payload": {
                 "guide": "/contacts#form"
-              },
-              "completed": {
-                "utterance": "This is the contact us page",
-                "payload": {}
               }
             }
           ],
-          "completed": {
-            "utterance": "This is the contact us page",
-            "payload": {}
-          }
+          "unknown": "Sorry, I didn't understand. Please choose if you want to go to the contact us page or to send a message."
         },
         "areas": {
           "initials": [
-            "Write 'continue' to proceed"
+            "Welcome to areas page. Which area do you want to explore?"
           ],
-          "completed": {
-            "utterance": "Welcome to areas page. Do you want to do something else?",
-            "payload": {
-                "guide": "/areas"
+          "choices": [
+            {
+              "id": "web dev",
+              "intents": [
+                "web dev",
+                "web development",
+                "Web development"
+              ],
+              "utterance": "Welcome to Web Development. Do you want to continue exploring?",
+              "payload": {
+                "guide": "/areas/1"
+              }
+            },
+            {
+              "id": "big data",
+              "intents": [
+                "big data",
+                "Big data",
+                "Analytics",
+                "analytics",
+                "big data and analytics",
+                "Big data and analytics",
+                "big data & analytics",
+                "Big data & analytics"
+              ],
+              "utterance": "Welcome to Big Data & Analytics. Do you want to continue exploring?",
+              "payload": {
+                "guide": "/areas/2"
+              }
+            },
+            {
+              "id": "ml",
+              "intents": [
+                "ml",
+                "machine learning",
+                "Machine learning",
+                "Machine Learning",
+                "ML"
+              ],
+              "utterance": "Welcome to Machine Learning. Do you want to continue exploring?",
+              "payload": {
+                "guide": "/areas/3"
+              }
+            },
+            {
+              "id": "cyber sec",
+              "intents": [
+                "cyber security",
+                "Cyber security",
+                "cyber sec",
+                "Cyber sec"
+              ],
+              "utterance": "Welcome to Cyber security. Do you want to continue exploring?",
+              "payload": {
+                "guide": "/areas/4"
+              }
             }
-          }
+          ],
+          "unknown": "Sorry, I didn't understand. Please choose one area."
         },
-        "about": "Welcome to the About page of our website. Here you can find all the information of our company.",
+        "services": "Welcome to services, in this page you will find the services our company provides.",
+        "people": "This is our people page, take a look at our valuable employees.",
+        "about": "Welcome to the About page of our website. Here you can find all the information of our company. Would you like to continue?",
         "end": "The process is completed. Chatbot has finished.",
         "steps_v": [
           "/",
+          "/about",
           "/areas",
           "/services",
-          "/people",
-          "/about",
-          "/contacts",
-          "/areas",
-          "/areas/1"
+          "/people"
         ],
         "continue_v": [
           "ok",
@@ -218,12 +193,7 @@
             "callback": "generic_xor",
             "choices": [
               "explore",
-              "contact",
-              "areas",
-              "services",
-              "people",
-              "about",
-              "contacts"
+              "contact"
             ]
           },
           {
@@ -239,7 +209,7 @@
             "callback": "generic_xor",
             "choices": [
               "contact us page",
-              "form"
+              "msg"
             ]
           },
           {
@@ -249,38 +219,62 @@
             "callback": "guide"
           },
           {
-            "my_id": "form",
+            "my_id": "msg",
             "next_id": null,
             "my_type": "TASK",
             "callback": "guide"
           },
           {
             "my_id": "areas",
-            "next_id": "start",
-            "my_type": "TASK",
-            "callback": "guide"
+            "next_id": "services",
+            "my_type": "XOR",
+            "callback": "generic_xor",
+            "choices": [
+              "web dev",
+              "big data",
+              "ml",
+              "cyber sec"
+            ]
           },
           {
-            "my_id": "services",
-            "next_id": "first_xor",
-            "my_type": "TASK",
-            "callback": "guide"
-          },
-          {
-            "my_id": "people",
-            "next_id": "first_xor",
-            "my_type": "TASK",
-            "callback": "guide"
-          },
-          {
-            "my_id": "about",
+            "my_id": "web dev",
             "next_id": null,
             "my_type": "TASK",
             "callback": "guide"
           },
           {
-            "my_id": "contacts",
-            "next_id": "first_xor",
+            "my_id": "big data",
+            "next_id": null,
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "ml",
+            "next_id": null,
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "cyber sec",
+            "next_id": null,
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "services",
+            "next_id": "people",
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "people",
+            "next_id": null,
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
+            "my_id": "about",
+            "next_id": "areas",
             "my_type": "TASK",
             "callback": "guide"
           },

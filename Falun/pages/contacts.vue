@@ -41,7 +41,8 @@
           </div>
         </div>
       </div>
-      <div id="form" class="form">
+      <div id="form"></div>
+      <div id="fform" class="fform">
         <form
           class="grid grid-cols-1 gap-y-6"
           action="/messages"
@@ -220,7 +221,7 @@
   text-align: right;
 }
 
-.form {
+.fform {
   width: 100%;
   margin-top: 10vh;
   margin-bottom: 10vh;

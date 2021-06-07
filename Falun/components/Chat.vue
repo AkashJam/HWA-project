@@ -13,14 +13,15 @@
           </div>
         </div>
       </div>
-      <input
-        v-if="isOpen"
-        v-model="messageToSend"
-        type="text"
-        placeholder="Type a message..."
-        @keypress.enter="sendMessage"
-      />
     </div>
+    <input
+      v-if="isOpen"
+      v-model="messageToSend"
+      class="in-chat"
+      type="text"
+      placeholder="Type a message..."
+      @keypress.enter="sendMessage"
+    />
     <div class="button" @click="isOpen = !isOpen">
       <img src="~/assets/chatbot.svg" alt="" />
     </div>
@@ -76,25 +77,26 @@ export default {
   margin-bottom: 25px;
   position: fixed;
   cursor: pointer;
-  background-color: rgba(252, 252, 252, 0.75);
+  background-color: rgba(252, 252, 252);
   border: 1px solid;
   border-color: rgb(200, 200, 200, 0.5);
+  z-index: 100;
 }
 .button img {
   width: 100%;
 }
 .chat-container {
-  border-radius: 40px;
+  border-radius: 40px 40px 0px 0px;
   height: 40vh;
   width: 25vw;
   min-width: 200px;
   min-height: 200px;
   bottom: 60px;
   right: 0px;
-  z-index: 200;
+  z-index: 20;
   background-color: rgb(252, 252, 252, 0.25);
   margin-right: 25px;
-  margin-bottom: 40px;
+  margin-bottom: 85px;
   position: fixed;
   overflow: hidden;
   backdrop-filter: blur(10px);
@@ -104,7 +106,7 @@ export default {
 .chat-window {
   overflow-y: scroll;
   /* height: calc(100% - 34px); */
-  height: 22.1em; /* 88.7%; */
+  height: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -133,7 +135,7 @@ export default {
   text-align: left;
   min-width: 100px;
 }
-input {
+.in-chat {
   width: 25vw;
   min-width: 200px;
   position: fixed;
@@ -142,11 +144,13 @@ input {
   border: transparent;
   border-radius: 0 0 40px 40px;
   font-size: inherit;
-  /* bottom: 60px; */
+  bottom: 0;
   right: 0;
-  /* margin-bottom: 40px; */
-  /* margin-right: 25px; */
+  margin-bottom: 100px;
+  margin-right: 25px;
   background-color: rgba(200, 200, 200, 0.75);
   padding-left: 35px;
+  backdrop-filter: blur(10px);
+  outline: none;
 }
 </style>
