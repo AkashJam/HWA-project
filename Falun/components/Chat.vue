@@ -91,6 +91,7 @@ export default {
   width: 25vw;
   min-width: 200px;
   min-height: 200px;
+  max-width: 400px;
   bottom: 60px;
   right: 0px;
   z-index: 20;
@@ -134,10 +135,12 @@ export default {
   color: black;
   text-align: left;
   min-width: 100px;
+  max-width: 300px;
 }
 .in-chat {
   width: 25vw;
   min-width: 200px;
+  max-width: 400px;
   position: fixed;
   z-index: 20;
   height: 45px;
