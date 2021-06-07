@@ -34,16 +34,6 @@
               }
             }
           ],
-          "quit": {
-            "intents": [
-              "quit",
-              "no",
-              "reset"
-            ],
-            "utterance": [
-              "ok bye"
-            ]
-          },
           "unknown": "Option not available. Options: explore or contact company"
         },
         "home": "I will guide you through the site. Welcome to the homepage",
@@ -92,6 +82,7 @@
           ],
           "unknown": "Sorry, I didn't understand. Please choose if you want to go to the contact us page or to send a message."
         },
+        "about": "Welcome to the About page of our website. Here you can find all the information of our company. Would you like to continue?",
         "areas": {
           "initials": [
             "Welcome to areas page. Which area do you want to explore?"
@@ -158,7 +149,6 @@
         },
         "services": "Welcome to services, in this page you will find the services our company provides.",
         "people": "This is our people page, take a look at our valuable employees.",
-        "about": "Welcome to the About page of our website. Here you can find all the information of our company. Would you like to continue?",
         "end": "The process is completed. Chatbot has finished.",
         "steps_v": [
           "/",
@@ -225,6 +215,12 @@
             "callback": "guide"
           },
           {
+            "my_id": "about",
+            "next_id": "areas",
+            "my_type": "TASK",
+            "callback": "guide"
+          },
+          {
             "my_id": "areas",
             "next_id": "services",
             "my_type": "XOR",
@@ -268,13 +264,7 @@
           },
           {
             "my_id": "people",
-            "next_id": null,
-            "my_type": "TASK",
-            "callback": "guide"
-          },
-          {
-            "my_id": "about",
-            "next_id": "areas",
+            "next_id": "end",
             "my_type": "TASK",
             "callback": "guide"
           },
