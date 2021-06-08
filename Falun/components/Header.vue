@@ -89,7 +89,7 @@ export default {
   color: black;
 }
 .menu:hover {
-  background-color: #f3f3f3;
+  background-color: #f3f3f3c9;
 }
 
 .menumobile {

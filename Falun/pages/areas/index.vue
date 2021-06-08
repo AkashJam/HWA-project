@@ -1,18 +1,9 @@
 <template>
   <div id="start">
-    <div
-      class="img"
-      :style="{
-        'background-image': `url(https://miro.com/blog/wp-content/uploads/2020/10/organize-their-Miro-boards-for-trainings-and-workshops.svg)`,
-      }"
-    >
-      <div class="desc">
-        <h2>
-          Falun works in various areas giving to your company a 360° consultancy
-          offer that spans from Web Design to Machine Learning
-        </h2>
-      </div>
-    </div>
+    <PageDescript
+      :image="'https://miro.com/blog/wp-content/uploads/2020/10/organize-their-Miro-boards-for-trainings-and-workshops.svg'"
+      :description="'Falun works in various areas giving to your company a 360° consultancy offer that spans from Web Design to Machine Learning'"
+    ></PageDescript>
     <div class="area-grid">
       <div
         v-for="(area, areaIndex) of areas"
@@ -62,19 +53,5 @@ export default {
   grid-gap: 1vw;
   margin-right: auto;
   margin-left: auto;
-}
-.area {
-  width: 100%;
-  height: 60vh;
-  cursor: pointer;
-  margin-bottom: 60px;
-}
-.desc {
-  padding: 10vw;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  color: #f1fffa;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>

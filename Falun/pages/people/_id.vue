@@ -25,14 +25,31 @@
       </div>
       <div class="service-sec">
         <h2 id="title">Services</h2>
-        <div id="service-scroll">
+        <div v-if="scroll">
+          <i class="fa fa-arrow-left" @click="scrollLeft()"></i>
+          <i class="fa fa-arrow-right" @click="scrollRight()"></i>
+        </div>
+        <div id="service-scroll" ref="scroll">
           <div
             v-for="(service, serviceIndex) of services"
             :key="'service-' + serviceIndex"
             class="service"
-            @click="goToService(`/service/${service.id}`)"
+            @click="goToItem(`/services/${service.id}`)"
           >
             <CardView :image="service.image" :title="service.name"> </CardView>
+          </div>
+        </div>
+      </div>
+      <div class="service-sec">
+        <h2 id="title">Areas</h2>
+        <div id="service-scroll">
+          <div
+            v-for="(area, areaIndex) of filteredAreas"
+            :key="'area-' + areaIndex"
+            class="service"
+            @click="goToItem(`/areas/${area.id}`)"
+          >
+            <CardView :image="area.image" :title="area.name"> </CardView>
           </div>
         </div>
       </div>
@@ -49,11 +66,63 @@ export default {
     return {
       data,
       services,
+      scroll: false,
     }
   },
+  computed: {
+    filteredAreas() {
+      const areas = []
+      areas.push(this.services[0].area)
+      for (let i = 1; i < this.services.length; i++) {
+        let repeat = false
+        for (let j = 0; j < areas.length; j++) {
+          if (this.services[i].area_id === areas[j].id) {
+            repeat = true
+            break
+          }
+        }
+        if (!repeat) {
+          areas.push(this.services[i].area)
+        }
+      }
+      return areas
+    },
+  },
+  updated() {
+    this.allowScroll()
+  },
+  mounted() {
+    window.addEventListener('resize', this.allowScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.allowScroll)
+  },
   methods: {
-    goToService(path) {
+    goToItem(path) {
       this.$router.push({ path })
+    },
+    allowScroll() {
+      if (
+        window.innerWidth / this.services.length <= 360 ||
+        this.services.length > 3
+      ) {
+        this.scroll = true
+      } else {
+        this.scroll = false
+      }
+      return this.scroll
+    },
+    scrollLeft() {
+      const num =
+        window.innerWidth <= 720 ? 1 : window.innerWidth <= 1080 ? 2 : 3
+      const offset = this.$refs.scroll.clientWidth / num
+      this.$refs.scroll.scrollLeft -= offset
+    },
+    scrollRight() {
+      const num =
+        window.innerWidth <= 720 ? 1 : window.innerWidth <= 1080 ? 2 : 3
+      const offset = this.$refs.scroll.clientWidth / num
+      this.$refs.scroll.scrollLeft += offset
     },
   },
 }
@@ -84,7 +153,7 @@ export default {
   list-style-type: none;
   padding: 5vh 5vw;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1080px) {
   .img-sec {
     float: none;
     text-align: center;
@@ -103,29 +172,41 @@ export default {
 .service-sec {
   margin: 5vh 5vw;
   padding: 1vh;
-  height: 45vh;
   background-color: #ccfccb;
 }
 .service {
-  height: 35vh;
+  height: 20vw;
   width: calc(100% / 3);
   cursor: pointer;
   display: inline-block;
+  text-align: center;
+  margin-bottom: 3vh;
 }
 #service-scroll {
-  height: 40vh;
   overflow: auto;
   white-space: nowrap;
+  text-align: center;
 }
-@media (max-width: 1400px) {
+.fa-arrow-left {
+  float: left;
+}
+.fa-arrow-right {
+  float: right;
+}
+@media (max-width: 1080px) {
   .service {
     width: calc(100% / 2);
+    height: 30vw;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   .service {
     width: 100%;
+    height: 50vw;
   }
+  /* #service-scroll {
+    width: 100% !important;
+  } */
 }
 .bio {
   padding-top: 2vh;

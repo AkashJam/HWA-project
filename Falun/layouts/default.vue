@@ -33,7 +33,7 @@ html {
   background-color: #f3f3f3;
 }
 .wrapper {
-  min-height: 88.8vh;
+  min-height: 92vh;
   z-index: 2;
   position: relative;
   background-color: #f1fffa;
@@ -88,6 +88,7 @@ html {
 #foot {
   display: inline-block;
   padding: 1rem;
+  position: absolute;
   background-color: #464e47;
   text-align: center;
   width: 100%;

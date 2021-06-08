@@ -1,18 +1,9 @@
 <template>
   <div id="start">
-    <div
-      class="img"
-      :style="{
-        'background-image': `url(https://www.ittechglobalservices.com/images/digital-services.jpg)`,
-      }"
-    >
-      <div class="desc">
-        <h2>
-          We are equipped with an updated technical knowledge to serve our
-          customers properly. Our method of application maintains the industry.
-        </h2>
-      </div>
-    </div>
+    <PageDescript
+      :image="'https://www.ittechglobalservices.com/images/digital-services.jpg'"
+      :description="'We are equipped with an updated technical knowledge to serve our customers properly. Our method of application maintains the industry.'"
+    ></PageDescript>
     <div class="service-grid">
       <div
         v-for="(service, serviceIndex) of services"
@@ -101,28 +92,7 @@ export default {
     font-size: x-small;
   } */
 }
-@media (max-height: 900px) {
-  .desc {
-    font-size: x-small;
-  }
-}
 h2 {
   text-align: center;
-}
-.img {
-  align-items: center;
-  width: 100%;
-  height: 40vw;
-  min-height: 40vh;
-  background-size: cover;
-  background-position: center;
-}
-.desc {
-  padding: 10vw;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  color: #f1fffa;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>
