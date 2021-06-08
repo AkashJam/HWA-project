@@ -8,7 +8,7 @@
       <NuxtLink class="menu" to="/about">About us</NuxtLink>
       <NuxtLink class="menu" to="/contacts">Contact us</NuxtLink>
     </div>
-    <Breadcrumbs id="bc" />
+    <Breadcrumbs v-show="$route.path != `/`" id="bc" />
     <div id="headermobile">
       <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
       <a class="btn" @click="show = !show"><i class="fa fa-bars fa-2x"></i></a>
