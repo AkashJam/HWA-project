@@ -52,11 +52,11 @@ async function init() {
   // This one will return also the services
   app.get('/area/:id', async (req, res) => {
     const { id } = req.params
-    const service = await Area.findOne({
+    const area = await Area.findOne({
       where: { id },
       include: { model: Service },
     })
-    return res.json(service)
+    return res.json(area)
   })
 }
 

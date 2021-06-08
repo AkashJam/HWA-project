@@ -20,19 +20,31 @@
         class="service"
         @click="goToService(`/services/${service.id}`)"
       >
-        <CardView :image="service.image" :title="service.name"> </CardView>
+        <CardView
+          :image="service.image"
+          :title="service.name"
+          :linkedarea="rarea[serviceIndex]"
+        >
+        </CardView>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/service`)
     // console.log(data)
     const services = data
-    return { services }
+    const areas = []
+    services.forEach(async (service) => {
+      const area = await $axios.$get(
+        `${process.env.BASE_URL}/api/area/${service.area_id}`
+      )
+      areas.push(area.name)
+    })
+    const rarea = areas
+    return { services, rarea }
   },
   methods: {
     goToService(path) {

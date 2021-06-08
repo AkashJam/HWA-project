@@ -24,6 +24,7 @@ export default {
 .card-view {
   height: 100%;
   width: 100%;
+  margin-top: 10px;
 }
 .card {
   height: 100%;
@@ -31,6 +32,7 @@ export default {
   padding: 20px 10px;
   align-items: center;
   display: flex;
+  background-color: lightgreen;
 }
 .img {
   width: 40%;
