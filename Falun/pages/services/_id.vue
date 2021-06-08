@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <div id="start">
-      <div class="img-sec">
-        <img class="profile-pic" :src="data.image" />
-      </div>
-      <div class="info-sec">
-        <ul class="service-info">
-          <li>
-            <h2>{{ data.name }}</h2>
-          </li>
-          <li>
-            {{ data.description }}
-          </li>
-        </ul>
-      </div>
+  <div id="start">
+    <div class="img-sec">
+      <img class="profile-pic" :src="data.image" />
+    </div>
+    <div class="info-sec">
+      <ul class="service-info">
+        <li>
+          <h2>{{ data.name }}</h2>
+        </li>
+        <li>
+          {{ data.description }}
+        </li>
+      </ul>
     </div>
     <div class="user-sec">
       <h2 class="title">Team</h2>
@@ -39,9 +37,11 @@ export default {
       `${process.env.BASE_URL}/api/service/${id}`
     )
     const users = data.users
+    const area = data.areas
     return {
       data,
       users,
+      area,
     }
   },
   methods: {

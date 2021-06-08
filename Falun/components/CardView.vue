@@ -2,6 +2,7 @@
   <div class="card-view">
     <div class="card">
       <div class="img" :style="{ 'background-image': `url(${image})` }"></div>
+      <h4 class="area">Area: {{ linkedarea }}</h4>
       <h4>{{ title }}</h4>
     </div>
   </div>
@@ -12,11 +13,16 @@ export default {
   props: {
     image: { type: String, default: () => '' },
     title: { type: String, default: () => '' },
+    linkedarea: { type: String, default: () => '' },
   },
 }
 </script>
 
 <style scoped>
+.area {
+  font-size: 15px;
+  z-index: 200;
+}
 .card-view {
   height: 100%;
   width: 100%;
@@ -24,7 +30,7 @@ export default {
 .card {
   height: 100%;
   width: 100%;
-  padding: 20px 10px;
+  padding: 10px;
 }
 h4 {
   margin-bottom: 10px;

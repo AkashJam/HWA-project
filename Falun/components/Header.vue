@@ -8,6 +8,7 @@
       <NuxtLink class="menu" to="/about">About us</NuxtLink>
       <NuxtLink class="menu" to="/contacts">Contact us</NuxtLink>
     </div>
+    <Breadcrumbs id="bc" />
     <div id="headermobile">
       <NuxtLink id="falun" class="menu" to="/">FALUN</NuxtLink>
       <a class="btn" @click="show = !show"><i class="fa fa-bars fa-2x"></i></a>
@@ -30,6 +31,7 @@ export default {
   data() {
     return {
       show: false,
+      showb: true,
     }
   },
   methods: {
@@ -41,6 +43,10 @@ export default {
 </script>
 <style scoped>
 /* header of desktop standard */
+#bc {
+  position: relative;
+  margin-top: 49px;
+}
 #headerdesk {
   position: fixed;
   width: 100%;
@@ -83,7 +89,7 @@ export default {
   color: black;
 }
 .menu:hover {
-  background-color: #f3f3f3;
+  background-color: #f3f3f3c9;
 }
 
 .menumobile {
@@ -96,6 +102,9 @@ export default {
   height: 100%;
   padding-top: 2vw;
   padding-bottom: 2vw;
+}
+a.nuxt-link-exact-active.nuxt-link-active {
+  background-color: #f3f3f3;
 }
 .menumobile:visited {
   color: black;

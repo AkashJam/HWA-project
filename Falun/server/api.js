@@ -24,7 +24,12 @@ async function init() {
     const { id } = req.params
     const user = await User.findOne({
       where: { id },
-      include: { model: Service },
+      include: {
+        model: Service,
+        include: {
+          model: Area,
+        },
+      },
     })
     return res.json(user)
   })
@@ -52,11 +57,16 @@ async function init() {
   // This one will return also the services
   app.get('/area/:id', async (req, res) => {
     const { id } = req.params
-    const service = await Area.findOne({
+    const area = await Area.findOne({
       where: { id },
-      include: { model: Service },
+      include: {
+        model: Service,
+        include: {
+          model: User,
+        },
+      },
     })
-    return res.json(service)
+    return res.json(area)
   })
 }
 

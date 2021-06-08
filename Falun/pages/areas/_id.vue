@@ -13,21 +13,24 @@
           v-for="(service, serviceIndex) of services"
           :key="'service-' + serviceIndex"
           class="area"
-          @click="goToService(`/services/${service.id}`)"
+          @click="goToItem(`/services/${service.id}`)"
         >
           <CardViewArea :image="service.image" :title="service.name">
           </CardViewArea>
         </div>
       </div>
-      <h3 id="title">Team</h3>
-      <div class="area-grid">
-        <div
-          v-for="(user, userIndex) of users"
-          :key="'user-' + userIndex"
-          class="area"
-          @click="goToUser(`/users/${user.id}`)"
-        >
-          <CardViewArea :image="user.image" :title="user.name"> </CardViewArea>
+      <div class="service-sec">
+        <h2 id="team-title">Team</h2>
+        <div id="service-scroll">
+          <div
+            v-for="(user, userIndex) of filteredMembers"
+            :key="'user-' + userIndex"
+            class="service"
+            @click="goToItem(`/users/${user.id}`)"
+          >
+            <CardView :image="user.profilePicture" :title="user.name">
+            </CardView>
+          </div>
         </div>
       </div>
     </div>
@@ -40,18 +43,38 @@ export default {
     const id = await route.params.id
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area/${id}`)
     const services = data.services
-    const users = data.users
+    console.log(services[0])
     return {
       data,
       services,
-      users,
     }
   },
-  methods: {
-    goToService(path) {
-      this.$router.push({ path })
+  computed: {
+    filteredMembers() {
+      const members = []
+      members.push(this.services[0].users[0])
+      for (let i = 0; i < this.services.length; i++) {
+        console.log('entering service', this.services[i].id)
+        for (let j = 0; j < this.services[i].users.length; j++) {
+          let repeat = false
+          console.log('checking user', this.services[i].users[j].id)
+          for (let k = 0; k < members.length; k++) {
+            if (this.services[i].users[j].id === members[k].id) {
+              repeat = true
+              break
+            }
+          }
+          if (!repeat) {
+            members.push(this.services[i].users[j])
+            console.log(members)
+          }
+        }
+      }
+      return members
     },
-    goToUser(path) {
+  },
+  methods: {
+    goToItem(path) {
       this.$router.push({ path })
     },
   },
@@ -59,7 +82,7 @@ export default {
 </script>
 <style scoped>
 #start {
-  padding: 0vh 0vh;
+  padding: 5vh 0vh;
 }
 h2 {
   font-size: xx-large;
@@ -107,7 +130,43 @@ h5 {
   display: flex;
   margin: 0;
 }
-
+.service-sec {
+  /* margin: 5vh 5vw; */
+  padding: 1vh;
+  /* background-color: #ccfccb; */
+}
+.service {
+  height: 20vw;
+  width: calc(100% / 5);
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 3vh;
+}
+#service-scroll {
+  /* overflow: auto;
+  white-space: nowrap; */
+  text-align: center;
+}
+@media (max-width: 1080px) {
+  .service {
+    width: calc(100% / 4);
+    height: 30vw;
+  }
+}
+@media (max-width: 720px) {
+  .service {
+    width: calc(100% / 3);
+    height: 50vw;
+  }
+  /* #service-scroll {
+    width: 100% !important;
+  } */
+}
+#team-title {
+  text-align: center;
+  color: black;
+}
 /*
 @media (max-width: 1000px) {
   .service {

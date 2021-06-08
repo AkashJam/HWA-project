@@ -1,9 +1,33 @@
 <template>
-  <p>About</p>
+  <div id="start">
+    <PageDescript
+      :image="'https://datarob.com/content/images/2019/10/lead-generation-for-IT-company.jpg'"
+      :description="'Our mission is to increase the ability of the company to understand and communicate its technology through the internet and simplify the transition into web to maximize its potential'"
+    ></PageDescript>
+  </div>
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Falun - About',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Falun motto and description',
+        },
+      ],
+    }
+  },
+}
 </script>
 
-<style scoped></style>
+<style scoped>
+#start {
+  padding: 4vh 0vh;
+}
+</style>

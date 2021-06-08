@@ -1,19 +1,9 @@
 <template>
   <div id="start">
-    <div
-      class="img"
-      :style="{
-        'background-image': `url(https://www.ittechglobalservices.com/images/digital-services.jpg)`,
-      }"
-    >
-      <div class="desc">
-        <h2>
-          The Falun Team encompasses people from all over the world, giving it a
-          truly international experience. Their work embodies the Falun life,
-          providing innovative designs and making the most of your resources
-        </h2>
-      </div>
-    </div>
+    <PageDescript
+      :image="'https://www.ittechglobalservices.com/images/digital-services.jpg'"
+      :description="'We are equipped with an updated technical knowledge to serve our customers properly. Our method of application maintains the industry.'"
+    ></PageDescript>
     <div class="service-grid">
       <div
         v-for="(service, serviceIndex) of services"
@@ -21,19 +11,31 @@
         class="service"
         @click="goToService(`/services/${service.id}`)"
       >
-        <CardView :image="service.image" :title="service.name"> </CardView>
+        <CardView
+          :image="service.image"
+          :title="service.name"
+          :linkedarea="rarea[serviceIndex]"
+        >
+        </CardView>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/service`)
     // console.log(data)
     const services = data
-    return { services }
+    const areas = []
+    services.forEach(async (service) => {
+      const area = await $axios.$get(
+        `${process.env.BASE_URL}/api/area/${service.area_id}`
+      )
+      areas.push(area.name)
+    })
+    const rarea = areas
+    return { services, rarea }
   },
   methods: {
     goToService(path) {
@@ -90,28 +92,7 @@ export default {
     font-size: x-small;
   } */
 }
-@media (max-height: 900px) {
-  .desc {
-    font-size: x-small;
-  }
-}
 h2 {
   text-align: center;
-}
-.img {
-  align-items: center;
-  width: 100%;
-  height: 40vw;
-  min-height: 40vh;
-  background-size: cover;
-  background-position: center;
-}
-.desc {
-  padding: 10vw;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  color: #f1fffa;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>
