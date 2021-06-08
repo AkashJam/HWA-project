@@ -38,6 +38,7 @@ export default {
 <style scoped>
 #start {
   padding: 0vh 0vh;
+  padding-bottom: 5vh;
 }
 .team {
   margin-top: 5vh;

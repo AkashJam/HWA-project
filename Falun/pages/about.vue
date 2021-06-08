@@ -28,6 +28,6 @@ export default {
 
 <style scoped>
 #start {
-  padding: 4vh 0vh;
+  padding: 0vh 0vh;
 }
 </style>

@@ -24,12 +24,18 @@
         </ul>
       </div>
       <div class="service-sec">
+        <i
+          v-if="servicescroll"
+          class="fa fa-arrow-left"
+          @click="scrollServiceLeft()"
+        ></i>
         <h2 id="title">Services</h2>
-        <div v-if="scroll">
-          <i class="fa fa-arrow-left" @click="scrollLeft()"></i>
-          <i class="fa fa-arrow-right" @click="scrollRight()"></i>
-        </div>
-        <div id="service-scroll" ref="scroll">
+        <i
+          v-if="servicescroll"
+          class="fa fa-arrow-right"
+          @click="scrollServiceRight()"
+        ></i>
+        <div id="service-scroll" ref="servscroll">
           <div
             v-for="(service, serviceIndex) of services"
             :key="'service-' + serviceIndex"
@@ -41,8 +47,18 @@
         </div>
       </div>
       <div class="service-sec">
+        <i
+          v-if="areascroll"
+          class="fa fa-arrow-left"
+          @click="scrollAreaLeft()"
+        ></i>
         <h2 id="title">Areas</h2>
-        <div id="service-scroll">
+        <i
+          v-if="areascroll"
+          class="fa fa-arrow-right"
+          @click="scrollAreaRight()"
+        ></i>
+        <div id="service-scroll" ref="areascroll">
           <div
             v-for="(area, areaIndex) of filteredAreas"
             :key="'area-' + areaIndex"
@@ -66,7 +82,8 @@ export default {
     return {
       data,
       services,
-      scroll: false,
+      servicescroll: false,
+      areascroll: false,
     }
   },
   computed: {
@@ -89,7 +106,8 @@ export default {
     },
   },
   updated() {
-    this.allowScroll()
+    this.allowServiceScroll()
+    this.allowAreaScroll()
   },
   mounted() {
     window.addEventListener('resize', this.allowScroll)
@@ -101,40 +119,62 @@ export default {
     goToItem(path) {
       this.$router.push({ path })
     },
-    allowScroll() {
+    allowServiceScroll() {
       if (
         window.innerWidth / this.services.length <= 360 ||
         this.services.length > 3
       ) {
-        this.scroll = true
+        this.servicescroll = true
       } else {
-        this.scroll = false
+        this.servicescroll = false
       }
-      return this.scroll
+      return this.servicescroll
     },
-    scrollLeft() {
+    allowAreaScroll() {
+      const areas = this.filteredAreas
+      if (window.innerWidth / areas.length <= 360 || areas.length > 3) {
+        this.areascroll = true
+      } else {
+        this.areascroll = false
+      }
+      return this.areascroll
+    },
+    scrollServiceLeft() {
       const num =
         window.innerWidth <= 720 ? 1 : window.innerWidth <= 1080 ? 2 : 3
-      const offset = this.$refs.scroll.clientWidth / num
-      this.$refs.scroll.scrollLeft -= offset
+      const offset = this.$refs.servscroll.clientWidth / num
+      this.$refs.servscroll.scrollLeft -= offset
     },
-    scrollRight() {
+    scrollServiceRight() {
       const num =
         window.innerWidth <= 720 ? 1 : window.innerWidth <= 1080 ? 2 : 3
-      const offset = this.$refs.scroll.clientWidth / num
-      this.$refs.scroll.scrollLeft += offset
+      const offset = this.$refs.servscroll.clientWidth / num
+      this.$refs.servscroll.scrollLeft += offset
+    },
+    scrollAreaLeft() {
+      const num =
+        window.innerWidth <= 720 ? 1 : window.innerWidth <= 1080 ? 2 : 3
+      const offset = this.$refs.areascroll.clientWidth / num
+      this.$refs.areascroll.scrollLeft -= offset
+    },
+    scrollAreaRight() {
+      const num =
+        window.innerWidth <= 720 ? 1 : window.innerWidth <= 1080 ? 2 : 3
+      const offset = this.$refs.areascroll.clientWidth / num
+      this.$refs.areascroll.scrollLeft += offset
     },
   },
 }
 </script>
 <style scoped>
 #start {
-  padding: 10vh 0vh;
+  padding: 0vh 0vh;
+  padding-bottom: 4vh;
 }
 .img-sec {
   float: left;
-  margin: 3vh 5vw;
-  padding-top: 10px;
+  padding: 3vh 5vw;
+  /* padding-top: 10px; */
 }
 .profile-pic {
   height: 50vh;
@@ -146,7 +186,7 @@ export default {
   align-items: center;
   display: flex;
   height: 50vh;
-  margin: 5vh 5vw;
+  padding: 5vh 5vw;
 }
 .user-info {
   text-align: left;
@@ -173,6 +213,7 @@ export default {
   margin: 5vh 5vw;
   padding: 1vh;
   background-color: #ccfccb;
+  text-align: center;
 }
 .service {
   height: 20vw;
@@ -189,9 +230,11 @@ export default {
 }
 .fa-arrow-left {
   float: left;
+  margin: 0.84vh;
 }
 .fa-arrow-right {
   float: right;
+  margin: 0.84vh;
 }
 @media (max-width: 1080px) {
   .service {
@@ -220,6 +263,6 @@ export default {
   padding-bottom: 20px;
 }
 #title {
-  text-align: center;
+  display: inline-block;
 }
 </style>

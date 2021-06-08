@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 const db = new Sequelize(
-  'postgres://postgres:24101997@localhost:5433/FalunTest'
+  'postgres://postgres:akashjames@localhost:5432/FalunTest'
 )
 // Production
 // const pg = require('pg')
@@ -54,6 +54,7 @@ function defineDatabaseStructure() {
   // Creating the 1 -> N association between Areas and Services, UserService
   // More on association: https://sequelize.org/master/manual/assocs.html
   Area.hasMany(Service, { foreignKey: 'area_id' })
+  Service.belongsTo(Area, { foreignKey: 'area_id' })
   Service.belongsToMany(User, { through: 'UserServices' })
   User.belongsToMany(Service, { through: 'UserServices' })
   db._tables = {
@@ -286,6 +287,7 @@ async function insertFakeData() {
   await service4.addUser(ninthUser.id)
   await service4.addUser(tenthUser.id)
   await service4.addUser(eleventhUser.id)
+  await service4.addUser(fourteenthUser.id)
   await service5.addUser(thirdUser.id)
   await service5.addUser(ninthUser.id)
   await service5.addUser(eleventhUser.id)
