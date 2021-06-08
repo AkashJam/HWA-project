@@ -11,12 +11,12 @@
         class="service"
         @click="goToService(`/services/${service.id}`)"
       >
-        <CardView
+        <CardViewService
           :image="service.image"
           :title="service.name"
           :linkedarea="rarea[serviceIndex]"
         >
-        </CardView>
+        </CardViewService>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 #start {
-  padding: 4vh 0vh;
+  padding: 0vh 0vh;
 }
 .team {
   margin-top: 5vh;
