@@ -93,7 +93,8 @@
               "intents": [
                 "web dev",
                 "web development",
-                "Web development"
+                "Web development",
+                "Web Development"
               ],
               "utterance": "Welcome to Web Development. Do you want to continue exploring?",
               "payload": {
@@ -105,12 +106,19 @@
               "intents": [
                 "big data",
                 "Big data",
+                "Big Data",
                 "Analytics",
                 "analytics",
                 "big data and analytics",
                 "Big data and analytics",
+                "Big Data and analytics",
+                "Big data and Analytics",
+                "Big Data and Analytics",
                 "big data & analytics",
-                "Big data & analytics"
+                "Big data & analytics",
+                "Big data & Analytics",
+                "Big Data & analytics",
+                "Big Data & Analytics"
               ],
               "utterance": "Welcome to Big Data & Analytics. Do you want to continue exploring?",
               "payload": {
@@ -136,6 +144,7 @@
               "intents": [
                 "cyber security",
                 "Cyber security",
+                "Cyber Security",
                 "cyber sec",
                 "Cyber sec"
               ],
@@ -145,7 +154,7 @@
               }
             }
           ],
-          "unknown": "Sorry, I didn't understand. Please choose one area."
+          "unknown": "Please choose one area: Web Development, Big Data & Analytics, Machine Learning or Cyber Security."
         },
         "services": "Welcome to services, in this page you will find the services our company provides.",
         "people": "This is our people page, take a look at our valuable employees.",
@@ -204,15 +213,15 @@
           },
           {
             "my_id": "contact us page",
-            "next_id": "end",
+            "next_id": null,
             "my_type": "TASK",
-            "callback": "guide"
+            "callback": "nothing"
           },
           {
             "my_id": "msg",
-            "next_id": "end",
+            "next_id": null,
             "my_type": "TASK",
-            "callback": "guide"
+            "callback": "nothing"
           },
           {
             "my_id": "about",
@@ -266,7 +275,7 @@
             "my_id": "people",
             "next_id": "end",
             "my_type": "TASK",
-            "callback": "guide"
+            "callback": "nothing"
           },
           {
             "my_id": "end",

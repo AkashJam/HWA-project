@@ -4,7 +4,7 @@ export default {
   target: 'server',
   env: {
     BASE_URL: '', // Development URL
-    configurationId: '238eb886-154f-43fc-aa1d-a027a5937ea8',
+    configurationId: 'e0bd1f62-1adf-4015-8f64-d26574f44294',
   },
   serverMiddleware: [
     {
@@ -29,7 +29,7 @@ export default {
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/falunlogo.png' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Farro',
