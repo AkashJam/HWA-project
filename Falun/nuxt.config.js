@@ -29,7 +29,7 @@ export default {
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/falunlogo.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/F.svg' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Farro',
