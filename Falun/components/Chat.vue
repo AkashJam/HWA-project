@@ -1,5 +1,9 @@
 <template>
   <div class="chat">
+    <div v-if="prev" class="chat-prev">
+      <div class="x" @click="prev = 0">X</div>
+      <p class="prev-txt">Welcom to Falun. How can I help you?</p>
+    </div>
     <div v-if="isOpen" class="chat-container">
       <div id="chat-window" class="chat-window">
         <div
@@ -22,8 +26,15 @@
       placeholder="Type a message..."
       @keypress.enter="sendMessage"
     />
-    <div class="button" @click="isOpen = !isOpen">
-      <img src="~/assets/chatbot.svg" alt="" />
+    <div
+      class="button"
+      @click="
+        isOpen = !isOpen
+        prev = 0
+      "
+    >
+      <img v-if="!isOpen" src="~/assets/chatbot.svg" alt="" />
+      <img v-else src="~/assets/xicon.svg" alt="" />
     </div>
   </div>
 </template>
@@ -40,6 +51,7 @@ export default {
     return {
       messageToSend: '',
       isOpen: false,
+      prev: 1,
     }
   },
   methods: {
@@ -84,6 +96,38 @@ export default {
 }
 .button img {
   width: 100%;
+}
+.x {
+  position: fixed;
+  bottom: 6px;
+  right: 0px;
+  margin-right: 10px;
+  margin-bottom: 70px;
+  z-index: 20;
+  cursor: pointer;
+}
+.chat-prev {
+  position: fixed;
+  height: 100px;
+  width: 200px;
+  bottom: 6px;
+  right: 0px;
+  margin-right: 25px;
+  margin-bottom: 85px;
+  z-index: 20;
+  background-color: rgb(252, 252, 252, 0.25);
+  border: 1px solid;
+  border-color: rgb(200, 200, 200, 0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+.prev-txt {
+  text-align: center;
+  max-height: 100px;
+  max-width: 180px;
+  padding: 20px;
+  margin-left: 9px;
+  color: black;
 }
 .chat-container {
   border-radius: 40px 40px 0px 0px;
