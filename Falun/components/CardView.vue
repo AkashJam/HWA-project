@@ -24,11 +24,16 @@ export default {
 .card-view {
   height: 100%;
   width: 100%;
+  padding: 20px;
 }
 .card {
   height: 100%;
   width: 100%;
-  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 30px;
+  background-color: aquamarine;
+  border: 2px solid aqua;
+  border-radius: 5px;
 }
 h4 {
   margin-bottom: 10px;
@@ -37,9 +42,7 @@ h4 {
 .img {
   width: 100%;
   height: 100%;
-  margin: auto;
   background-size: cover;
   background-position: center;
-  margin: 10px 0px;
 }
 </style>

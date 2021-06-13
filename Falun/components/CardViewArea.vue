@@ -32,10 +32,12 @@ export default {
   padding: 20px 10px;
   align-items: center;
   display: flex;
-  background-color: lightgreen;
+  background-color: rgb(122, 201, 122);
+  border: 2px solid rgb(41, 138, 62);
+  border-radius: 10px;
 }
 .img {
-  width: 40%;
+  width: 50%;
   float: left;
   height: 100%;
   margin: auto;
@@ -44,10 +46,11 @@ export default {
   margin: 10px 0px;
 }
 h1 {
-  font-size: 3vw;
+  font-size: 2vw;
 }
 h5 {
-  font-size: 2.5vw;
+  font-size: 1vw;
+  font-weight: lighter;
 }
 .text {
   width: 50%;

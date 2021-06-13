@@ -53,5 +53,7 @@ export default {
   grid-gap: 1vw;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 5vw;
+  margin-top: 3vw;
 }
 </style>

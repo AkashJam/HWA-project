@@ -42,6 +42,7 @@ function defineDatabaseStructure() {
                 name: DataTypes.STRING,
                 description: DataTypes.TEXT,
                 image: DataTypes.STRING,
+                content: DataTypes.TEXT,
             }, {
                 underscored: true,
             }
@@ -199,6 +200,7 @@ async function insertFakeData() {
         name: 'Network Security',
         description: 'Secure private information using firewalls and restrictive code syntax',
         image: 'https://data-science-blog.com/wp-content/uploads/2020/01/ecommerce-1030x597.jpg',
+        content: 'We have gained a wide range of skills in the various areas of cyber security, and we are able to offer strategic support in the definition, design and implementation of processes, structures and systems necessary to improve the security positioning of our partners. We support our customers towards the preparation of a "Privacy System" adequate to the characteristics of the reference reality and maintainable over time, applying the provisions of the new European Regulation GDPR (General Data Protection Regulation, or European Regulation on data protection - EU Regulation 2016 / 679) and by Legislative Decree. 196/2003. The approach followed by ICTC implements the Privacy by Design paradigm, recognizing the importance of integrating data protection and privacy considerations within the operations of an organization. We are able to guide our customers in the definition and design of Disaster Recovery and Business Continuity solutions, thanks to our experience in the development of processes and architectures capable of maximizing the resilience of services',
     })
     const area1 = await Area.create({
         name: 'Web Development',
