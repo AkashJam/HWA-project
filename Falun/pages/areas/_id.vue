@@ -72,10 +72,10 @@ export default {
       }
       return members
     },
-  },
-  methods: {
-    goToItem(path) {
-      this.$router.push({ path })
+    methods: {
+      goToItem(path) {
+        this.$router.push({ path })
+      },
     },
   },
 }
