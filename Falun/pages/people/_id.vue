@@ -24,17 +24,21 @@
         </ul>
       </div>
       <div class="service-sec">
-        <i
-          v-if="servicescroll"
-          class="fa fa-arrow-left"
-          @click="scrollServiceLeft()"
-        ></i>
-        <h2 id="title">Services</h2>
-        <i
-          v-if="servicescroll"
-          class="fa fa-arrow-right"
-          @click="scrollServiceRight()"
-        ></i>
+        <button>
+          <i
+            v-if="servicescroll"
+            class="fa fa-arrow-left"
+            @click="scrollServiceLeft()"
+          ></i>
+        </button>
+        <h2 id="title">Services responsible for</h2>
+        <button>
+          <i
+            v-if="servicescroll"
+            class="fa fa-arrow-right"
+            @click="scrollServiceRight()"
+          ></i>
+        </button>
         <div id="service-scroll" ref="servscroll">
           <div
             v-for="(service, serviceIndex) of services"
@@ -47,17 +51,21 @@
         </div>
       </div>
       <div class="service-sec">
-        <i
-          v-if="areascroll"
-          class="fa fa-arrow-left"
-          @click="scrollAreaLeft()"
-        ></i>
-        <h2 id="title">Areas</h2>
-        <i
-          v-if="areascroll"
-          class="fa fa-arrow-right"
-          @click="scrollAreaRight()"
-        ></i>
+        <button>
+          <i
+            v-if="areascroll"
+            class="fa fa-arrow-left"
+            @click="scrollAreaLeft()"
+          ></i>
+        </button>
+        <h2 id="title">Working in Areas</h2>
+        <button>
+          <i
+            v-if="areascroll"
+            class="fa fa-arrow-right"
+            @click="scrollAreaRight()"
+          ></i>
+        </button>
         <div id="service-scroll" ref="areascroll">
           <div
             v-for="(area, areaIndex) of filteredAreas"
@@ -110,10 +118,12 @@ export default {
     this.allowAreaScroll()
   },
   mounted() {
-    window.addEventListener('resize', this.allowScroll)
+    window.addEventListener('resize', this.allowServiceScroll)
+    window.addEventListener('resize', this.allowAreaScroll)
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.allowScroll)
+    window.removeEventListener('resize', this.allowServiceScroll)
+    window.removeEventListener('resize', this.allowAreaScroll)
   },
   methods: {
     goToItem(path) {
@@ -213,7 +223,7 @@ export default {
   margin: 5vh 5vw;
   padding: 1vh;
   background-color: #ccfccb;
-  text-align: center;
+  /* text-align: center; */
 }
 .service {
   height: 20vw;
@@ -226,7 +236,7 @@ export default {
 #service-scroll {
   overflow: auto;
   white-space: nowrap;
-  text-align: center;
+  /* text-align: center; */
 }
 .fa-arrow-left {
   float: left;

@@ -173,7 +173,7 @@ async function insertFakeData() {
     bio:
       'My interests are guitar and music. "Tell me and I forget. Teach me and I remember. Involve me and I learn." -Benjamin Franklin',
     emailId: 'virginiaoswalt@momail.com',
-    userRole: 'CEO Web Development Area',
+    userRole: 'Head of Web Development',
     profilePicture:
       'https://images.idgesg.net/images/article/2020/01/women-in-it_daphne-jones-100828118-large.jpg',
   })
@@ -182,7 +182,7 @@ async function insertFakeData() {
     bio:
       'My interests are chess and online gaming. "Life is what happens when you are busy making other plans." -John Lennon',
     emailId: 'frankstepp@momail.com',
-    userRole: 'CEO Big Data & Analytics Area',
+    userRole: 'Head of Big Data & Analytics',
     profilePicture:
       'https://dentelle.co.uk/wp-content/uploads/2016/02/botox-for-men.jpg',
   })
@@ -191,7 +191,7 @@ async function insertFakeData() {
     bio:
       'My interests are volleyball and home brewing. "In the end, it is not the years in your life that count. It is the life in your years." -Abraham Lincoln',
     emailId: 'alexandersimpson@momail.com',
-    userRole: 'CEO Machine Learning Area',
+    userRole: 'Head of Machine Learning',
     profilePicture:
       'https://images.vanityfair.it/wp-content/uploads/2021/02/05152837/GettyImages-1186179742-4.jpg',
   })
@@ -200,9 +200,18 @@ async function insertFakeData() {
     bio:
       'My interests are art and architecture. "In three words I can sum up everything I have learned about life: it goes on." -Robert Frost',
     emailId: 'louishill@momail.com',
-    userRole: 'CEO Cyber Security Area',
+    userRole: 'Head of Cyber Security',
     profilePicture:
       'https://www.mantruckandbus.com/fileadmin/_processed_/b/e/csm_Elektrobatterien_Johannes_OEhl_a793651366.jpg',
+  })
+  const sixteenthUser = await User.create({
+    name: 'Sandra Marley',
+    bio:
+      'My interests are art and architecture. "In three words I can sum up everything I have learned about life: it goes on." -Robert Frost',
+    emailId: 'sandramarley@momail.com',
+    userRole: 'CEO',
+    profilePicture:
+      'https://www.europeanceo.com/wp-content/uploads/2017/08/CEO-magic-touch.jpg',
   })
   const service1 = await Service.create({
     name: 'Design & Development',
