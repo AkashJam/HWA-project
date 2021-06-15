@@ -29,11 +29,15 @@ export default {
 .card {
   height: 100%;
   width: 100%;
+  max-width: 20vw;
+  display: inline-block;
   padding-top: 0px;
   padding-bottom: 30px;
   background-color: aquamarine;
-  border: 2px solid aqua;
-  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 h4 {
   margin-bottom: 10px;
