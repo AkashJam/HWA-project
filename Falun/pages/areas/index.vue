@@ -43,6 +43,7 @@ export default {
 #start {
   padding: 0vh 0vh;
   padding-bottom: 5vh;
+  font-family: Roboto;
 }
 .team {
   margin-top: 5vh;
@@ -57,9 +58,15 @@ export default {
   margin-left: auto;
   margin-top: 5vh;
 }
+.area {
+  font-size: 20px;
+}
 @media (max-width: 800px) {
   .area-grid {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .area {
+    font-size: 10px;
   }
 }
 </style>

@@ -7,7 +7,7 @@
             class="img"
             :style="{ 'background-image': `url(${image})` }"
           ></div>
-          <div>{{ title }}</div>
+          <div id="title">{{ title }}</div>
         </div>
         <div class="flip-card-back">
           {{ description }}. Click to see more about {{ title }}
@@ -37,6 +37,7 @@ export default {
   height: 40vh;
   width: 100%;
   perspective: 1000px;
+  font-size: 25px;
 }
 .card {
   position: relative;
@@ -80,14 +81,20 @@ export default {
   align-content: center;
   display: flex;
   flex-wrap: wrap;
+  font-size: 15px;
 }
 .img {
   width: 100%;
-  height: 90%;
+  height: 30vh;
   margin: auto;
   background-size: cover;
   background-position: center;
-  margin-bottom: 1vh;
+}
+#title {
+  font-weight: 1000;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 10vh;
 }
 /*
 @media (max-width: 800px) {
