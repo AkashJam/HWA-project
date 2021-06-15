@@ -41,14 +41,15 @@
           </div>
         </div>
       </div>
-      <div class="form">
+      <div id="form"></div>
+      <div id="fform" class="fform">
         <form
           class="grid grid-cols-1 gap-y-6"
           action="/messages"
           method="post"
           @submit.prevent="sendMessage"
         >
-          <div class="input-element">
+          <div id="fname" class="input-element">
             <p class="msg">First Name</p>
             <label for="first_name" class="sr-only">First name</label>
             <div class="relative rounded-md shadow-sm">
@@ -220,7 +221,7 @@
   text-align: right;
 }
 
-.form {
+.fform {
   width: 100%;
   margin-top: 10vh;
   margin-bottom: 10vh;

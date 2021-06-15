@@ -1,10 +1,17 @@
 <template>
   <div class="card-view">
-    <div class="card">
-      <div class="img" :style="{ 'background-image': `url(${image})` }"></div>
-      <div class="text">
-        <h1>{{ title }}</h1>
-        <h5>{{ description }}</h5>
+    <div class="flip-card">
+      <div class="card">
+        <div class="flip-card-front">
+          <div
+            class="img"
+            :style="{ 'background-image': `url(${image})` }"
+          ></div>
+          <div>{{ title }}</div>
+        </div>
+        <div class="flip-card-back">
+          {{ description }}. Click to see more about {{ title }}
+        </div>
       </div>
     </div>
   </div>
@@ -22,42 +29,67 @@ export default {
 
 <style scoped>
 .card-view {
-  height: 100%;
+  height: 80%;
   width: 100%;
-  margin-top: 10px;
+}
+.flip-card {
+  background-color: transparent;
+  height: 40vh;
+  width: 100%;
+  perspective: 1000px;
 }
 .card {
-  height: 100%;
+  position: relative;
   width: 100%;
-  padding: 20px 10px;
+  height: 100%;
   align-items: center;
   display: flex;
-  background-color: lightgreen;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+  text-align: center;
+  flex-direction: column;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  height: 100%;
+  background-color: white;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #59b5c1;
+  color: white;
+  transform: rotateY(180deg);
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 .img {
-  width: 40%;
-  float: left;
-  height: 100%;
+  width: 100%;
+  height: 90%;
   margin: auto;
   background-size: cover;
   background-position: center;
-  margin: 10px 0px;
+  margin-bottom: 1vh;
 }
-h1 {
-  font-size: 3vw;
-}
-h5 {
-  font-size: 2.5vw;
-}
-.text {
-  width: 50%;
-  color: black;
-  font-size: 20px;
-  display: block;
-  float: right;
-  text-align: right;
-  margin-left: 10vw;
-}
+/*
 @media (max-width: 800px) {
   .img {
     width: 100%;
@@ -77,4 +109,5 @@ h5 {
     height: 100%;
   }
 }
+*/
 </style>

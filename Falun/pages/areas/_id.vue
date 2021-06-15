@@ -7,6 +7,14 @@
           <h5 class="descri">{{ data.description }}</h5>
         </div>
       </div>
+      <div class="desc">
+        <h3 id="title">Description</h3>
+        <img
+          src="https://static.thenounproject.com/png/942360-200.png"
+          style="opacity: 0.2; z-index: 0; position: absolute"
+        />
+        <h6 class="descri">{{ data.content }}</h6>
+      </div>
       <h3 id="title">Related services</h3>
       <div class="area-grid">
         <div
@@ -15,12 +23,16 @@
           class="area"
           @click="goToItem(`/services/${service.id}`)"
         >
-          <CardViewArea :image="service.image" :title="service.name">
+          <CardViewArea
+            :image="service.image"
+            :title="service.name"
+            :description="service.description"
+          >
           </CardViewArea>
         </div>
       </div>
       <div class="service-sec">
-        <h2 id="team-title">Team</h2>
+        <h3 id="title">Team</h3>
         <div id="service-scroll">
           <div
             v-for="(user, userIndex) of filteredMembers"
@@ -72,10 +84,10 @@ export default {
       }
       return members
     },
-  },
-  methods: {
-    goToItem(path) {
-      this.$router.push({ path })
+    methods: {
+      goToItem(path) {
+        this.$router.push({ path })
+      },
     },
   },
 }
@@ -85,50 +97,60 @@ export default {
   padding: 5vh 0vh;
 }
 h2 {
-  font-size: xx-large;
+  font-size: 7vw;
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 h5 {
-  font-size: x-large;
+  font-size: 2vw;
   text-align: center;
-  color: white;
+  font-weight: lighter;
+  color: rgb(0, 0, 0);
+}
+h6 {
+  width: 70%;
+  font-size: 1.5vw;
+  text-align: justify;
+  font-weight: lighter;
+  color: rgb(0, 0, 0);
+  padding: 5%;
+  z-index: 1;
 }
 #title {
-  font-size: x-large;
-  text-align: center;
+  font-size: 4vw;
+  text-align: left;
   color: black;
   margin-top: 5vh;
   margin-bottom: 5vh;
+  padding-left: 50px;
 }
 .area-grid {
   width: auto;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 1vw;
+  grid-gap: 0.5vw;
   margin-right: 15vw;
   margin-left: 15vw;
 }
 .area {
   width: 100%;
-  height: 60vh;
+  height: 20vh;
   cursor: pointer;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 .desc {
-  background-color: black;
-  opacity: 0.9;
   width: 100%;
 }
 .img {
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   min-height: 40vh;
   background-size: cover;
   background-position: center;
   display: flex;
   margin: 0;
+  opacity: 0.9;
 }
 .service-sec {
   /* margin: 5vh 5vw; */
@@ -162,10 +184,6 @@ h5 {
   /* #service-scroll {
     width: 100% !important;
   } */
-}
-#team-title {
-  text-align: center;
-  color: black;
 }
 /*
 @media (max-width: 1000px) {

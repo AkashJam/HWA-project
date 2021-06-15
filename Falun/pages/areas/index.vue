@@ -1,8 +1,9 @@
 <template>
   <div id="start">
     <PageDescript
-      :image="'https://miro.com/blog/wp-content/uploads/2020/10/organize-their-Miro-boards-for-trainings-and-workshops.svg'"
+      :image="'Endless-Constellation'"
       :description="'Falun works in various areas giving to your company a 360° consultancy offer that spans from Web Design to Machine Learning'"
+      :title="'Areas'"
     ></PageDescript>
     <div class="area-grid">
       <div
@@ -41,17 +42,24 @@ export default {
 <style scoped>
 #start {
   padding: 0vh 0vh;
+  padding-bottom: 5vh;
 }
 .team {
   margin-top: 5vh;
   padding: 1vh;
 }
 .area-grid {
-  width: 80%;
+  width: 60%;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 1vw;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3vw;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 5vh;
+}
+@media (max-width: 800px) {
+  .area-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 </style>

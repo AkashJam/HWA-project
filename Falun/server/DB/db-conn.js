@@ -35,6 +35,7 @@ function defineDatabaseStructure() {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
       image: DataTypes.STRING,
+      content: DataTypes.TEXT,
     },
     {
       underscored: true,
@@ -46,6 +47,7 @@ function defineDatabaseStructure() {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
       image: DataTypes.STRING,
+      content: DataTypes.TEXT,
     },
     {
       underscored: true,

@@ -1,7 +1,6 @@
 <template>
   <div class="card-view">
     <div class="card">
-      <div class="img" :style="{ 'background-image': `url(${image})` }"></div>
       <h4 class="area">Area: {{ linkedarea }}</h4>
       <h4>{{ title }}</h4>
     </div>
@@ -11,7 +10,6 @@
 <script>
 export default {
   props: {
-    image: { type: String, default: () => '' },
     title: { type: String, default: () => '' },
     linkedarea: { type: String, default: () => '' },
   },
