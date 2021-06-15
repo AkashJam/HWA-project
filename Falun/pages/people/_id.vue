@@ -24,21 +24,17 @@
         </ul>
       </div>
       <div class="service-sec">
-        <button>
-          <i
-            v-if="servicescroll"
-            class="fa fa-arrow-left"
-            @click="scrollServiceLeft()"
-          ></i>
-        </button>
+        <i
+          v-if="servicescroll"
+          class="fa fa-arrow-left"
+          @click="scrollServiceLeft()"
+        ></i>
         <h2 id="title">Services responsible for</h2>
-        <button>
-          <i
-            v-if="servicescroll"
-            class="fa fa-arrow-right"
-            @click="scrollServiceRight()"
-          ></i>
-        </button>
+        <i
+          v-if="servicescroll"
+          class="fa fa-arrow-right"
+          @click="scrollServiceRight()"
+        ></i>
         <div id="service-scroll" ref="servscroll">
           <div
             v-for="(service, serviceIndex) of services"
@@ -51,21 +47,17 @@
         </div>
       </div>
       <div class="service-sec">
-        <button>
-          <i
-            v-if="areascroll"
-            class="fa fa-arrow-left"
-            @click="scrollAreaLeft()"
-          ></i>
-        </button>
+        <i
+          v-if="areascroll"
+          class="fa fa-arrow-left"
+          @click="scrollAreaLeft()"
+        ></i>
         <h2 id="title">Working in Areas</h2>
-        <button>
-          <i
-            v-if="areascroll"
-            class="fa fa-arrow-right"
-            @click="scrollAreaRight()"
-          ></i>
-        </button>
+        <i
+          v-if="areascroll"
+          class="fa fa-arrow-right"
+          @click="scrollAreaRight()"
+        ></i>
         <div id="service-scroll" ref="areascroll">
           <div
             v-for="(area, areaIndex) of filteredAreas"
@@ -240,11 +232,13 @@ export default {
 }
 .fa-arrow-left {
   float: left;
-  margin: 0.84vh;
+  margin: 0.84vh 2vw;
+  cursor: pointer;
 }
 .fa-arrow-right {
   float: right;
   margin: 0.84vh;
+  cursor: pointer;
 }
 @media (max-width: 1080px) {
   .service {

@@ -16,19 +16,14 @@
         <h6 class="descri">{{ data.content }}</h6>
       </div>
       <h3 id="title">Related services</h3>
-      <div class="area-grid">
+      <div class="service-grid">
         <div
           v-for="(service, serviceIndex) of services"
           :key="'service-' + serviceIndex"
-          class="area"
+          class="service"
           @click="goToItem(`/services/${service.id}`)"
         >
-          <CardViewArea
-            :image="service.image"
-            :title="service.name"
-            :description="service.description"
-          >
-          </CardViewArea>
+          <CardViewService :title="service.name"> </CardViewService>
         </div>
       </div>
       <div class="service-sec">
@@ -37,7 +32,7 @@
           <div
             v-for="(user, userIndex) of filteredMembers"
             :key="'user-' + userIndex"
-            class="service"
+            class="users"
             @click="goToItem(`/users/${user.id}`)"
           >
             <CardView :image="user.profilePicture" :title="user.name">
@@ -94,12 +89,15 @@ export default {
 </script>
 <style scoped>
 #start {
-  padding: 5vh 0vh;
+  padding: 0vh 0vh;
+  font-family: 'Roboto';
 }
 h2 {
   font-size: 7vw;
   text-align: center;
   color: rgb(0, 0, 0);
+  font-family: 'Farro';
+  opacity: 1;
 }
 h5 {
   font-size: 2vw;
@@ -116,6 +114,15 @@ h6 {
   padding: 5%;
   z-index: 1;
 }
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1vw;
+  margin-top: 20vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  padding-bottom: 20vh;
+}
 #title {
   font-size: 4vw;
   text-align: left;
@@ -124,20 +131,11 @@ h6 {
   margin-bottom: 5vh;
   padding-left: 50px;
 }
-.area-grid {
-  width: auto;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 0.5vw;
-  margin-right: 15vw;
-  margin-left: 15vw;
-}
-.area {
-  width: 100%;
-  height: 20vh;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
+
+/* .desc {
+    font-size: x-small;
+  } */
+
 .desc {
   width: 100%;
 }
@@ -150,14 +148,14 @@ h6 {
   background-position: center;
   display: flex;
   margin: 0;
-  opacity: 0.9;
+  opacity: 0.6;
 }
 .service-sec {
   /* margin: 5vh 5vw; */
   padding: 1vh;
   /* background-color: #ccfccb; */
 }
-.service {
+.users {
   height: 20vw;
   width: calc(100% / 5);
   cursor: pointer;
@@ -171,19 +169,39 @@ h6 {
   text-align: center;
 }
 @media (max-width: 1080px) {
-  .service {
+  .users {
     width: calc(100% / 4);
     height: 30vw;
   }
 }
 @media (max-width: 720px) {
-  .service {
+  .users {
     width: calc(100% / 3);
     height: 50vw;
   }
   /* #service-scroll {
     width: 100% !important;
   } */
+}
+@media (max-width: 1500px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1100px) {
+  .service-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .service-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 3vh;
+  }
+  .service {
+    height: inherit;
+    text-align: center;
+  }
 }
 /*
 @media (max-width: 1000px) {

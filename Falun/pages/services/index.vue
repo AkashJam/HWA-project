@@ -49,14 +49,6 @@ export default {
   margin-top: 5vh;
   padding: 1vh;
 }
-#serind {
-  font-weight: bold;
-  font-size: 4rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-family: 'Farro';
-  line-height: 1.7;
-}
 #servicename {
   line-height: 3;
   text-align: center;
@@ -86,6 +78,7 @@ body {
   background-color: white;
   text-align: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-family: 'Roboto';
 }
 .service:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);

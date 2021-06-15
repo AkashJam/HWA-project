@@ -39,7 +39,7 @@ export default {
 
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Roboto';
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -55,6 +55,7 @@ html {
 .header {
   z-index: 3;
   background-color: #f3f3f3;
+  font-family: 'Roboto';
 }
 .wrapper {
   min-height: 92vh;
@@ -66,35 +67,6 @@ html {
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #38ac5f;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
 }
 ::-webkit-scrollbar {
   width: 0em;

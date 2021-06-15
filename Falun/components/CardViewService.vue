@@ -1,9 +1,6 @@
 <template>
-  <div class="card-view">
-    <div class="card">
-      <h4 class="area">Area: {{ linkedarea }}</h4>
-      <h4>{{ title }}</h4>
-    </div>
+  <div class="service">
+    <div id="servicename">{{ title }}</div>
   </div>
 </template>
 
@@ -11,35 +8,39 @@
 export default {
   props: {
     title: { type: String, default: () => '' },
-    linkedarea: { type: String, default: () => '' },
   },
 }
 </script>
 
 <style scoped>
-.area {
-  font-size: 15px;
-  z-index: 200;
-}
-.card-view {
-  height: 100%;
-  width: 100%;
-}
-.card {
-  height: 100%;
-  width: 100%;
-  padding: 10px;
-}
-h4 {
-  margin-bottom: 10px;
+#servicename {
+  line-height: 3;
   text-align: center;
 }
-.img {
+.service {
   width: 100%;
-  height: 100%;
-  margin: auto;
-  background-size: cover;
-  background-position: center;
-  margin: 10px 0px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: block;
+  flex-wrap: wrap;
+  margin: 0;
+  font-size: 2rem;
+  padding: 0;
+  background-color: white;
+  text-align: center;
+  font-family: 'Roboto';
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.service:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+@media (max-width: 700px) {
+  .service {
+    height: inherit;
+    text-align: center;
+  }
+  /* .desc {
+    font-size: x-small;
+  } */
 }
 </style>

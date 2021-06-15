@@ -102,7 +102,7 @@ async function insertFakeData() {
   const fourthUser = await User.create({
     name: 'Joni Grant',
     bio:
-      'My interests are Netflix and Chill. “I haveve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.” ― Maya Angelou',
+      'My interests are Netflix and Chill. “I have learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.” ― Maya Angelou',
     emailId: 'jonigrant@momail.com',
     userRole: 'Hacker',
     profilePicture:
@@ -254,29 +254,39 @@ async function insertFakeData() {
       'Secure private information using firewalls and restrictive code syntax',
     image:
       'https://data-science-blog.com/wp-content/uploads/2020/01/ecommerce-1030x597.jpg',
+    content:
+      'We have gained a wide range of skills in the various areas of cyber security, and we are able to offer strategic support in the definition, design and implementation of processes, structures and systems necessary to improve the security positioning of our partners. We support our customers towards the preparation of a "Privacy System" adequate to the characteristics of the reference reality and maintainable over time, applying the provisions of the new European Regulation GDPR (General Data Protection Regulation, or European Regulation on data protection - EU Regulation 2016 / 679) and by Legislative Decree. 196/2003. The approach followed by ICTC implements the Privacy by Design paradigm, recognizing the importance of integrating data protection and privacy considerations within the operations of an organization. We are able to guide our customers in the definition and design of Disaster Recovery and Business Continuity solutions, thanks to our experience in the development of processes and architectures capable of maximizing the resilience of services',
   })
   const area1 = await Area.create({
     name: 'Web Development',
     description: 'Handle the transistion of the company into the internet',
     image:
       'https://manofy.com/wp-content/uploads/2020/05/website-development.jpg',
+    content:
+      'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex web applications, electronic businesses, and social network services. A more comprehensive list of tasks to which Web development commonly refers, include Web engineering, Web design, Web content development, client liaison, client-side/server-side scripting, Web server and network security configuration, and e-commerce development. Among Web professionals, "Web development" usually refers to the main non-design aspects of building Web sites: writing markup and coding. Web development use content management systems to make content changes easier and available with basic technical skills. Web development teams consist of people who follow standard methods like Agile methodologies while developing Web sites. It is a collaborative effort between departments rather than the domain of a designated department. We offer three kinds of Web developer specialization: front-end developer, back-end developer, and full-stack developer. Front-end developers are responsible for behaviour and visuals that run in the user browser, while back-end developers deal with the servers.',
   })
   const area2 = await Area.create({
     name: 'Big Data & Analytics',
     description: 'Visualize and interpretate your data efficiently',
     image:
       'https://www.b-fast.it/wp-content/uploads/2020/05/come-monitorare-gli-eventi-personalizzati-di-google-analytics-in-wordpress.jpg',
+    content:
+      'We know how to separate the signal from the noise. Data, analytics and AI are opening the door to new possibilities for how organizations can grow and differentiate themselves against competition at an accelerated pace. As the C-suite looks for ways to improve utilization and efficiency, unlock new revenue streams and have the ability (and agility) to create new business models, all paths to value share a common denominator… data. More than half (52%) of the organizations with future-ready operations are already using data and analytics at scale. Reinventing how data and AI initiatives are executed against business strategy results in an organization that can realize a return on investment at speed and ultimately build the case to move from AI pilots to enterprise-wide business transformation. With Data-driven Reinvention, data at its core becomes the ultimate competitive asset and differentiator, and by scaling AI with cloud, organizations can reposition their offerings, extend capabilities and improve data and AI maturity to create new sources of value and sustainable growth.',
   })
   const area3 = await Area.create({
     name: 'Machine Learning',
     description: 'Research the latest technology and automate decision making',
     image:
       'https://toolboxcoworking.com/uploads/_1240xAUTO_resize_center-center_90_none/machine-learning-cybersecurity-applications.png',
+    content:
+      'Machine learning is the study of computer algorithms that improve automatically through experience and by the use of data. It is seen as a part of artificial intelligence. Machine learning algorithms build a model based on sample data, known as "training data", in order to make predictions or decisions without being explicitly programmed to do so. Machine learning algorithms are used in a wide variety of applications, such as in medicine, email filtering, and computer vision, where it is difficult or unfeasible to develop conventional algorithms to perform the needed tasks. A subset of machine learning is closely related to computational statistics, which focuses on making predictions using computers; but not all machine learning is statistical learning. The study of mathematical optimization delivers methods, theory and application domains to the field of machine learning. Data mining is a related field of study, focusing on exploratory data analysis through unsupervised learning. In its application across business problems, machine learning is also referred to as predictive analytics usiness problems, it is also referred to as predictive analytics.',
   })
   const area4 = await Area.create({
     name: 'Cyber Security',
     description: 'Protects your information from online threats',
     image: 'https://www.spegea.it/wp-content/uploads/2020/11/Cybersecurity.jpg',
+    content:
+      'Make every part of your business more resilient. As your business ecosystem and value chain expand, we work to increase your resilience against cyber threats. Anytime. Anywhere. We create cybersecurity tailored to your specific business needs. We defend against cyberattacks with proactive, focused, industry-relevant threat intelligence to give you the confidence that comes from knowing your business is secure.',
   })
 
   await service1.addUser(firstUser.id)
