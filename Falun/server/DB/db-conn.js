@@ -74,8 +74,7 @@ async function insertFakeData() {
   // Create Users
   const firstUser = await User.create({
     name: 'Codey Sheehan',
-    bio:
-      'My interests are Surfing and Rock Music. “You have gotta dance like there is nobody watching, Love like you will never be hurt, Sing like there is nobody listening, And live like it is heaven on earth” ― William W. Purkey',
+    bio: 'My interests are Surfing and Rock Music. “You have gotta dance like there is nobody watching, Love like you will never be hurt, Sing like there is nobody listening, And live like it is heaven on earth” ― William W. Purkey',
     emailId: 'codeysheehan@momail.com',
     userRole: 'Web Designer',
     profilePicture:
@@ -83,8 +82,7 @@ async function insertFakeData() {
   })
   const secondUser = await User.create({
     name: 'Kyla Garza',
-    bio:
-      'My interests are Clubbing and Rock Climbing. “I am selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can not handle me at my worst, then you sure as hell dont deserve me at my best” ― Marilyn Monroe',
+    bio: 'My interests are Clubbing and Rock Climbing. “I am selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can not handle me at my worst, then you sure as hell dont deserve me at my best” ― Marilyn Monroe',
     emailId: 'kylagarza@momail.com',
     userRole: 'Web Developer',
     profilePicture:
@@ -92,8 +90,7 @@ async function insertFakeData() {
   })
   const thirdUser = await User.create({
     name: 'Joey White',
-    bio:
-      'My interests are Reading and Wine Tasting. “Don’t walk in front of me… I may not follow. Do not walk behind me… I may not lead. Walk beside me… just be my friend” ― Albert Camus',
+    bio: 'My interests are Reading and Wine Tasting. “Don’t walk in front of me… I may not follow. Do not walk behind me… I may not lead. Walk beside me… just be my friend” ― Albert Camus',
     emailId: 'joeywhite@momail.com',
     userRole: 'Data Scientist',
     profilePicture:
@@ -101,8 +98,7 @@ async function insertFakeData() {
   })
   const fourthUser = await User.create({
     name: 'Joni Grant',
-    bio:
-      'My interests are Netflix and Chill. “I have learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.” ― Maya Angelou',
+    bio: 'My interests are Netflix and Chill. “I have learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.” ― Maya Angelou',
     emailId: 'jonigrant@momail.com',
     userRole: 'Hacker',
     profilePicture:
@@ -110,8 +106,7 @@ async function insertFakeData() {
   })
   const fifthUser = await User.create({
     name: 'Marissa John',
-    bio:
-      'My interests are Sailing and Swimming. “To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.” ― Ralph Waldo Emerson',
+    bio: 'My interests are Sailing and Swimming. “To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.” ― Ralph Waldo Emerson',
     emailId: 'marissajohn@momail.com',
     userRole: 'Web Developer',
     profilePicture:
@@ -119,8 +114,7 @@ async function insertFakeData() {
   })
   const sixthUser = await User.create({
     name: 'Victor Clayton',
-    bio:
-      'My interests are Dancing and Parkour. “Twenty years from now you will be more disappointed by the things that you did not do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.” ― H. Jackson Brown Jr.',
+    bio: 'My interests are Dancing and Parkour. “Twenty years from now you will be more disappointed by the things that you did not do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.” ― H. Jackson Brown Jr.',
     emailId: 'victorclayton@momail.com',
     userRole: 'Web Developer',
     profilePicture:
@@ -128,8 +122,7 @@ async function insertFakeData() {
   })
   const seventhUser = await User.create({
     name: 'Ellesha Hodgson',
-    bio:
-      'My interests are Indoor Climbing and Brewing Beers. “There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.” ― Albert Einstein',
+    bio: 'My interests are Indoor Climbing and Brewing Beers. “There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.” ― Albert Einstein',
     emailId: 'elleshahodgson@momail.com',
     userRole: 'Web Designer',
     profilePicture:
@@ -137,8 +130,7 @@ async function insertFakeData() {
   })
   const eighthUser = await User.create({
     name: 'Hal Truong',
-    bio:
-      'My interests are traveling and food. “Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can be beaten.” ― Neil Gaiman',
+    bio: 'My interests are traveling and food. “Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can be beaten.” ― Neil Gaiman',
     emailId: 'haltruong@momail.com',
     userRole: 'Hacker',
     profilePicture:
@@ -146,8 +138,7 @@ async function insertFakeData() {
   })
   const ninthUser = await User.create({
     name: 'Barney Jackson',
-    bio:
-      'My interests are football and long distance riding. “It is better to remain silent at the risk of being thought a fool, than to talk and remove all doubt of it.” ― Maurice Switzer',
+    bio: 'My interests are football and long distance riding. “It is better to remain silent at the risk of being thought a fool, than to talk and remove all doubt of it.” ― Maurice Switzer',
     emailId: 'barneyjackson@momail.com',
     userRole: 'Data Scientist',
     profilePicture:
@@ -155,16 +146,14 @@ async function insertFakeData() {
   })
   const tenthUser = await User.create({
     name: 'Megan Barry',
-    bio:
-      'My interests are Poetry and Drawing. “The opposite of love is not hate, it is indifference. The opposite of art is not ugliness, it is indifference. The opposite of faith is not heresy, it is indifference. And the opposite of life is not death, it is indifference.” ― Elie Wiesel',
+    bio: 'My interests are Poetry and Drawing. “The opposite of love is not hate, it is indifference. The opposite of art is not ugliness, it is indifference. The opposite of faith is not heresy, it is indifference. And the opposite of life is not death, it is indifference.” ― Elie Wiesel',
     emailId: 'meganbarry@momail.com',
     userRole: 'Database Administrator',
     profilePicture: 'https://ukrainer.net/wp-content/uploads/2019/11/43.jpg',
   })
   const eleventhUser = await User.create({
     name: 'Shawn Mccabe',
-    bio:
-      'My interests are Scuba Diving and Gardening. “I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.” ― Albert Einstein',
+    bio: 'My interests are Scuba Diving and Gardening. “I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.” ― Albert Einstein',
     emailId: 'shawnmccabe@momail.com',
     userRole: 'Machine Learning Engineer',
     profilePicture:
@@ -172,8 +161,7 @@ async function insertFakeData() {
   })
   const twelvethUser = await User.create({
     name: 'Virginia H. Oswalt',
-    bio:
-      'My interests are guitar and music. "Tell me and I forget. Teach me and I remember. Involve me and I learn." -Benjamin Franklin',
+    bio: 'My interests are guitar and music. "Tell me and I forget. Teach me and I remember. Involve me and I learn." -Benjamin Franklin',
     emailId: 'virginiaoswalt@momail.com',
     userRole: 'Head of Web Development',
     profilePicture:
@@ -181,8 +169,7 @@ async function insertFakeData() {
   })
   const thirteenthUser = await User.create({
     name: 'Frank D. Stepp',
-    bio:
-      'My interests are chess and online gaming. "Life is what happens when you are busy making other plans." -John Lennon',
+    bio: 'My interests are chess and online gaming. "Life is what happens when you are busy making other plans." -John Lennon',
     emailId: 'frankstepp@momail.com',
     userRole: 'Head of Big Data & Analytics',
     profilePicture:
@@ -190,8 +177,7 @@ async function insertFakeData() {
   })
   const fourteenthUser = await User.create({
     name: 'Alexander Simpson',
-    bio:
-      'My interests are volleyball and home brewing. "In the end, it is not the years in your life that count. It is the life in your years." -Abraham Lincoln',
+    bio: 'My interests are volleyball and home brewing. "In the end, it is not the years in your life that count. It is the life in your years." -Abraham Lincoln',
     emailId: 'alexandersimpson@momail.com',
     userRole: 'Head of Machine Learning',
     profilePicture:
@@ -199,8 +185,7 @@ async function insertFakeData() {
   })
   const fifthteenthUser = await User.create({
     name: 'Louis Hill',
-    bio:
-      'My interests are art and architecture. "In three words I can sum up everything I have learned about life: it goes on." -Robert Frost',
+    bio: 'My interests are art and architecture. "In three words I can sum up everything I have learned about life: it goes on." -Robert Frost',
     emailId: 'louishill@momail.com',
     userRole: 'Head of Cyber Security',
     profilePicture:
@@ -208,8 +193,7 @@ async function insertFakeData() {
   })
   const sixteenthUser = await User.create({
     name: 'Sandra Marley',
-    bio:
-      'My interests are art and architecture. "In three words I can sum up everything I have learned about life: it goes on." -Robert Frost',
+    bio: 'My interests are art and architecture. "In three words I can sum up everything I have learned about life: it goes on." -Robert Frost',
     emailId: 'sandramarley@momail.com',
     userRole: 'CEO',
     profilePicture:

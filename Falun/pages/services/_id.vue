@@ -96,8 +96,8 @@ export default {
 .user-sec {
   margin: 5vh 5vw;
   padding: 1vh;
-  height: 45vh;
   background-color: #ccfccb;
+  text-align: center;
 }
 .user {
   height: 35vh;

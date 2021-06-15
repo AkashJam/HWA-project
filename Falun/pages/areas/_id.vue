@@ -97,7 +97,7 @@ h2 {
   text-align: center;
   color: rgb(0, 0, 0);
   font-family: 'Farro';
-  opacity: 1;
+  font-weight: bold;
 }
 h5 {
   font-size: 2vw;
