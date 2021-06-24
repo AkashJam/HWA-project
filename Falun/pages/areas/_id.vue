@@ -33,7 +33,7 @@
             v-for="(user, userIndex) of filteredMembers"
             :key="'user-' + userIndex"
             class="users"
-            @click="goToItem(`/users/${user.id}`)"
+            @click="goToItem(`/people/${user.id}`)"
           >
             <CardView :image="user.profilePicture" :title="user.name">
             </CardView>
@@ -61,10 +61,8 @@ export default {
       const members = []
       members.push(this.services[0].users[0])
       for (let i = 0; i < this.services.length; i++) {
-        console.log('entering service', this.services[i].id)
         for (let j = 0; j < this.services[i].users.length; j++) {
           let repeat = false
-          console.log('checking user', this.services[i].users[j].id)
           for (let k = 0; k < members.length; k++) {
             if (this.services[i].users[j].id === members[k].id) {
               repeat = true
@@ -73,16 +71,15 @@ export default {
           }
           if (!repeat) {
             members.push(this.services[i].users[j])
-            console.log(members)
           }
         }
       }
       return members
     },
-    methods: {
-      goToItem(path) {
-        this.$router.push({ path })
-      },
+  },
+  methods: {
+    goToItem(path) {
+      this.$router.push({ path })
     },
   },
 }
@@ -153,7 +150,7 @@ h6 {
 .service-sec {
   /* margin: 5vh 5vw; */
   padding: 1vh;
-  /* background-color: #ccfccb; */
+  background-color: #ccfccb;
 }
 .users {
   height: 20vw;
@@ -164,8 +161,8 @@ h6 {
   margin-bottom: 3vh;
 }
 #service-scroll {
-  /* overflow: auto;
-  white-space: nowrap; */
+  overflow: auto;
+  white-space: nowrap;
   text-align: center;
 }
 @media (max-width: 1080px) {
