@@ -13,7 +13,11 @@
           class="user"
           @click="goToUser(`/people/${user.id}`)"
         >
-          <CardView :image="user.profilePicture" :title="user.name"> </CardView>
+          <CardView
+            :image="user.profilePicture"
+            :title="`${user.name}, ${user.userRole}`"
+          >
+          </CardView>
         </div>
       </div>
     </div>
@@ -22,9 +26,10 @@
 
 <script>
 export default {
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, $store }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/user`)
     const users = data
+    // $store.state.crumbs = ['People']
     return { users }
   },
   methods: {

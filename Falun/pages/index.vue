@@ -40,13 +40,6 @@
 <script>
 export default {
   layout: 'default',
-  async asyncData({ $axios }) {
-    const { data } = await $axios.get('http://localhost:3000/api/user/2')
-    const name = data.name
-    return {
-      name,
-    }
-  },
 }
 </script>
 

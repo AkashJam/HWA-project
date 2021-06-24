@@ -3,6 +3,7 @@ import Vue from 'vue'
 export const state = () => {
   return {
     messages: [],
+    crumbs: [],
   }
 }
 

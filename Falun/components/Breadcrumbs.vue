@@ -1,15 +1,13 @@
 <template>
   <ol vocab="http://schema.org/" typeof="BreadcrumbList">
     <li
-      v-for="(crumb, index) in crumbs"
+      v-for="(crumb, index) of breadcrumbs"
       :key="index"
       property="itemListElement"
       typeof="ListItem"
     >
       <NLink property="item" typeof="WebPage" :to="crumb.path">
-        <span property="name">{{
-          $route.fullPath === crumb.path && title !== null ? title : crumb.title
-        }}</span>
+        <span property="name">{{ crumb.title }}</span>
       </NLink>
       <meta property="position" :content="index + 2" />
     </li>
@@ -19,14 +17,25 @@
 <script>
 const titleCase = require('ap-style-title-case')
 export default {
-  props: {
-    title: {
-      type: String,
-      default: null,
-    },
-  },
+  // props: {
+  //   title: {
+  //     type: String,
+  //     default: null,
+  //   },
+  // },
+  // async asyncData({ $route, $axios }) {
+  //   const fullPath = $route.fullPath
+  //   let data = []
+  //   if (isNaN(parseInt(fullPath))) {
+  //     data = await $axios.get(`${process.env.BASE_URL}/api${fullPath}}`)
+  //   }
+  //   console.log(data)
+  //   return { data }
+  // },
   computed: {
-    crumbs() {
+    breadcrumbs() {
+      // const paths = this.$store.state.crumbs
+      // console.log(paths)
       const fullPath = this.$route.fullPath
       const params = fullPath.startsWith('/')
         ? fullPath.substring(1).split('/')
@@ -43,6 +52,24 @@ export default {
           })
         }
       })
+
+      // console.log(isNaN(parseInt(fullPath)))
+      // console.log(this.data)
+      // if (this.data !== []) {
+      //   crumbs[crumbs.length - 1].title = this.data.name
+      // }
+      // console.log(crumbs[1].title)
+      // try {
+      //   const { data } = await $axios.get(
+      //     `${process.env.BASE_URL}${this.crumbs[this.crumbs.length - 1].path}`
+      //   )
+      //   console.log(data)
+      //   // const newpath = crumbs[crumbs.length - 1].path.split('/')
+      //   // // console.log(newpath)
+      //   this.crumbs[this.crumbs.length - 1].title = data.name
+      //   console.log(this.crumbs[this.crumbs.length - 1].title)
+      //   // }`
+      // } catch (error) {}
       return crumbs
     },
   },

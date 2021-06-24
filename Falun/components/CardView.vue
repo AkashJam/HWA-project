@@ -24,12 +24,11 @@ export default {
 .card-view {
   height: 100%;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
 }
 .card {
   height: 100%;
   width: 100%;
-  max-width: 20vw;
   display: inline-block;
   padding-top: 0px;
   padding-bottom: 30px;
@@ -45,7 +44,7 @@ h4 {
 }
 .img {
   width: 100%;
-  height: 100%;
+  height: 95%;
   background-size: cover;
   background-position: center;
 }
