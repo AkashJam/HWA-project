@@ -5,7 +5,7 @@ export default {
   env: {
     BASE_URL: 'https://falun.herokuapp.com', // Production URL
     // BASE_URL: '', // Development URL
-    configurationId: 'e0bd1f62-1adf-4015-8f64-d26574f44294',
+    configurationId: 'b4439e21-2c18-4e45-8b2a-484c31c78efc',
   },
   serverMiddleware: [
     {

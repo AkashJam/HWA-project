@@ -4,7 +4,7 @@
       "kb": {
         "first_xor": {
           "initials": [
-            "Welcome to Falun, would you like to explore the website or contact the company?"
+            "Hi I'm Falun, would you like to explore the website or contact the company?"
           ],
           "choices": [
             {
@@ -34,12 +34,12 @@
               }
             }
           ],
-          "unknown": "Option not available. Options: explore or contact company."
+          "unknown": "Ups, option not available. Here are the available ones: explore or contact company."
         },
-        "home": "I will guide you through the site. Welcome to the homepage",
+        "home": "Look how modern this homepage is! Wanna see more?",
         "explore": {
           "initials": [
-            "This is Falun's chatbot, I will guide you through the website. You are currently in the homepage. Do you want to continue?"
+            "Join me in this journey. Do you want to start?"
           ],
           "completed": {
             "payload": {}
@@ -47,7 +47,7 @@
         },
         "contact": {
           "initials": [
-            "Do you want to send a message or go to the contact us page?"
+            "You can send us a message or I can show you the contact us page, what would you like?"
           ],
           "choices": [
             {
@@ -58,7 +58,7 @@
                 "contact us",
                 "contact"
               ],
-              "utterance": "Contact us however you prefer.",
+              "utterance": "Come to our offices, we'll show you around.",
               "payload": {
                 "guide": "/contacts"
               }
@@ -74,18 +74,18 @@
                 "message",
                 "Message"
               ],
-              "utterance": "Send us a message!",
+              "utterance": "Send us a message with good vibes!",
               "payload": {
                 "guide": "/contacts#form"
               }
             }
           ],
-          "unknown": "Sorry, I didn't understand. Please choose if you want to go to the contact us page or to send a message."
+          "unknown": "Oh no, I need to improve my vocabulary. Choose if you want to go to the contact us page or to send a message."
         },
-        "about": "Welcome to the About page of our website. Here you can find all the information of our company. Would you like to continue?",
+        "about": "Our CEO has given a thoughtful message. Let me show you the areas of our company. Is that ok?",
         "areas": {
           "initials": [
-            "Welcome to areas page. Which area do you want to explore?"
+            "Check out the areas we work on. Tell me which one you want to explore?"
           ],
           "choices": [
             {
@@ -96,7 +96,7 @@
                 "Web development",
                 "Web Development"
               ],
-              "utterance": "Welcome to Web Development. Do you want to continue exploring?",
+              "utterance": "These guys from Web Development created me. Do you want to see more?",
               "payload": {
                 "guide": "/areas/1"
               }
@@ -134,7 +134,7 @@
                 "Machine Learning",
                 "ML"
               ],
-              "utterance": "Welcome to Machine Learning. Do you want to continue exploring?",
+              "utterance": "This is Machine Learning, I really like this topic. There is more too see, wanna join me?",
               "payload": {
                 "guide": "/areas/3"
               }
@@ -148,7 +148,7 @@
                 "cyber sec",
                 "Cyber sec"
               ],
-              "utterance": "Welcome to Cyber security. Do you want to continue exploring?",
+              "utterance": "Cyber security, that's an important one. Want to continue?",
               "payload": {
                 "guide": "/areas/4"
               }
@@ -156,10 +156,11 @@
           ],
           "unknown": "Please choose one area: Web Development, Big Data & Analytics, Machine Learning or Cyber Security."
         },
-        "services": "Welcome to services, in this page you will find the services our company provides.",
-        "people": "This is our people page, take a look at our valuable employees.",
-        "end": "The process is completed. Chatbot has finished.",
+        "services": "These services are very cool, take a look. There is more, want to keep going? ",
+        "people": "Meet our amazing team members, they are the real heroes. Did you like it?",
+        "end": "It was nice meeting you. Have a good one!",
         "steps_v": [
+          "/",
           "/",
           "/about",
           "/areas",
@@ -175,7 +176,7 @@
         "guide_v": [
           "guide"
         ],
-        "stay_message": "I don't understand. Do you want to continue?"
+        "stay_message": "I don't understand. Shall we keep going?"
       },
       "process": {
         "activities": [
@@ -197,7 +198,7 @@
           },
           {
             "my_id": "explore",
-            "next_id": "about",
+            "next_id": "home",
             "my_type": "TASK",
             "callback": "guide"
           },
@@ -222,6 +223,12 @@
             "next_id": null,
             "my_type": "TASK",
             "callback": "nothing"
+          },
+          {
+            "my_id": "home",
+            "next_id": "about",
+            "my_type": "TASK",
+            "callback": "guide"
           },
           {
             "my_id": "about",
