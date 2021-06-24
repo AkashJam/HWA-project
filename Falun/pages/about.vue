@@ -1,9 +1,10 @@
 <template>
   <div id="start">
-    <PageDescript
-      :image="'aboutus'"
+    <PageDescriptPA
+      :title="'About us'"
+      :image1="'https://datarob.com/content/images/2019/10/lead-generation-for-IT-company.jpg'"
       :description="'Our mission is to increase the ability of the company to understand and communicate its technology through the internet and simplify the transition into web to maximize its potential'"
-    ></PageDescript>
+    ></PageDescriptPA>
   </div>
 </template>
 

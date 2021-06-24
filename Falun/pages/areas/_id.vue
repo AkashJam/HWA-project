@@ -15,15 +15,17 @@
         />
         <h6 class="descri">{{ data.content }}</h6>
       </div>
-      <div class="service-grid">
-        <h3>Related services</h3>
-        <div
-          v-for="(service, serviceIndex) of services"
-          :key="'service-' + serviceIndex"
-          class="service"
-          @click="goToItem(`/services/${service.id}`)"
-        >
-          <CardViewService :title="service.name"> </CardViewService>
+      <div id="ser">
+        <h3 id="title">Related services</h3>
+        <div class="service-grid">
+          <div
+            v-for="(service, serviceIndex) of services"
+            :key="'service-' + serviceIndex"
+            class="service"
+            @click="goToItem(`/services/${service.id}`)"
+          >
+            <CardViewService :title="service.name"> </CardViewService>
+          </div>
         </div>
       </div>
       <div class="service-sec">
@@ -121,6 +123,10 @@ h6 {
   padding-right: 10vw;
   padding-bottom: 10vh;
   background-color: #e0f2f1;
+}
+#ser {
+  background-color: #e0f2f1;
+  padding: 5vh 5vw;
 }
 #title {
   padding-left: 10vw;

@@ -197,18 +197,24 @@ async function insertFakeData() {
       'Design and develop responsive and dynamic websites for your company',
     image:
       'https://www.studioideagrafica.it/wp-content/uploads/2016/08/la-figura-del-web-designer.jpg',
+    content:
+      'Engineering a relationship with the customer is a delicate art form. Trust, confidence, affinity, familiarity, and beauty are all essential to consider, and they all are seen in your Internet frontdoor: your website. From major government transportation and infrastructure, food and beverage, financial institutions, consumer packaged goods, electronics, and more, Falun has been the architect of websites large and small. We focus on web appearence from any stage of the company lifecycle. Whether startup or corporate spin-off, new product release, or enterprise refresh, we’ve built beautiful websites.',
   })
   const service2 = await Service.create({
     name: 'DevOps & Maintainance',
     description: 'Deployment and Database Maintainance for websitew',
     image:
       'https://d210waafu5nnsw.cloudfront.net/fad1ff76-801d-4adb-be70-9ddfacfeda88/images/u086a4ff5217_original_opt.jpeg',
+    content:
+      'DevOps is an essential part of any system. DevOps helps to plan the architecture for deployment of any product by which it can be available and accessible to the target audience. It’s an ongoing process, making possible continuous deployment of new features and updates on the system to keep it aligned with a business roadmap. Falun with DevOps helps in creating a product with a hybrid solution and taking the best of each technology.',
   })
   const service3 = await Service.create({
     name: 'Dashboards',
     description:
       'Creating beautiful and insightful dashboards for your enterprise',
     image: 'https://blog.trello.com/hs-fs/DashboardFinal.png',
+    content:
+      'Identify patterns in your data with sophisticated visualizations. No coding needed. Data is generated at an ever-accelerating pace. If you want to leverage your data to make timely and effective decisions, you need a tool that enables you to quickly generate insight. With the Analytics Dashboards service you can drag and drop data onto the canvas and use various visualizations to communicate comparisons or understand relationships and trends in the data. With this service, you can quickly build visualizations to answer important questions or provide the foundation for more in-depth analysis.',
   })
   const service4 = await Service.create({
     name: 'Recommender Systems',
@@ -216,6 +222,8 @@ async function insertFakeData() {
       'Provide intelligent recommendations to users based on their interests and actions',
     image:
       'https://ourcodeworld.com/public-media/articles/articleocw-5e02cb556727f.webp',
+    content:
+      'We provide recommender engine that drives you forward. Increase your customer satisfaction and spending with AI powered recommendations. Applicable to your home page, product detail, emailing campaigns and much more. We personalize content with highly versatile and scalable solution. Building on our vast experience from various domains and site sizes, we write our own algorithms to fit clients needs.',
   })
   const service5 = await Service.create({
     name: 'Trend Analysis',
@@ -223,6 +231,8 @@ async function insertFakeData() {
       'Analyze market trends to create strategies and for development and marketing',
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyKGC74fg7x9rF7akCp9qhHG6LjeZd8I2gAiyKJxrQlbrf8IicevCan93lh-aeIof37qM&usqp=CAU',
+    content:
+      'The sheer amount and variety of existing and new data generated in the world today are unprecedented. As this growth continues, so do the opportunities for organizations to use their data to create Change that Matters. Falun Trend Analysis helps clients identify and capture the most value and meaningful insights from data, and turn them into competitive advantages. Our global teams of consultants and leading data scientists, engineers, and analysts—including people from cutting-edge analytics firms and understand underlying industry economics, customer needs, and competitive dynamics. We deliver insight and impact for clients through a wide range of flexible support models, providing ad hoc, deeply transformational, and ongoing analytics architecture and solutions. Importantly, we are fully technology agnostic and able to work with our clients preferred technologies and platforms. Once the tools and models are implemented, we focus on building and transferring capabilities and skills to ensure that analytics becomes a sustained competitive advantage.',
   })
   const service6 = await Service.create({
     name: 'Network Security',

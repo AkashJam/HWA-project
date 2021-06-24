@@ -6,6 +6,10 @@
         <h5>{{ data.description }}</h5>
       </div>
     </div>
+    <div id="philo">
+      <h3 class="title">Philosophy</h3>
+      <h6 class="descri">{{ data.content }}</h6>
+    </div>
     <div class="user-sec">
       <h3 class="title">Team</h3>
       <div id="user-scroll">
@@ -74,6 +78,10 @@ export default {
   display: flex;
   height: 50vh;
   margin: 5vh 5vw;
+}
+#philo {
+  padding: 5vh 5vw;
+  margin-bottom: 0;
 }
 .service-info {
   text-align: left;
