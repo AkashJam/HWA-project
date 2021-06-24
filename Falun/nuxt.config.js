@@ -5,6 +5,7 @@ export default {
   env: {
     BASE_URL: 'https://falun.herokuapp.com', // Production URL
     // BASE_URL: '', // Development URL
+    configurationId: 'e0bd1f62-1adf-4015-8f64-d26574f44294',
   },
   serverMiddleware: [
     {
@@ -48,7 +49,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/vue2-google-maps.js' }],
+  plugins: ['~/plugins/mmcc.js', { src: '~/plugins/vue2-google-maps.js' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

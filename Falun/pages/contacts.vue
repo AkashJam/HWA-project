@@ -253,6 +253,7 @@
   text-align: center;
   flex-direction: column;
   font-family: 'Roboto';
+  background-color: #82dfff;
 }
 .map {
   height: 50vh;
@@ -325,19 +326,24 @@
   width: 100%;
   height: 5vh;
   font-size: medium;
-  border: 0;
+  /* border: 0; */
   outline: 0;
-  background: transparent;
-  border-bottom: 1px solid black;
+  /* background: transparent; */
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-left: 10px;
 }
 
 .in-msg {
   width: 100%;
   height: 25vh;
-  font-size: 2vw;
+  font-size: medium;
   outline: 0;
-  background: transparent;
-  border-bottom: 1px solid black;
+  /* background: transparent; */
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 .sub {
@@ -347,7 +353,9 @@
 .button-sub {
   width: 200px;
   height: 60px;
-  font-size: 2vw;
+  font-size: x-large;
+  font-weight: 400;
+  border-radius: 10px;
 }
 @media (max-width: 700px) {
   .cols {
