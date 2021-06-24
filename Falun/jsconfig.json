@@ -34,7 +34,7 @@
               }
             }
           ],
-          "unknown": "Option not available. Options: explore or contact company"
+          "unknown": "Option not available. Options: explore or contact company."
         },
         "home": "I will guide you through the site. Welcome to the homepage",
         "explore": {

@@ -2,7 +2,7 @@
   <div class="chat">
     <div v-if="prev" class="chat-prev">
       <div class="x" @click="prev = 0">X</div>
-      <p class="prev-txt">Welcom to Falun. How can I help you?</p>
+      <p class="prev-txt">Welcome to Falun. How can I help you?</p>
     </div>
     <div v-if="isOpen" class="chat-container">
       <div id="chat-window" class="chat-window">
