@@ -51,10 +51,12 @@ export default {
   grid-gap: 1vw;
 }
 .user {
+  height: 40vw;
   width: 100%;
-  height: 40vh;
   cursor: pointer;
-  margin-bottom: 20px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 3vh;
 }
 @media (max-width: 1500px) {
   .user-grid {
@@ -78,6 +80,17 @@ export default {
   }
   .user {
     height: 30vh;
+  }
+  /* .desc {
+    font-size: x-small;
+  } */
+}
+@media (max-width: 500px) {
+  .user-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .user {
+    height: 40vh;
   }
   /* .desc {
     font-size: x-small;

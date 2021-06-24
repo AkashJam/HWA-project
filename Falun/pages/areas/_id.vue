@@ -1,13 +1,13 @@
 <template>
   <div>
     <div id="start">
-      <div class="img" :style="{ 'background-image': `url(${data.image})` }">
+      <div class="img" :style="{ background: `url(${data.image})` }">
         <div class="desc">
           <h2 class="name">{{ data.name }}</h2>
-          <h5 class="descri">{{ data.description }}</h5>
+          <h5>{{ data.description }}</h5>
         </div>
       </div>
-      <div class="desc">
+      <div class="d">
         <h3 id="title">Description</h3>
         <img
           src="https://static.thenounproject.com/png/942360-200.png"
@@ -15,8 +15,8 @@
         />
         <h6 class="descri">{{ data.content }}</h6>
       </div>
-      <h3 id="title">Related services</h3>
       <div class="service-grid">
+        <h3>Related services</h3>
         <div
           v-for="(service, serviceIndex) of services"
           :key="'service-' + serviceIndex"
@@ -33,7 +33,7 @@
             v-for="(user, userIndex) of filteredMembers"
             :key="'user-' + userIndex"
             class="users"
-            @click="goToItem(`/users/${user.id}`)"
+            @click="goToUser(`/people/${user.id}`)"
           >
             <CardView :image="user.profilePicture" :title="user.name">
             </CardView>
@@ -80,7 +80,7 @@ export default {
       return members
     },
     methods: {
-      goToItem(path) {
+      goToUser(path) {
         this.$router.push({ path })
       },
     },
@@ -93,21 +93,19 @@ export default {
   font-family: 'Roboto';
 }
 h2 {
-  font-size: 7vw;
+  font-size: 60px;
   text-align: center;
-  color: rgb(0, 0, 0);
   font-family: 'Farro';
   font-weight: bold;
 }
 h5 {
-  font-size: 2vw;
+  font-size: 30px;
   text-align: center;
   font-weight: lighter;
-  color: rgb(0, 0, 0);
 }
 h6 {
   width: 70%;
-  font-size: 1.5vw;
+  font-size: 30px;
   text-align: justify;
   font-weight: lighter;
   color: rgb(0, 0, 0);
@@ -118,18 +116,21 @@ h6 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1vw;
-  margin-top: 20vh;
-  margin-left: 10vw;
-  margin-right: 10vw;
-  padding-bottom: 20vh;
+  padding-top: 10vh;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-bottom: 10vh;
+  background-color: #e0f2f1;
 }
 #title {
-  font-size: 4vw;
+  padding-left: 10vw;
+}
+h3 {
+  font-size: 40px;
   text-align: left;
   color: black;
   margin-top: 5vh;
   margin-bottom: 5vh;
-  padding-left: 50px;
 }
 
 /* .desc {
@@ -138,6 +139,8 @@ h6 {
 
 .desc {
   width: 100%;
+  color: white;
+  z-index: 2;
 }
 .img {
   align-items: center;
@@ -148,12 +151,21 @@ h6 {
   background-position: center;
   display: flex;
   margin: 0;
-  opacity: 0.6;
+}
+.img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: inherit;
 }
 .service-sec {
-  /* margin: 5vh 5vw; */
-  padding: 1vh;
-  /* background-color: #ccfccb; */
+  padding: 5vh 5vw;
+  margin-bottom: 0;
+  background-color: #e8eaf6;
 }
 .users {
   height: 20vw;
@@ -164,36 +176,66 @@ h6 {
   margin-bottom: 3vh;
 }
 #service-scroll {
-  /* overflow: auto;
-  white-space: nowrap; */
+  overflow: auto;
+  white-space: nowrap;
   text-align: center;
 }
-@media (max-width: 1080px) {
-  .users {
-    width: calc(100% / 4);
-    height: 30vw;
-  }
-}
 @media (max-width: 720px) {
-  .users {
-    width: calc(100% / 3);
-    height: 50vw;
-  }
-  /* #service-scroll {
+  #service-scroll {
     width: 100% !important;
-  } */
+  }
 }
 @media (max-width: 1500px) {
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+@media (max-width: 1200px) {
+  .users {
+    height: 40vh;
+    width: calc(100% / 3);
+    cursor: pointer;
+    display: inline-block;
+  }
+}
+@media (max-width: 700px) {
+  .users {
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 550px) {
+  .users {
+    width: 100%;
+  }
+}
 @media (max-width: 1100px) {
   .service-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+  h2 {
+    font-size: 50px;
+  }
+  h3 {
+    font-size: 40px;
+  }
+  h5 {
+    font-size: 25px;
+  }
+  h6 {
+    font-size: 25px;
+  }
 }
 @media (max-width: 700px) {
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+  h6 {
+    font-size: 20px;
+    width: 100%;
+  }
   .service-grid {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 3vh;
@@ -203,23 +245,25 @@ h6 {
     text-align: center;
   }
 }
-/*
-@media (max-width: 1000px) {
-  .service {
-    height: 35vh;
-    width: calc(100% / 3);
-    cursor: pointer;
-    display: inline-block;
+@media (max-width: 400px) {
+  h3 {
+    font-size: 20px;
   }
-}
-@media (max-width: 1400px) {
-  .service {
-    width: calc(100% / 2);
+  h2 {
+    font-size: 30px;
   }
-}
-@media (max-width: 700px) {
-  .service {
+  h5 {
+    font-size: 15px;
+  }
+  h6 {
+    font-size: 15px;
     width: 100%;
+  }
+}
+
+/*@media (max-width: 900px) {
+  h6 {
+    font-size: 2vw;
   }
 }
 */

@@ -29,11 +29,11 @@ export default {
 .card {
   height: 100%;
   width: 100%;
-  max-width: 20vw;
+  max-width: 40vw;
   display: inline-block;
   padding-top: 0px;
   padding-bottom: 30px;
-  background-color: aquamarine;
+  background-color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 .card:hover {
