@@ -1,25 +1,18 @@
 <template>
   <div id="start">
-    <div class="img-sec">
-      <img class="profile-pic" :src="data.image" />
-    </div>
-    <div class="info-sec">
-      <ul class="service-info">
-        <li>
-          <h2>{{ data.name }}</h2>
-        </li>
-        <li>
-          {{ data.description }}
-        </li>
-      </ul>
+    <div class="img" :style="{ background: `url(${data.image})` }">
+      <div class="desc">
+        <h2 class="name">{{ data.name }}</h2>
+        <h5>{{ data.description }}</h5>
+      </div>
     </div>
     <div class="user-sec">
-      <h2 class="title">Team</h2>
+      <h3 class="title">Team</h3>
       <div id="user-scroll">
         <div
           v-for="(user, userIndex) of users"
           :key="'user-' + userIndex"
-          class="user"
+          class="users"
           @click="goToUser(`/people/${user.id}`)"
         >
           <CardView :image="user.profilePicture" :title="user.name"> </CardView>
@@ -53,12 +46,22 @@ export default {
 </script>
 <style scoped>
 #start {
-  padding: 10vh 0vh;
+  font-family: 'Roboto';
 }
-.img-sec {
-  float: left;
-  margin: 3vh 5vw;
-  padding-top: 10px;
+.img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: inherit;
+}
+.service-sec {
+  padding: 5vh 5vw;
+  margin-bottom: 0;
+  background-color: #e8eaf6;
 }
 .profile-pic {
   height: 50vh;
@@ -77,6 +80,70 @@ export default {
   list-style-type: none;
   padding: 5vh 5vw;
 }
+h2 {
+  font-size: 60px;
+  text-align: center;
+  font-family: 'Farro';
+  font-weight: bold;
+}
+h5 {
+  font-size: 30px;
+  text-align: center;
+  font-weight: lighter;
+}
+h6 {
+  width: 70%;
+  font-size: 30px;
+  text-align: justify;
+  font-weight: lighter;
+  color: rgb(0, 0, 0);
+  padding: 5%;
+  z-index: 1;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1vw;
+  padding-top: 10vh;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-bottom: 10vh;
+  background-color: #e0f2f1;
+}
+#title {
+  padding-left: 10vw;
+}
+h3 {
+  font-size: 40px;
+  text-align: left;
+  color: black;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.user-sec {
+  padding: 5vh 5vw;
+  margin-bottom: 0;
+  background-color: #e8eaf6;
+}
+/* .desc {
+    font-size: x-small;
+  } */
+
+.desc {
+  width: 100%;
+  color: white;
+  z-index: 2;
+}
+.img {
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  min-height: 40vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  margin: 0;
+}
 @media (max-width: 1000px) {
   .img-sec {
     float: none;
@@ -93,38 +160,97 @@ export default {
     height: auto;
   }
 }
-.user-sec {
-  margin: 5vh 5vw;
-  padding: 1vh;
-  background-color: #ccfccb;
-  text-align: center;
-}
-.user {
-  height: 35vh;
-  width: calc(100% / 3);
+.users {
+  height: 20vw;
+  width: calc(100% / 5);
   cursor: pointer;
   display: inline-block;
+  text-align: center;
+  margin-bottom: 3vh;
 }
 #user-scroll {
   height: 40vh;
   overflow: auto;
   white-space: nowrap;
 }
-@media (max-width: 1400px) {
-  .user {
-    width: calc(100% / 2);
+@media (max-width: 1500px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1200px) {
+  .users {
+    height: 40vh;
+    width: calc(100% / 3);
+    cursor: pointer;
+    display: inline-block;
   }
 }
 @media (max-width: 700px) {
-  .user {
+  .users {
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 550px) {
+  .users {
     width: 100%;
   }
 }
-.name {
-  font-size: xx-large;
-  padding-bottom: 20px;
+@media (max-width: 1100px) {
+  .service-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  h2 {
+    font-size: 50px;
+  }
+  h3 {
+    font-size: 40px;
+  }
+  h5 {
+    font-size: 25px;
+  }
+  h6 {
+    font-size: 25px;
+  }
 }
-#title {
-  text-align: center;
+@media (max-width: 720px) {
+  #service-scroll {
+    width: 100% !important;
+  }
+}
+@media (max-width: 700px) {
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+  h6 {
+    font-size: 20px;
+    width: 100%;
+  }
+  .service-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 3vh;
+  }
+  .service {
+    height: inherit;
+    text-align: center;
+  }
+}
+@media (max-width: 400px) {
+  h3 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  h5 {
+    font-size: 15px;
+  }
+  h6 {
+    font-size: 15px;
+    width: 100%;
+  }
 }
 </style>
