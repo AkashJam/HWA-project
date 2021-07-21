@@ -11,7 +11,7 @@
           v-for="(user, userIndex) of users"
           :key="'user-' + userIndex"
           class="user"
-          @click="goToUser(`/people/${user.id}`)"
+          @click="goToUser(`/people/${user.name}`)"
         >
           <CardView
             :image="user.profilePicture"

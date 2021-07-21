@@ -42,12 +42,18 @@ export default {
         : fullPath.split('/')
       const crumbs = []
       let path = ''
+      let bread = ''
       params.forEach((param, index) => {
         path = `${path}/${param}`
         const match = this.$router.match(path)
         if (match.name !== null) {
+          if (param.includes('%20')) {
+            bread = param.replace(/%20/g, ' ')
+          } else {
+            bread = param.replace(/-/g, ' ')
+          }
           crumbs.push({
-            title: titleCase(param.replace(/-/g, ' ')),
+            title: titleCase(bread),
             ...match,
           })
         }

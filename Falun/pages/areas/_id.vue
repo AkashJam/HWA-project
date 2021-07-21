@@ -21,7 +21,7 @@
           v-for="(service, serviceIndex) of services"
           :key="'service-' + serviceIndex"
           class="service"
-          @click="goToItem(`/services/${service.id}`)"
+          @click="goToItem(`/services/${service.name}`)"
         >
           <CardViewService :title="service.name"> </CardViewService>
         </div>
@@ -33,7 +33,7 @@
             v-for="(user, userIndex) of filteredMembers"
             :key="'user-' + userIndex"
             class="users"
-            @click="goToItem(`/people/${user.id}`)"
+            @click="goToItem(`/people/${user.name}`)"
           >
             <CardView :image="user.profilePicture" :title="user.name">
             </CardView>
@@ -50,7 +50,6 @@ export default {
     const id = await route.params.id
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area/${id}`)
     const services = data.services
-    console.log(services[0])
     return {
       data,
       services,
