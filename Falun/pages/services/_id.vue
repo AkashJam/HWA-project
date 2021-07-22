@@ -2,7 +2,7 @@
   <div id="start">
     <div class="img" :style="{ background: `url(${services.image})` }">
       <div class="desc">
-        <!-- Block with a brief explanation of the service offered and a bg image relative to that-->
+        <!-- Block with a brief explanation of the service offered and a bg image relative to the service-->
         <h2 class="name">{{ services.name }}</h2>
         <h5>{{ services.description }}</h5>
         <div>

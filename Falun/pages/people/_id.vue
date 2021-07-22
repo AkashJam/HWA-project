@@ -26,7 +26,7 @@
         </div>
       </div>
       <div id="ser">
-        <h3>Related services</h3>
+        <h3>{{ data.name }} is working on</h3>
         <div class="service-grid">
           <div
             v-for="(service, serviceIndex) of services"
@@ -39,11 +39,11 @@
         </div>
       </div>
       <div class="service-sec">
-        <h3 id="title">Team</h3>
+        <h3 id="title">Area</h3>
         <div id="service-scroll">
           <div
-            v-for="(user, userIndex) of filteredMembers"
-            :key="'user-' + userIndex"
+            v-for="(area, areaindex) of filteredMembers"
+            :key="'area-' + areaindex"
             class="Area"
             @click="goToArea(`/areas/${area.id}`)"
           >
@@ -196,12 +196,6 @@ export default {
   overflow: auto;
   white-space: nowrap;
   text-align: center;
-}
-@media (max-width: 1080px) {
-  .service {
-    width: calc(100% / 2);
-    height: 30vw;
-  }
 }
 @media (max-width: 720px) {
   .service {
