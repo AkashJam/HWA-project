@@ -4,6 +4,9 @@
       <div class="desc">
         <h2 class="name">{{ services.name }}</h2>
         <h5>{{ services.description }}</h5>
+        <h5>
+          <NuxtLink to="/areas"> Area: {{ area.name }}</NuxtLink>
+        </h5>
       </div>
     </div>
     <div id="philo">
