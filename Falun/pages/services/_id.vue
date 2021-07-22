@@ -5,8 +5,8 @@
         <!-- Block with a brief explanation of the service offered and a bg image relative to the service-->
         <h2 class="name">{{ services.name }}</h2>
         <h5>{{ services.description }}</h5>
-        <div>
-          <NuxtLink id="arealink" to="/areas">
+        <div id="button">
+          <NuxtLink id="arealink" :to="'/areas/' + area.name">
             Go to parent Area: {{ area.name }}</NuxtLink
           >
         </div>
@@ -116,18 +116,29 @@ h6 {
   padding: 5%;
   z-index: 1;
 }
+#button {
+  display: table;
+  margin: 0 auto;
+  margin-top: 2vh;
+}
 #arealink {
   text-decoration: none;
   display: inline-block;
   border-radius: 4px;
   border: 3px solid white;
-  color: white;
+  color: black;
+  background-color: white;
   text-decoration: none;
   padding: 10px 30px;
+  text-align: center;
 }
 #arealink:visited {
   text-decoration: none;
+}
+#arealink:hover {
+  text-decoration: none;
   color: white;
+  background-color: black;
 }
 .service-grid {
   display: grid;

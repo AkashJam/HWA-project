@@ -129,6 +129,11 @@ export default {
   float: right;
   width: 59.5%;
 }
+.info {
+  text-align: left;
+  list-style-type: none;
+  padding: 5vh 5vw;
+}
 @media (max-width: 980px) {
   .CEO {
     height: 60vh;
@@ -137,6 +142,9 @@ export default {
     float: none;
     width: 100%;
     padding: 10%;
+  }
+  .h3 {
+    font-size: 15px;
   }
   .deats {
     float: none;
@@ -166,9 +174,10 @@ export default {
   height: 50vh;
   padding: 5vh 5vw;
 }*/
-.info {
-  text-align: left;
-  list-style-type: none;
-  padding: 5vh 5vw;
+
+@media (max-width: 500px) {
+  h3 {
+    font-size: 1em;
+  }
 }
 </style>

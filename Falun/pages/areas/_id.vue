@@ -15,15 +15,17 @@
         <h6 class="descri">{{ data.content }}</h6>
         <div class="descril">{{ data.philosophy }}</div>
       </div>
-      <div class="service-grid">
+      <div id="service-sect">
         <h3>Related services</h3>
-        <div
-          v-for="(service, serviceIndex) of services"
-          :key="'service-' + serviceIndex"
-          class="service"
-          @click="goToItem(`/services/${service.name}`)"
-        >
-          <CardViewService :title="service.name"> </CardViewService>
+        <div class="service-grid">
+          <div
+            v-for="(service, serviceIndex) of services"
+            :key="'service-' + serviceIndex"
+            class="service"
+            @click="goToItem(`/services/${service.name}`)"
+          >
+            <CardViewService :title="service.name"> </CardViewService>
+          </div>
         </div>
       </div>
       <div class="service-sec">
@@ -155,7 +157,6 @@ h6 {
   padding: 5vh 5vw;
 }
 #title {
-  padding-left: 10vw;
   display: inline-block;
 }
 h3 {
@@ -199,6 +200,11 @@ h3 {
   padding: 5vh 5vw;
   margin-bottom: 0;
   background-color: #e8eaf6;
+}
+#service-sect {
+  padding: 5vh 5vw;
+  margin-bottom: 0;
+  background-color: #e0f2f1;
 }
 .users {
   height: 20vw;
