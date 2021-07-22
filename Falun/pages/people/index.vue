@@ -12,7 +12,7 @@
           v-for="(user, userIndex) of users"
           :key="'user-' + userIndex"
           class="user"
-          @click="goToUser(`/people/${user.id}`)"
+          @click="goToUser(`/people/${user.name}`)"
         >
           <CardView
             :image="user.profilePicture"
@@ -57,7 +57,7 @@ export default {
   grid-gap: 1vw;
 }
 .user {
-  height: 40vw;
+  height: 40vh;
   width: 100%;
   cursor: pointer;
   display: inline-block;

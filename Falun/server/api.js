@@ -20,10 +20,10 @@ async function init() {
   })
   // API to get an user by ID.
   // This one will return also the services
-  app.get('/user/:id', async (req, res) => {
-    const { id } = req.params
+  app.get('/user/:name', async (req, res) => {
+    const { name } = req.params
     const user = await User.findOne({
-      where: { id },
+      where: { name },
       include: {
         model: Service,
         include: {
@@ -40,10 +40,10 @@ async function init() {
   })
   // API to get a service by ID.
   // This one will return also the users
-  app.get('/service/:id', async (req, res) => {
-    const { id } = req.params
+  app.get('/service/:name', async (req, res) => {
+    const { name } = req.params
     const service = await Service.findOne({
-      where: { id },
+      where: { name },
       include: { model: User },
     })
     return res.json(service)
@@ -55,10 +55,10 @@ async function init() {
   })
   // API to get an area by ID.
   // This one will return also the services
-  app.get('/area/:id', async (req, res) => {
-    const { id } = req.params
+  app.get('/area/:name', async (req, res) => {
+    const { name } = req.params
     const area = await Area.findOne({
-      where: { id },
+      where: { name },
       include: {
         model: Service,
         include: {

@@ -10,7 +10,7 @@
         v-for="(area, areaIndex) of areas"
         :key="'area-' + areaIndex"
         class="area"
-        @click="goToArea(`/areas/${area.id}`)"
+        @click="goToArea(`/areas/${area.name}`)"
       >
         <CardViewArea
           :image="area.image"

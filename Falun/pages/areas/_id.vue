@@ -15,18 +15,15 @@
         <h6 class="descri">{{ data.content }}</h6>
         <div class="descril">{{ data.philosophy }}</div>
       </div>
-      <div id="ser">
-        <h3 id="title">Services</h3>
-        <div id="experience">{{ data.experience }}</div>
-        <div class="service-grid">
-          <div
-            v-for="(service, serviceIndex) of services"
-            :key="'service-' + serviceIndex"
-            class="service"
-            @click="goToItem(`/services/${service.id}`)"
-          >
-            <CardViewService :title="service.name"> </CardViewService>
-          </div>
+      <div class="service-grid">
+        <h3>Related services</h3>
+        <div
+          v-for="(service, serviceIndex) of services"
+          :key="'service-' + serviceIndex"
+          class="service"
+          @click="goToItem(`/services/${service.name}`)"
+        >
+          <CardViewService :title="service.name"> </CardViewService>
         </div>
       </div>
       <div class="service-sec">
@@ -37,7 +34,7 @@
             v-for="(user, userIndex) of filteredMembers"
             :key="'user-' + userIndex"
             class="users"
-            @click="goToUser(`/people/${user.id}`)"
+            @click="goToItem(`/people/${user.name}`)"
           >
             <CardView :image="user.profilePicture" :title="user.name">
             </CardView>
@@ -54,7 +51,6 @@ export default {
     const id = await route.params.id
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area/${id}`)
     const services = data.services
-    console.log(services[0])
     return {
       data,
       services,
@@ -65,10 +61,8 @@ export default {
       const members = []
       members.push(this.services[0].users[0])
       for (let i = 0; i < this.services.length; i++) {
-        console.log('entering service', this.services[i].id)
         for (let j = 0; j < this.services[i].users.length; j++) {
           let repeat = false
-          console.log('checking user', this.services[i].users[j].id)
           for (let k = 0; k < members.length; k++) {
             if (this.services[i].users[j].id === members[k].id) {
               repeat = true
@@ -77,16 +71,15 @@ export default {
           }
           if (!repeat) {
             members.push(this.services[i].users[j])
-            console.log(members)
           }
         }
       }
       return members
     },
-    methods: {
-      goToUser(path) {
-        this.$router.push({ path })
-      },
+  },
+  methods: {
+    goToItem(path) {
+      this.$router.push({ path })
     },
   },
 }
