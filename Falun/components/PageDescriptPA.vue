@@ -6,9 +6,10 @@
     }"
   >
     <div class="desc">
-      <h2>
+      <h2>{{ title }}</h2>
+      <h3>
         {{ description }}
-      </h2>
+      </h3>
     </div>
   </div>
 </template>
@@ -18,11 +19,24 @@ export default {
   props: {
     image1: { type: String, default: () => '' },
     description: { type: String, default: () => '' },
+    title: { type: String, default: () => '' },
   },
 }
 </script>
 
 <style scoped>
+h2 {
+  font-size: 60px;
+  text-align: center;
+  font-family: 'Farro';
+  font-weight: bold;
+}
+h3 {
+  font-size: 30px;
+  text-align: center;
+  font-weight: lighter;
+  font-family: 'Roboto';
+}
 .img {
   align-items: center;
   width: 100%;
