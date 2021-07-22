@@ -25,47 +25,27 @@
           </ul>
         </div>
       </div>
-      <div class="service-sec">
-        <i
-          v-if="servicescroll"
-          class="fa fa-arrow-left"
-          @click="scrollServiceLeft()"
-        ></i>
-        <h2 id="title">Services responsible for</h2>
-        <i
-          v-if="servicescroll"
-          class="fa fa-arrow-right"
-          @click="scrollServiceRight()"
-        ></i>
-        <div id="service-scroll" ref="servscroll">
+      <div id="ser">
+        <h3>Related services</h3>
+        <div class="service-grid">
           <div
             v-for="(service, serviceIndex) of services"
             :key="'service-' + serviceIndex"
             class="service"
-            @click="goToItem(`/services/${service.name}`)"
+            @click="goToItem(`/services/${service.id}`)"
           >
             <CardViewService :title="service.name"> </CardViewService>
           </div>
         </div>
       </div>
       <div class="service-sec">
-        <i
-          v-if="areascroll"
-          class="fa fa-arrow-left"
-          @click="scrollAreaLeft()"
-        ></i>
-        <h2 id="title">Working in Areas</h2>
-        <i
-          v-if="areascroll"
-          class="fa fa-arrow-right"
-          @click="scrollAreaRight()"
-        ></i>
-        <div id="service-scroll" ref="areascroll">
+        <h3 id="title">Team</h3>
+        <div id="service-scroll">
           <div
-            v-for="(area, areaIndex) of filteredAreas"
-            :key="'area-' + areaIndex"
-            class="service"
-            @click="goToItem(`/areas/${area.name}`)"
+            v-for="(user, userIndex) of filteredMembers"
+            :key="'user-' + userIndex"
+            class="Area"
+            @click="goToArea(`/areas/${area.id}`)"
           >
             <CardView :image="area.image" :title="area.name"> </CardView>
           </div>
@@ -112,12 +92,10 @@ export default {
     this.allowAreaScroll()
   },
   mounted() {
-    window.addEventListener('resize', this.allowServiceScroll)
-    window.addEventListener('resize', this.allowAreaScroll)
+    window.addEventListener('resize', this.allowScroll)
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.allowServiceScroll)
-    window.removeEventListener('resize', this.allowAreaScroll)
+    window.removeEventListener('resize', this.allowScroll)
   },
   methods: {
     goToItem(path) {
@@ -212,22 +190,12 @@ export default {
 .service-sec {
   padding: 1vh;
   background-color: #ccfccb;
-  /* text-align: center; */
+  text-align: center;
 }
 #service-scroll {
   overflow: auto;
   white-space: nowrap;
-  /* text-align: center; */
-}
-.fa-arrow-left {
-  float: left;
-  margin: 0.84vh 2vw;
-  cursor: pointer;
-}
-.fa-arrow-right {
-  float: right;
-  margin: 0.84vh;
-  cursor: pointer;
+  text-align: center;
 }
 @media (max-width: 1080px) {
   .service {
@@ -296,11 +264,9 @@ h3 {
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
-
 /* .desc {
     font-size: x-small;
   } */
-
 .desc {
   width: 100%;
   color: white;

@@ -2,11 +2,14 @@
   <div id="start">
     <div class="img" :style="{ background: `url(${services.image})` }">
       <div class="desc">
+        <!-- Block with a brief explanation of the service offered and a bg image relative to that-->
         <h2 class="name">{{ services.name }}</h2>
         <h5>{{ services.description }}</h5>
-        <h5>
-          <NuxtLink to="/areas"> Area: {{ area.name }}</NuxtLink>
-        </h5>
+        <div>
+          <NuxtLink id="arealink" to="/areas">
+            Go to parent Area: {{ area.name }}</NuxtLink
+          >
+        </div>
       </div>
     </div>
     <div id="philo">
@@ -36,9 +39,9 @@ export default {
     )
     const services = data
     const area = await $axios.$get(
-      `${process.env.BASE_URL}/api/area/${services.area_id}`
+      `${process.env.BASE_URL}/api/areaid/${services.area_id}`
     )
-    console.log(area)
+    console.log(area.name)
     const users = data.users
     return {
       services,
@@ -112,6 +115,19 @@ h6 {
   color: rgb(0, 0, 0);
   padding: 5%;
   z-index: 1;
+}
+#arealink {
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  border: 3px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 10px 30px;
+}
+#arealink:visited {
+  text-decoration: none;
+  color: white;
 }
 .service-grid {
   display: grid;

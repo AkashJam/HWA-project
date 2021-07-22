@@ -1,10 +1,10 @@
 <template>
   <div id="start">
-<<<<<<< HEAD
-    <PageDescript
-      :image="'aboutus'"
-      :description="'Let us bring you to the forefront so you can show us a brand new world'"
-    ></PageDescript>
+    <PageDescriptPA
+      :title="'About us'"
+      :image1="'https://datarob.com/content/images/2019/10/lead-generation-for-IT-company.jpg'"
+      :description="'Our mission is to increase the ability of the company to understand and communicate its technology through the internet and simplify the transition into web to maximize its potential'"
+    ></PageDescriptPA>
     <div class="desc">
       <h2>
         Falun is a service-first IT solutions company that builds software
@@ -80,13 +80,6 @@
         strategic decisions to reach the goals.
       </p>
     </div>
-=======
-    <PageDescriptPA
-      :title="'About us'"
-      :image1="'https://datarob.com/content/images/2019/10/lead-generation-for-IT-company.jpg'"
-      :description="'Our mission is to increase the ability of the company to understand and communicate its technology through the internet and simplify the transition into web to maximize its potential'"
-    ></PageDescriptPA>
->>>>>>> fixing-ux
   </div>
 </template>
 

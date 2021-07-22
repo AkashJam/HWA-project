@@ -68,6 +68,20 @@ async function init() {
     })
     return res.json(area)
   })
+
+  app.get('/areaid/:id', async (req, res) => {
+    const { id } = req.params
+    const area = await Area.findOne({
+      where: { id },
+      include: {
+        model: Service,
+        include: {
+          model: User,
+        },
+      },
+    })
+    return res.json(area)
+  })
 }
 
 init()
