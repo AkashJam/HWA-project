@@ -1,17 +1,16 @@
 <template>
   <div id="start">
-    <div class="img" :style="{ background: `url(${data.image})` }">
+    <div class="img" :style="{ background: `url(${services.image})` }">
       <div class="desc">
-        <h2 class="name">{{ data.name }}</h2>
-        <h5>{{ data.description }}</h5>
+        <h2 class="name">{{ services.name }}</h2>
+        <h5>{{ services.description }}</h5>
       </div>
     </div>
     <div id="philo">
-      <h3 class="title">Philosophy</h3>
-      <h6 class="descri">{{ data.content }}</h6>
+      <h6 class="descri">{{ services.content }}</h6>
     </div>
     <div class="user-sec">
-      <h3 class="title">Team</h3>
+      <h3 class="title">Team {{ services.name }}</h3>
       <div id="user-scroll">
         <div
           v-for="(user, userIndex) of users"
@@ -25,7 +24,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   async asyncData({ $axios, route }) {
@@ -33,10 +31,14 @@ export default {
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/service/${id}`
     )
+    const services = data
+    const area = await $axios.$get(
+      `${process.env.BASE_URL}/api/area/${services.area_id}`
+    )
+    console.log(area)
     const users = data.users
-    const area = data.areas
     return {
-      data,
+      services,
       users,
       area,
     }
@@ -100,8 +102,8 @@ h5 {
   font-weight: lighter;
 }
 h6 {
-  width: 70%;
-  font-size: 30px;
+  width: 100%;
+  font-size: 25px;
   text-align: justify;
   font-weight: lighter;
   color: rgb(0, 0, 0);

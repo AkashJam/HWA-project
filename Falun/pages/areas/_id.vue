@@ -8,15 +8,16 @@
         </div>
       </div>
       <div class="d">
-        <h3 id="title">Description</h3>
         <img
           src="https://static.thenounproject.com/png/942360-200.png"
           style="opacity: 0.2; z-index: 0; position: absolute"
         />
         <h6 class="descri">{{ data.content }}</h6>
+        <div class="descril">{{ data.philosophy }}</div>
       </div>
       <div id="ser">
-        <h3 id="title">Related services</h3>
+        <h3 id="title">Services</h3>
+        <div id="experience">{{ data.experience }}</div>
         <div class="service-grid">
           <div
             v-for="(service, serviceIndex) of services"
@@ -30,6 +31,7 @@
       </div>
       <div class="service-sec">
         <h3 id="title">Team</h3>
+        <div id="skills">{{ data.skills }}</div>
         <div id="service-scroll">
           <div
             v-for="(user, userIndex) of filteredMembers"
@@ -108,11 +110,37 @@ h5 {
 h6 {
   width: 70%;
   font-size: 30px;
+  text-align: left;
+  font-weight: lighter;
+  color: rgb(0, 0, 0);
+  padding: 5%;
+  z-index: 1;
+}
+#experience {
+  font-size: 20px;
   text-align: justify;
   font-weight: lighter;
   color: rgb(0, 0, 0);
   padding: 5%;
   z-index: 1;
+}
+#skills {
+  font-size: 20px;
+  text-align: justify;
+  font-weight: lighter;
+  color: rgb(0, 0, 0);
+  padding: 5%;
+  z-index: 1;
+}
+.descril {
+  width: 70%;
+  float: right;
+  font-size: 30px;
+  text-align: right;
+  font-weight: lighter;
+  color: rgb(0, 0, 0);
+  z-index: 1;
+  display: inline-block;
 }
 .service-grid {
   display: grid;
@@ -124,12 +152,18 @@ h6 {
   padding-bottom: 10vh;
   background-color: #e0f2f1;
 }
+.d {
+  padding: 5vh 5vw;
+  width: 100%;
+  display: inline-block;
+}
 #ser {
   background-color: #e0f2f1;
   padding: 5vh 5vw;
 }
 #title {
   padding-left: 10vw;
+  display: inline-block;
 }
 h3 {
   font-size: 40px;
