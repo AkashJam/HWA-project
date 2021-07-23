@@ -18,6 +18,9 @@ Ilaria Ronconi 10541302
 Pietro:
 
 Andres:
+- Contact us page with form
+- Chatbot
+- Names in urls and breadcrumbs
 
 Akash:
 
