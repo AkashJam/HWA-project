@@ -25,6 +25,9 @@ Andres:
 Akash:
 
 Ilaria:
+-Design report
+-Help in service and area pages
+-General part of the usability report
 
 ## Technical-documentation
 ### Server and DB technologies used 
@@ -35,7 +38,23 @@ The backend database used in this website is PostgreSQL setup using Heroku free 
 
 **Footer**: this component for Footer displays all the landmark links.
 
-**Header**: this component accepts heading, subheading and desscriptions parameters to be displayed in order of heading style.
+**Header**: this component accepts heading, subheading and descriptions parameters to be displayed in order of heading style.
+
+**CardView**: component to group single person, with image and name.
+
+**CardViewArea**: component to group single area, with name, image and subtitle.
+
+**CardViewService**: component to group service eith name, image and description.
+
+**Chat**: chat component.
+
+**Logo**: component to define the company logo.
+
+**PageDescript**: component for the single area description.
+
+**PageDescriptPA**: component for the single service description.
+
+**Scroll**: this component enable the scroll in the list of people/services at the end of the pages.
 
 ### Plugins
 #### Client-side
@@ -50,10 +69,6 @@ Sequelize makes use of DB connection strings configured in server/config/config.
 The DB model was created from cli with command `sequelize-cli model:generate --name <table_name> --attributes <field_name1>:<field_type>,<field_name2>:<field_type>,...`. This will create files in server/models and server/migrations folder.
 
 Then it needs to be migrated with command `sequelize-cli db:migrate`. This will create the table with the provided attributes.
-
-
-## Comments 
-Comments about how your usage of the framework was compliant to the best practices for the specific application domain of your website
 
 
 ## Link
