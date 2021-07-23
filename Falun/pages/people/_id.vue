@@ -42,10 +42,10 @@
         <h3 id="title">Area</h3>
         <div id="service-scroll">
           <div
-            v-for="(area, areaindex) of filteredMembers"
+            v-for="(area, areaindex) of filteredAreas"
             :key="'area-' + areaindex"
             class="Area"
-            @click="goToArea(`/areas/${area.name}`)"
+            @click="goToItem(`/areas/${area.name}`)"
           >
             <CardView :image="area.image" :title="area.name"> </CardView>
           </div>
