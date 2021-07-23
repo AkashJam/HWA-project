@@ -10,7 +10,7 @@
         v-for="(service, serviceIndex) of services"
         :key="'service-' + serviceIndex"
         class="service"
-        @click="goToService(`/services/${service.id}`)"
+        @click="goToService(`/services/${service.name}`)"
       >
         <div id="servicename">{{ service.name }}</div>
       </div>

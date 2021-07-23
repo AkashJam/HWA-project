@@ -1,19 +1,28 @@
 <template>
   <div id="start">
-    <div class="img" :style="{ background: `url(${data.image})` }">
+    <div class="img" :style="{ background: `url(${services.image})` }">
       <div class="desc">
-        <h2 class="name">{{ data.name }}</h2>
-        <h5>{{ data.description }}</h5>
+        <!-- Block with a brief explanation of the service offered and a bg image relative to the service-->
+        <h2 class="name">{{ services.name }}</h2>
+        <h5>{{ services.description }}</h5>
+        <div id="button">
+          <NuxtLink id="arealink" :to="'/areas/' + area.name">
+            Go to parent Area: {{ area.name }}</NuxtLink
+          >
+        </div>
       </div>
     </div>
+    <div id="philo">
+      <h6 class="descri">{{ services.content }}</h6>
+    </div>
     <div class="user-sec">
-      <h3 class="title">Team</h3>
+      <h3 class="title">Team {{ services.name }}</h3>
       <div id="user-scroll">
         <div
           v-for="(user, userIndex) of users"
           :key="'user-' + userIndex"
           class="users"
-          @click="goToUser(`/people/${user.id}`)"
+          @click="goToUser(`/people/${user.name}`)"
         >
           <CardView :image="user.profilePicture" :title="user.name"> </CardView>
         </div>
@@ -21,7 +30,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   async asyncData({ $axios, route }) {
@@ -29,10 +37,14 @@ export default {
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/service/${id}`
     )
+    const services = data
+    const area = await $axios.$get(
+      `${process.env.BASE_URL}/api/areaid/${services.area_id}`
+    )
+    console.log(area.name)
     const users = data.users
-    const area = data.areas
     return {
-      data,
+      services,
       users,
       area,
     }
@@ -75,6 +87,10 @@ export default {
   height: 50vh;
   margin: 5vh 5vw;
 }
+#philo {
+  padding: 5vh 5vw;
+  margin-bottom: 0;
+}
 .service-info {
   text-align: left;
   list-style-type: none;
@@ -92,13 +108,37 @@ h5 {
   font-weight: lighter;
 }
 h6 {
-  width: 70%;
-  font-size: 30px;
+  width: 100%;
+  font-size: 25px;
   text-align: justify;
   font-weight: lighter;
   color: rgb(0, 0, 0);
   padding: 5%;
   z-index: 1;
+}
+#button {
+  display: table;
+  margin: 0 auto;
+  margin-top: 2vh;
+}
+#arealink {
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  border: 3px solid white;
+  color: black;
+  background-color: white;
+  text-decoration: none;
+  padding: 10px 30px;
+  text-align: center;
+}
+#arealink:visited {
+  text-decoration: none;
+}
+#arealink:hover {
+  text-decoration: none;
+  color: white;
+  background-color: black;
 }
 .service-grid {
   display: grid;

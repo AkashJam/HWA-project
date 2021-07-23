@@ -1,9 +1,10 @@
 <template>
   <div id="start">
-    <PageDescript
-      :image="'aboutus'"
-      :description="'Let us bring you to the forefront so you can show us a brand new world'"
-    ></PageDescript>
+    <PageDescriptPA
+      :title="'About us'"
+      :image1="'https://datarob.com/content/images/2019/10/lead-generation-for-IT-company.jpg'"
+      :description="'Our mission is to increase the ability of the company to understand and communicate its technology through the internet and simplify the transition into web to maximize its potential'"
+    ></PageDescriptPA>
     <div class="desc">
       <h2>
         Falun is a service-first IT solutions company that builds software
@@ -128,6 +129,11 @@ export default {
   float: right;
   width: 59.5%;
 }
+.info {
+  text-align: left;
+  list-style-type: none;
+  padding: 5vh 5vw;
+}
 @media (max-width: 980px) {
   .CEO {
     height: 60vh;
@@ -136,6 +142,9 @@ export default {
     float: none;
     width: 100%;
     padding: 10%;
+  }
+  .h3 {
+    font-size: 15px;
   }
   .deats {
     float: none;
@@ -165,9 +174,10 @@ export default {
   height: 50vh;
   padding: 5vh 5vw;
 }*/
-.info {
-  text-align: left;
-  list-style-type: none;
-  padding: 5vh 5vw;
+
+@media (max-width: 500px) {
+  h3 {
+    font-size: 1em;
+  }
 }
 </style>

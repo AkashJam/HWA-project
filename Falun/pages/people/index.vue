@@ -1,9 +1,10 @@
 <template>
   <div id="start">
-    <PageDescript
-      :image="'people'"
+    <PageDescriptPA
+      :title="'People'"
+      :image1="'https://www.jll.it/images/people/people-photography/can-we-build-a-happy-workplace.jpg'"
       :description="'The Falun Team encompasses people from all over the world, giving it a truly international experience. Their work embodies the Falun life, providing innovative designs and making the most of your resources'"
-    ></PageDescript>
+    ></PageDescriptPA>
     <div class="team">
       <h2>Meet the team</h2>
       <div class="user-grid">
@@ -11,7 +12,7 @@
           v-for="(user, userIndex) of users"
           :key="'user-' + userIndex"
           class="user"
-          @click="goToUser(`/people/${user.id}`)"
+          @click="goToUser(`/people/${user.name}`)"
         >
           <CardView
             :image="user.profilePicture"
