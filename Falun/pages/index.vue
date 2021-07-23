@@ -41,59 +41,14 @@
 
 <script>
 export default {
-// transition of text
-//   <div id="mySidenav" class="sidenav" :style="{ width: computedWidth }">
-//       <i class="fa fa-times-circle" @click="closeNav()"></i>
-//       <NuxtLink class="tabs" to="/trending">Trending</NuxtLink>
-//       <NuxtLink class="tabs" to="/intheatres">In Theatres</NuxtLink>
-//       <NuxtLink class="tabs" to="/upcoming">Upcoming</NuxtLink>
-//     </div>
-//     <i class="fa fa-bars" @click="openNav()"></i>
-//   </div>
-// </template>
-
-// <script>
-// export default {
-//   data() {
-//     return {
-//       width: '0px',
-//     }
-//   },
-//   computed: {
-//     computedWidth() {
-//       return this.width
-//     },
-//   },
-//   methods: {
-//     openNav() {
-//       this.width = '250px'
-//     },
-//     closeNav() {
-//       this.width = '0px'
-//     },
-//   },
-// }
-// </script>
-
-// <style>
-// .sidenav {
-//   display: unset;
-//   height: 100%;
-//   position: fixed;
-//   /* z-index: 1; */
-//   top: 0;
-//   overflow-x: hidden;
-//   left: 0;
-//   background-color: #020122;
-//   transition: 0.5s;
-//   padding-top: 60px;
-// }
   layout: 'default',
   data() {
     const text = [
       'Bringing the age of technology to your doorstep',
       'Maximize your potential with technologies of the new world',
-      '',
+      'jhsfjhbsdfkjhbsfj',
+      'dskfhaskdjkasd',
+      'sjahdasjhdak',
     ]
     const pagescroll = true
     const desc = text[0]
@@ -103,6 +58,9 @@ export default {
       desc,
     }
   },
+  // updated() {
+  //   this.handleScroll()
+  // },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
   },
@@ -112,7 +70,9 @@ export default {
   methods: {
     handleScroll() {
       // Any code to be executed when the window is scrolled
+      console.log(window.scrollY)
       if (window.scrollY > 500 && window.scrollY < 1500) {
+        console.log('text 1')
         this.pagescroll = false
         this.desc = this.text[1]
       }
@@ -127,14 +87,12 @@ export default {
       if (window.scrollY > 3500 && window.scrollY < 4500) {
         this.pagescroll = false
         this.desc = this.text[4]
-      }
-      if (window.scrollY > 4500 && window.scrollY < 5500) {
-        this.pagescroll = false
-        this.desc = this.text[5]
       } else {
         this.pagescroll = true
         this.desc = this.text[0]
       }
+      console.log(this.desc)
+      // return this.desc
     },
   },
 }
