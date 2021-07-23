@@ -31,15 +31,112 @@
       }"
     ></div>
     <div class="bg-text">
-      <h1>FALUN</h1>
-      <p>Bringing the age of technology to your doorstep</p>
+      <div>
+        <h1 v-if="pagescroll">FALUN</h1>
+        <p>{{ desc }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+// transition of text
+//   <div id="mySidenav" class="sidenav" :style="{ width: computedWidth }">
+//       <i class="fa fa-times-circle" @click="closeNav()"></i>
+//       <NuxtLink class="tabs" to="/trending">Trending</NuxtLink>
+//       <NuxtLink class="tabs" to="/intheatres">In Theatres</NuxtLink>
+//       <NuxtLink class="tabs" to="/upcoming">Upcoming</NuxtLink>
+//     </div>
+//     <i class="fa fa-bars" @click="openNav()"></i>
+//   </div>
+// </template>
+
+// <script>
+// export default {
+//   data() {
+//     return {
+//       width: '0px',
+//     }
+//   },
+//   computed: {
+//     computedWidth() {
+//       return this.width
+//     },
+//   },
+//   methods: {
+//     openNav() {
+//       this.width = '250px'
+//     },
+//     closeNav() {
+//       this.width = '0px'
+//     },
+//   },
+// }
+// </script>
+
+// <style>
+// .sidenav {
+//   display: unset;
+//   height: 100%;
+//   position: fixed;
+//   /* z-index: 1; */
+//   top: 0;
+//   overflow-x: hidden;
+//   left: 0;
+//   background-color: #020122;
+//   transition: 0.5s;
+//   padding-top: 60px;
+// }
   layout: 'default',
+  data() {
+    const text = [
+      'Bringing the age of technology to your doorstep',
+      'Maximize your potential with technologies of the new world',
+      '',
+    ]
+    const pagescroll = true
+    const desc = text[0]
+    return {
+      pagescroll,
+      text,
+      desc,
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll() {
+      // Any code to be executed when the window is scrolled
+      if (window.scrollY > 500 && window.scrollY < 1500) {
+        this.pagescroll = false
+        this.desc = this.text[1]
+      }
+      if (window.scrollY > 1500 && window.scrollY < 2500) {
+        this.pagescroll = false
+        this.desc = this.text[2]
+      }
+      if (window.scrollY > 2500 && window.scrollY < 3500) {
+        this.pagescroll = false
+        this.desc = this.text[3]
+      }
+      if (window.scrollY > 3500 && window.scrollY < 4500) {
+        this.pagescroll = false
+        this.desc = this.text[4]
+      }
+      if (window.scrollY > 4500 && window.scrollY < 5500) {
+        this.pagescroll = false
+        this.desc = this.text[5]
+      } else {
+        this.pagescroll = true
+        this.desc = this.text[0]
+      }
+    },
+  },
 }
 </script>
 
@@ -57,7 +154,7 @@ html {
 
 .bg-image {
   /* Full height */
-  height: 100vh;
+  height: 1000px;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
