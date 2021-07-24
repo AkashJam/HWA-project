@@ -44,11 +44,11 @@ export default {
   layout: 'default',
   data() {
     const text = [
-      'Bringing the age of technology to your doorstep',
-      'Maximize your potential with technologies of the new world',
-      'jhsfjhbsdfkjhbsfj',
-      'dskfhaskdjkasd',
-      'sjahdasjhdak',
+      'Bringing the future of technology to your doorstep',
+      'Maximize your potential with cutting-edge technologies of the new world',
+      'Improve your work with a faster and more connected solution',
+      'Obtain the most advanced hardware in the market',
+      'Make smart everything you can imagine',
     ]
     const pagescroll = true
     const desc = text[0]
@@ -70,29 +70,25 @@ export default {
   methods: {
     handleScroll() {
       // Any code to be executed when the window is scrolled
-      console.log(window.scrollY)
-      if (window.scrollY > 500 && window.scrollY < 1500) {
-        console.log('text 1')
+      // console.log(window.scrollY)
+      if (window.scrollY > 500 && window.scrollY <= 1500) {
         this.pagescroll = false
         this.desc = this.text[1]
-      }
-      if (window.scrollY > 1500 && window.scrollY < 2500) {
+      } else if (window.scrollY > 1500 && window.scrollY <= 2500) {
         this.pagescroll = false
         this.desc = this.text[2]
-      }
-      if (window.scrollY > 2500 && window.scrollY < 3500) {
+      } else if (window.scrollY > 2500 && window.scrollY <= 3500) {
         this.pagescroll = false
         this.desc = this.text[3]
-      }
-      if (window.scrollY > 3500 && window.scrollY < 4500) {
+      } else if (window.scrollY > 3500 && window.scrollY <= 4500) {
         this.pagescroll = false
         this.desc = this.text[4]
       } else {
         this.pagescroll = true
         this.desc = this.text[0]
       }
-      console.log(this.desc)
-      // return this.desc
+      // console.log(this.desc)
+      return this.desc
     },
   },
 }
@@ -140,8 +136,5 @@ html {
 h1 {
   font-size: 80px;
   padding-bottom: 15px;
-}
-p {
-  padding-bottom: 20px;
 }
 </style>

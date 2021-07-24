@@ -33,6 +33,11 @@ export default {
     // $store.state.crumbs = ['People']
     return { users }
   },
+  head() {
+    return {
+      title: 'Falun - People',
+    }
+  },
   methods: {
     goToUser(path) {
       this.$router.push({ path })

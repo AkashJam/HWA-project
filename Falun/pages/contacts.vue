@@ -235,6 +235,16 @@
   </div>
 </template>
 
+<script>
+export default {
+  head() {
+    return {
+      title: 'Falun - Contact us',
+    }
+  },
+}
+</script>
+
 <style scoped>
 #start {
   padding: 0vh 0vh;

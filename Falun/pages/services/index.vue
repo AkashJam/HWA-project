@@ -33,6 +33,11 @@ export default {
     const rarea = areas
     return { services, rarea }
   },
+  head() {
+    return {
+      title: 'Falun - Services',
+    }
+  },
   methods: {
     goToService(path) {
       this.$router.push({ path })

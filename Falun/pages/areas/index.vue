@@ -31,6 +31,11 @@ export default {
     const areas = data
     return { areas }
   },
+  head() {
+    return {
+      title: 'Falun - Areas',
+    }
+  },
   methods: {
     goToArea(path) {
       this.$router.push({ path })

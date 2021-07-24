@@ -40,7 +40,7 @@ h3 {
 .img {
   align-items: center;
   width: 100%;
-  height: 50vw;
+  height: 50vh;
   min-height: 40vh;
   background-size: cover;
   background-position: center;
