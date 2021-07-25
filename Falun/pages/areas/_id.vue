@@ -184,11 +184,6 @@ h3 {
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
-
-/* .desc {
-    font-size: x-small;
-  } */
-
 .desc {
   width: 100%;
   color: white;
@@ -234,7 +229,6 @@ h3 {
   align-items: center;
   text-align: right;
 }
-
 .highi-right {
   float: right;
   height: 35vh;

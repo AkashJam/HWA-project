@@ -54,6 +54,16 @@ function defineDatabaseStructure() {
       underscored: true,
     }
   )
+  const Feature = db.define(
+    'feature',
+    {
+      description: DataTypes.TEXT,
+      image: DataTypes.STRING,
+    },
+    {
+      underscored: true,
+    }
+  )
   const Service = db.define(
     'service',
     {
@@ -73,11 +83,14 @@ function defineDatabaseStructure() {
   Highlight.belongsTo(Area, { foreignKey: 'area_id' })
   Service.belongsTo(Area, { foreignKey: 'area_id' })
   Service.belongsToMany(User, { through: 'UserServices' })
+  Service.hasMany(Feature, { foreignKey: 'area_id' })
+  Feature.belongsTo(Service, { foreignKey: 'area_id' })
   User.belongsToMany(Service, { through: 'UserServices' })
   db._tables = {
     User,
     Area,
     Highlight,
+    Feature,
     Service,
   }
 }
@@ -86,7 +99,7 @@ function defineDatabaseStructure() {
  * Function to insert some fake info in the database
  */
 async function insertFakeData() {
-  const { User, Service, Area, Highlight } = db._tables
+  const { User, Service, Area, Highlight, Feature } = db._tables
   // Create Users
   const firstUser = await User.create({
     name: 'Codey Sheehan',
@@ -324,15 +337,117 @@ async function insertFakeData() {
   })
   const highlight1 = await Highlight.create({
     description:
-      'Adaptive planning, evolutionary development, early delivery, and continual improvement through agile',
+      'Adaptive planning, evolutionary development, early delivery, and continual improvement through agile.',
     image:
       'https://www.alten.com/wp-content/uploads/2019/11/Syncroness-CPrime-agile.png',
   })
   const highlight2 = await Highlight.create({
     description:
-      'Developing, delivering, and sustaining products in a complex environment through scrum',
+      'Developing, delivering, and sustaining products in a complex environment through scrum.',
     image:
       'https://blog.item24.com/item-wp-content/uploads/2019/03/scrum-im-maschinenbau-item-blog-original-2000x1200.jpg',
+  })
+  const highlight3 = await Highlight.create({
+    description:
+      'Your most valued information will be in one place and easy to check, with a better understanding of all your information.',
+    image:
+      'https://www.datamanager.it/wp-content/uploads/2018/01/data-analytics.jpg',
+  })
+  const highlight4 = await Highlight.create({
+    description:
+      'Grow exponentially with all the information about your business.',
+    image:
+      'https://www.frost.com/wp-content/uploads/2020/08/Big-Data-Advanced-Analytics-scaled.jpg',
+  })
+  const highlight5 = await Highlight.create({
+    description:
+      'Make the most accurate predictions for the future of your company.',
+    image:
+      'https://admincp.semicolon-ltd.com/images/article/24/Human-Intelligence-Can-Fix-AI-Shortcomings-1.jpg',
+  })
+  const highlight6 = await Highlight.create({
+    description:
+      'Use the most advanced algorithms to detect any possible outcome you may like.',
+    image:
+      'https://really.sg/wp-content/uploads/2019/11/2019-11-Blog-Post-02-1024x581.jpg',
+  })
+  const highlight7 = await Highlight.create({
+    description:
+      'We know your data is the most important part of your business, protect it with our military-grade encryption.',
+    image:
+      'https://www.elmhurst.edu/wp-content/uploads/2020/03/cybersecurity-vs-information-security-illustration.jpg',
+  })
+  const highlight8 = await Highlight.create({
+    description:
+      'There is no need to worry about privacy anymore, our computers protect every bit of information not even our engineers can break in.',
+    image:
+      'https://www.kolabtree.com/blog/wp-content/uploads/2021/04/what-is-data-security-pillar-top-illustration-featured.png',
+  })
+  const feature1 = await Feature.create({
+    description:
+      'Our websites are more professional, have dynamic pages with interactive usage.',
+    image: 'https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png',
+  })
+  const feature2 = await Feature.create({
+    description:
+      'Get the most out of a website with the top UX/UI features.',
+    image:
+      'https://studiograficorosati.it/wp-content/uploads/2021/06/Le-innovazioni-nel-web-design.jpg',
+  })
+  const feature3 = await Feature.create({
+    description:
+      'Complete the full cycle of your applications without missing any part. There is no need to worry about any process no related to your work.',
+    image: 'https://s27389.pcdn.co/wp-content/uploads/2019/05/ultimate-guide-devops-e1558342120973-931x440.jpg',
+  })
+  const feature4 = await Feature.create({
+    description:
+      'Avoid heavy workload when updating your website or application, we provide all the necessary work and tools to keep you working on what you need.',
+    image:
+      'https://www.freelancermumbai.com/wp-content/uploads/2018/04/Website-Maintanance-Service-Image.png',
+  })
+  const feature5 = await Feature.create({
+    description:
+    'We provide a centralized system with all your information with easy to use interactive graphs, plots, tables and more.',
+    image: 'https://forum.quasar-framework.org/assets/uploads/files/1610115812595-captura-de-tela-2021-01-08-a-s-11.22.56.png',
+  })
+  const feature6 = await Feature.create({
+    description:
+    'Use any kind of dashboard to provide your information in a better, more understandable way.',
+    image:
+    'https://www.zohowebstatic.com/sites/default/files/analytics/zanalytics-dashboard.png',
+  })
+  const feature7 = await Feature.create({
+    description:
+    'Show the best selections of products or services to any user.',
+    image: 'https://d35fo82fjcw0y8.cloudfront.net/2019/04/26031106/HeaderA.png',
+  })
+  const feature8 = await Feature.create({
+    description:
+    'Give the most accurate recommendations to your customers.',
+    image:
+    'https://cdn.lynda.com/course/5028662/5028662-1555021422396-16x9.jpg',
+  })
+  const feature9 = await Feature.create({
+    description:
+    'Know before anyone where the market is moving.',
+    image: 'http://localadvertisingjournal.com/wp-content/uploads/2021/04/market-trend-analysis.jpg',
+  })
+  const feature10 = await Feature.create({
+    description:
+    'Invest on the next growing company by knowing how the industries are improving.',
+    image:
+    'https://static.vecteezy.com/system/resources/previews/000/522/963/non_2x/business-trend-analysis-on-isometric-smartphone-screen-with-graphs-market-trend-and-financial-analysis-vector.jpg',
+  })
+  const feature11 = await Feature.create({
+    description:
+    'Prevent any attack from outside with many layers of security in your system.',
+    image: 'https://nourglobal.com/wp-content/uploads/2019/11/network-security.png',
+  })
+  const feature12 = await Feature.create({
+    description:
+    'From client side to server side and all in between, your information is secure.',
+    image:
+    'https://cdome.comodo.com/images-new/home/network-security.png',
   })
 
   await service1.addUser(firstUser.id)
@@ -362,6 +477,18 @@ async function insertFakeData() {
   await service6.addUser(fourthUser.id)
   await service6.addUser(eighthUser.id)
   await service6.addUser(fifthteenthUser.id)
+  await service1.addFeature(feature1.id)
+  await service1.addFeature(feature2.id)
+  await service2.addFeature(feature3.id)
+  await service2.addFeature(feature4.id)
+  await service3.addFeature(feature5.id)
+  await service3.addFeature(feature6.id)
+  await service4.addFeature(feature7.id)
+  await service4.addFeature(feature8.id)
+  await service5.addFeature(feature9.id)
+  await service5.addFeature(feature10.id)
+  await service6.addFeature(feature11.id)
+  await service6.addFeature(feature12.id)
   await area1.addService(service1.id)
   await area1.addService(service2.id)
   await area2.addService(service3.id)
@@ -371,6 +498,12 @@ async function insertFakeData() {
   await area4.addService(service6.id)
   await area1.addHighlight(highlight1.id)
   await area1.addHighlight(highlight2.id)
+  await area2.addHighlight(highlight3.id)
+  await area2.addHighlight(highlight4.id)
+  await area3.addHighlight(highlight5.id)
+  await area3.addHighlight(highlight6.id)
+  await area4.addHighlight(highlight7.id)
+  await area4.addHighlight(highlight8.id)
 }
 /**
  * Function to initialize the database. This is exported and called in the main api.js file

@@ -12,7 +12,7 @@ async function init() {
   // Call the init function that returns the Database
   const db = await initializeDatabase()
   // Let's extract all the objects we need to perform queries inside the endpoints
-  const { User, Service, Area, Highlight } = db._tables
+  const { User, Service, Area, Highlight, Feature } = db._tables
   // API to get all the users
   app.get('/user', async (req, res) => {
     const users = await User.findAll()
@@ -44,7 +44,14 @@ async function init() {
     const { name } = req.params
     const service = await Service.findOne({
       where: { name },
-      include: { model: User },
+      include: [
+        {
+          model: User
+        },
+        {
+          model: Feature,
+        },
+      ],
     })
     return res.json(service)
   })
