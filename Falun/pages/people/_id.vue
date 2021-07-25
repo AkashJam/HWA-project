@@ -196,7 +196,7 @@ export default {
 }
 @media (max-width: 1080px) {
   .info {
-    height: 100vh;
+    height: 105vh;
   }
   .img-sec {
     float: none;

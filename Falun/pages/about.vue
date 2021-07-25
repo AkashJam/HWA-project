@@ -85,7 +85,8 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Falun motto and description',
+          content:
+            'Provides software solutions for Web Development, Cyber Security, Artificial Intelligence and Market Analysis',
         },
       ],
     }
