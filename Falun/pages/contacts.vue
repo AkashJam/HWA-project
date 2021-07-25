@@ -49,8 +49,8 @@
         <div id="form"></div>
         <div id="fform" class="fform">
           <form
+            name="contact-form"
             class="grid grid-cols-1 gap-y-6"
-            action="/messages"
             method="post"
             @submit.prevent="sendMessage"
           >
@@ -241,6 +241,13 @@ export default {
     return {
       title: 'Falun - Contact us',
     }
+  },
+  methods: {
+    sendMessage() {
+      const frm = document.getElementsByName('contact-form')[0]
+      frm.reset() // Reset
+      return false // Prevent page refresh
+    },
   },
 }
 </script>
