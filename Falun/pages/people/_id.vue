@@ -40,14 +40,19 @@
       </div>
       <div class="service-sec">
         <h3 id="title">Area</h3>
-        <div id="service-scroll">
+        <div id="area-grid">
           <div
             v-for="(area, areaindex) of filteredAreas"
             :key="'area-' + areaindex"
-            class="Area"
+            class="area"
             @click="goToItem(`/areas/${area.name}`)"
           >
-            <CardView :image="area.image" :title="area.name"> </CardView>
+            <CardViewArea
+              :image="area.image"
+              :title="area.name"
+              :description="area.description"
+            >
+            </CardViewArea>
           </div>
         </div>
       </div>
@@ -300,6 +305,7 @@ h3 {
   margin-bottom: 3vh;
 }
 #service-scroll {
+  width: 50%;
   overflow: auto;
   white-space: nowrap;
   text-align: center;
@@ -308,6 +314,20 @@ h3 {
   background-color: #e0f2f1;
   padding: 5vh 5vw;
   margin-top: 30px;
+}
+.area-grid {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3vw;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5vh;
+}
+.area {
+  font-size: 20px;
+  margin: 0 auto 5vh;
+  width: 50%;
 }
 @media (max-width: 720px) {
   #service-scroll {
@@ -386,6 +406,9 @@ h3 {
   }
   h6 {
     font-size: 15px;
+    width: 100%;
+  }
+  .area {
     width: 100%;
   }
 }
