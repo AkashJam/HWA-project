@@ -338,7 +338,14 @@ async function insertFakeData() {
   const highlight1 = await Highlight.create({
     description:
       'Adaptive planning, evolutionary development, early delivery, and continual improvement through agile',
-    image: 'https://bloginnovazione.it/wp-content/uploads/2019/02/agile.png',
+    image:
+      'https://www.alten.com/wp-content/uploads/2019/11/Syncroness-CPrime-agile.png',
+  })
+  const highlight2 = await Highlight.create({
+    description:
+      'Developing, delivering, and sustaining products in a complex environment through scrum',
+    image:
+      'https://blog.item24.com/item-wp-content/uploads/2019/03/scrum-im-maschinenbau-item-blog-original-2000x1200.jpg',
   })
   const feature1 = await Feature.create({
     description:
@@ -382,6 +389,7 @@ async function insertFakeData() {
   await area3.addService(service4.id)
   await area4.addService(service6.id)
   await area1.addHighlight(highlight1.id)
+  await area1.addHighlight(highlight2.id)
 }
 /**
  * Function to initialize the database. This is exported and called in the main api.js file
