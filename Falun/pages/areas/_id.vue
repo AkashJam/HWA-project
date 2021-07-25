@@ -48,7 +48,8 @@
       <div class="service-sec">
         <h3 id="title">Team</h3>
         <div id="skills">{{ data.skills }}</div>
-        <div id="service-scroll">
+        <Scroll :filteredItems="filteredMembers" :category="'people'"></Scroll>
+        <!-- <div id="service-scroll">
           <div
             v-for="(user, userIndex) of filteredMembers"
             :key="'user-' + userIndex"
@@ -58,7 +59,7 @@
             <CardView :image="user.profilePicture" :title="user.name">
             </CardView>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -69,7 +70,6 @@ export default {
   async asyncData({ $axios, route }) {
     const id = await route.params.id
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area/${id}`)
-    console.log(data)
     const services = data.services
     return {
       data,

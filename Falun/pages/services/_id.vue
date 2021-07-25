@@ -17,7 +17,7 @@
     </div>
     <div class="user-sec">
       <h3 class="title">Team {{ services.name }}</h3>
-      <div id="user-scroll">
+      <!-- <div id="user-scroll">
         <div
           v-for="(user, userIndex) of users"
           :key="'user-' + userIndex"
@@ -26,7 +26,8 @@
         >
           <CardView :image="user.profilePicture" :title="user.name"> </CardView>
         </div>
-      </div>
+      </div> -->
+      <Scroll :filteredItems="users" :category="'people'"></Scroll>
     </div>
   </div>
 </template>
@@ -41,7 +42,6 @@ export default {
     const area = await $axios.$get(
       `${process.env.BASE_URL}/api/areaid/${services.area_id}`
     )
-    console.log(area.name)
     const users = data.users
     return {
       services,
