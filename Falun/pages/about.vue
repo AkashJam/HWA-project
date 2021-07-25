@@ -15,29 +15,6 @@
       </p>
     </div>
     <div class="CEO">
-      <!-- <div class="img-sec">
-          <div
-            class="profile-pic"
-            :style="{
-              'background-image': `url('https://www.europeanceo.com/wp-content/uploads/2017/08/CEO-magic-touch.jpg')`,
-            }"
-          ></div>
-        </div>
-        <div class="info-sec">
-          <ul class="user-info">
-            <li>
-              <h3>Sandra Marley, CEO</h3>
-            </li>
-            <li>
-              <p>
-                Our strategy and policies underline the unique aspects of your
-                products and address your strengths. With ever improving
-                technology, we will provide our services through good management
-                and an even better buisness sense
-              </p>
-            </li>
-          </ul>
-        </div> -->
       <div
         class="img-sec"
         :style="{
@@ -60,14 +37,15 @@
         </ul>
       </div>
     </div>
-    <br />
     <div class="miss-stat">
-      <h2 class="head">Our Mission</h2>
-      <p class="p2">
-        Our mission is to provide solutions that will increase your ability to
-        utilize and communicate through technology in a manner that will
-        simplify the transition and maximize your potential.
-      </p>
+      <div>
+        <h2 class="head">Our Mission</h2>
+        <p class="p2">
+          Our mission is to provide solutions that will increase your ability to
+          utilize and communicate through technology in a manner that will
+          simplify the transition and maximize your potential.
+        </p>
+      </div>
     </div>
     <div class="miss-stat">
       <h2 class="head">Our Stakeholders</h2>
@@ -151,19 +129,14 @@ export default {
   background-position: right;
   float: left;
 }
-.img-th1 {
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 98vh;
-  width: 100%;
-}
 .img-th {
   align-items: center;
   width: 100%;
-  height: 93vh;
+  height: 60vh;
   min-height: 40vh;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
 }
 .deats {
   align-items: center;
