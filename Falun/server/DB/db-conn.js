@@ -1,16 +1,16 @@
 const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
-// const db = new Sequelize(
-//   'postgres://postgres:akashjames@localhost:5432/FalunTest'
-// )
+const db = new Sequelize(
+  'postgres://postgres:akashjames@localhost:5432/FalunTest'
+)
 // Production
-const pg = require('pg')
-pg.defaults.ssl = true
-const db = new Sequelize(process.env.DATABASE_URL, {
-  ssl: true,
-  dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
-})
+// const pg = require('pg')
+// pg.defaults.ssl = true
+// const db = new Sequelize(process.env.DATABASE_URL, {
+//   ssl: true,
+//   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+// })
 
 /**
  * Function to define the structure of the database
@@ -54,6 +54,16 @@ function defineDatabaseStructure() {
       underscored: true,
     }
   )
+  const Feature = db.define(
+    'feature',
+    {
+      description: DataTypes.TEXT,
+      image: DataTypes.STRING,
+    },
+    {
+      underscored: true,
+    }
+  )
   const Service = db.define(
     'service',
     {
@@ -73,11 +83,14 @@ function defineDatabaseStructure() {
   Highlight.belongsTo(Area, { foreignKey: 'area_id' })
   Service.belongsTo(Area, { foreignKey: 'area_id' })
   Service.belongsToMany(User, { through: 'UserServices' })
+  Service.hasMany(Feature, { foreignKey: 'service_id' })
+  Feature.belongsTo(Service, { foreignKey: 'service_id' })
   User.belongsToMany(Service, { through: 'UserServices' })
   db._tables = {
     User,
     Area,
     Highlight,
+    Feature,
     Service,
   }
 }
@@ -86,7 +99,7 @@ function defineDatabaseStructure() {
  * Function to insert some fake info in the database
  */
 async function insertFakeData() {
-  const { User, Service, Area, Highlight } = db._tables
+  const { User, Service, Area, Highlight, Feature } = db._tables
   // Create Users
   const firstUser = await User.create({
     name: 'Codey Sheehan',
@@ -327,6 +340,11 @@ async function insertFakeData() {
       'Adaptive planning, evolutionary development, early delivery, and continual improvement through agile',
     image: 'https://bloginnovazione.it/wp-content/uploads/2019/02/agile.png',
   })
+  const feature1 = await Feature.create({
+    description:
+      'Adaptive planning, evolutionary development, early delivery, and continual improvement through agile',
+    image: 'https://bloginnovazione.it/wp-content/uploads/2019/02/agile.png',
+  })
 
   await service1.addUser(firstUser.id)
   await service1.addUser(secondUser.id)
@@ -355,6 +373,7 @@ async function insertFakeData() {
   await service6.addUser(fourthUser.id)
   await service6.addUser(eighthUser.id)
   await service6.addUser(fifthteenthUser.id)
+  await service1.addFeature(feature1.id)
   await area1.addService(service1.id)
   await area1.addService(service2.id)
   await area2.addService(service3.id)
