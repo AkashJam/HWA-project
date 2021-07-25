@@ -113,7 +113,7 @@ async function insertFakeData() {
     emailId: 'marissajohn@momail.com',
     userRole: 'Web Developer',
     profilePicture:
-      'https://www.aero-mag.com/wp-content/uploads/2019/07/AMJuly19News-ametek1-e1563205327354-1024x1024.jpg',
+      'https://i.pinimg.com/originals/99/2f/0b/992f0b26ff7a8b52736ac1b35ef2fb52.jpg',
   })
   const sixthUser = await User.create({
     name: 'Victor Clayton',
