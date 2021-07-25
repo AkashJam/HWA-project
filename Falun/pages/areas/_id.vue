@@ -69,7 +69,6 @@ export default {
   async asyncData({ $axios, route }) {
     const id = await route.params.id
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/area/${id}`)
-    console.log(data)
     const services = data.services
     return {
       data,
@@ -184,11 +183,6 @@ h3 {
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
-
-/* .desc {
-    font-size: x-small;
-  } */
-
 .desc {
   width: 100%;
   color: white;
@@ -234,7 +228,6 @@ h3 {
   align-items: center;
   text-align: right;
 }
-
 .highi-right {
   float: right;
   height: 35vh;

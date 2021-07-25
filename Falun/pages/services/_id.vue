@@ -15,6 +15,23 @@
     <div id="philo">
       <h6 class="descri">{{ services.content }}</h6>
     </div>
+    <div class="features">
+      <h3>Service features</h3>
+      <div
+        v-for="(feature, ftindex) of data.features"
+        :key="'feature-' + ftindex"
+        class="feature"
+      >
+        <div v-if="ftindex % 2">
+          <img class="feati-right" :src="feature.image" />
+          <h5 class="featp-left">{{ feature.description }}</h5>
+        </div>
+        <div v-if="(ftindex + 1) % 2">
+          <img class="feati-left" :src="feature.image" />
+          <h5 class="featp-right">{{ feature.description }}</h5>
+        </div>
+      </div>
+    </div>
     <div class="user-sec">
       <h3 class="title">Team {{ services.name }}</h3>
       <div id="user-scroll">
@@ -41,12 +58,12 @@ export default {
     const area = await $axios.$get(
       `${process.env.BASE_URL}/api/areaid/${services.area_id}`
     )
-    console.log(area.name)
     const users = data.users
     return {
       services,
       users,
       area,
+      data,
     }
   },
   methods: {
@@ -69,6 +86,70 @@ export default {
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: inherit;
+}
+.features {
+  padding: 5vh 5vw;
+}
+.feature {
+  padding: 5vh 5vw;
+  height: 45vh;
+}
+.feati-left {
+  float: left;
+  height: 35vh;
+  width: 45%;
+}
+.featp-right {
+  float: right;
+  width: 50%;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.feati-right {
+  float: right;
+  height: 35vh;
+  width: 45%;
+}
+.featp-left {
+  float: left;
+  width: 50%;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+@media (max-width: 1440px) {
+  .feature {
+    height: 40vh;
+  }
+  .feati-left,
+  .feati-right,
+  .featp-left,
+  .featp-right {
+    height: 30vh;
+  }
+}
+@media (max-width: 1080px) {
+  .feature {
+    height: fit-content;
+  }
+  .feati-left,
+  .feati-right {
+    float: none;
+    width: 100%;
+    height: fit-content;
+  }
+  .featp-left,
+  .featp-right {
+    float: none;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    padding-top: 3vh;
+  }
 }
 .service-sec {
   padding: 5vh 5vw;

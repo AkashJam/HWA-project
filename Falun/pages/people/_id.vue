@@ -41,7 +41,7 @@
           v-for="(service, serviceIndex) of services"
           :key="'service-' + serviceIndex"
           class="service"
-          @click="goToItem(`/services/${service.id}`)"
+          @click="goToItem(`/services/${service.name}`)"
         >
           <CardView :image="service.image" :title="service.name"> </CardView>
         </div>
@@ -64,7 +64,7 @@
           v-for="(area, areaIndex) of filteredAreas"
           :key="'area-' + areaIndex"
           class="service"
-          @click="goToItem(`/areas/${area.id}`)"
+          @click="goToItem(`/areas/${area.name}`)"
         >
           <CardView :image="area.image" :title="area.name"> </CardView>
         </div>
