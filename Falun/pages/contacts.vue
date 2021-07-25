@@ -263,7 +263,7 @@ export default {
   text-align: center;
   flex-direction: column;
   font-family: 'Roboto';
-  background-color: #82dfff;
+  background-color: #e8eaf6;
 }
 .map {
   height: 50vh;

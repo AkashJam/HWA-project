@@ -15,6 +15,23 @@
         <h6 class="descri">{{ data.content }}</h6>
         <div class="descril">{{ data.philosophy }}</div>
       </div>
+      <div class="highlights">
+        <h3>Area Highlights</h3>
+        <div
+          v-for="(highlight, hgindex) of data.highlights"
+          :key="'highlight-' + hgindex"
+          class="highlight"
+        >
+          <div v-if="hgindex % 2">
+            <img class="highi-right" :src="highlight.image" />
+            <h5 class="highp-left">{{ highlight.description }}</h5>
+          </div>
+          <div v-if="(hgindex + 1) % 2">
+            <img class="highi-left" :src="highlight.image" />
+            <h5 class="highp-right">{{ highlight.description }}</h5>
+          </div>
+        </div>
+      </div>
       <div id="service-sect">
         <h3>Related services</h3>
         <div class="service-grid">
@@ -196,6 +213,70 @@ h3 {
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: inherit;
+}
+.highlights {
+  padding: 5vh 5vw;
+}
+.highlight {
+  padding: 5vh 5vw;
+  height: 45vh;
+}
+.highi-left {
+  float: left;
+  height: 35vh;
+  width: 45%;
+}
+.highp-right {
+  float: right;
+  width: 50%;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.highi-right {
+  float: right;
+  height: 35vh;
+  width: 45%;
+}
+.highp-left {
+  float: left;
+  width: 50%;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+@media (max-width: 1440px) {
+  .highlight {
+    height: 40vh;
+  }
+  .highi-left,
+  .highi-right,
+  .highp-left,
+  .highp-right {
+    height: 30vh;
+  }
+}
+@media (max-width: 1080px) {
+  .highlight {
+    height: fit-content;
+  }
+  .highi-left,
+  .highi-right {
+    float: none;
+    width: 100%;
+    height: fit-content;
+  }
+  .highp-left,
+  .highp-right {
+    float: none;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    padding-top: 3vh;
+  }
 }
 .service-sec {
   padding: 5vh 5vw;
