@@ -44,6 +44,16 @@ function defineDatabaseStructure() {
       underscored: true,
     }
   )
+  const Highlight = db.define(
+    'highlight',
+    {
+      description: DataTypes.TEXT,
+      image: DataTypes.STRING,
+    },
+    {
+      underscored: true,
+    }
+  )
   const Service = db.define(
     'service',
     {
@@ -59,12 +69,15 @@ function defineDatabaseStructure() {
   // Creating the 1 -> N association between Areas and Services, UserService
   // More on association: https://sequelize.org/master/manual/assocs.html
   Area.hasMany(Service, { foreignKey: 'area_id' })
+  Area.hasMany(Highlight, { foreignKey: 'area_id' })
+  Highlight.belongsTo(Area, { foreignKey: 'area_id' })
   Service.belongsTo(Area, { foreignKey: 'area_id' })
   Service.belongsToMany(User, { through: 'UserServices' })
   User.belongsToMany(Service, { through: 'UserServices' })
   db._tables = {
     User,
     Area,
+    Highlight,
     Service,
   }
 }
@@ -73,7 +86,7 @@ function defineDatabaseStructure() {
  * Function to insert some fake info in the database
  */
 async function insertFakeData() {
-  const { User, Service, Area } = db._tables
+  const { User, Service, Area, Highlight } = db._tables
   // Create Users
   const firstUser = await User.create({
     name: 'Codey Sheehan',
@@ -309,6 +322,11 @@ async function insertFakeData() {
     skills:
       'Our team of highly skilled security experts deliver top-quality threat intelligence, detection engineering, investigation, and response',
   })
+  const highlight1 = await Highlight.create({
+    description:
+      'Adaptive planning, evolutionary development, early delivery, and continual improvement through agile',
+    image: 'https://bloginnovazione.it/wp-content/uploads/2019/02/agile.png',
+  })
 
   await service1.addUser(firstUser.id)
   await service1.addUser(secondUser.id)
@@ -344,6 +362,7 @@ async function insertFakeData() {
   await area3.addService(service3.id)
   await area3.addService(service4.id)
   await area4.addService(service6.id)
+  await area1.addHighlight(highlight1.id)
 }
 /**
  * Function to initialize the database. This is exported and called in the main api.js file

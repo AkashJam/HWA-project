@@ -29,7 +29,7 @@ export default {
 .card {
   height: 100%;
   width: 100%;
-  max-width: 40vw;
+  /* max-width: 40vw; */
   display: inline-block;
   padding-top: 0px;
   padding-bottom: 30px;
