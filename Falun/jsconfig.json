@@ -98,7 +98,7 @@
               ],
               "utterance": "These guys from Web Development created me. Do you want to see more?",
               "payload": {
-                "guide": "/areas/1"
+                "guide": "/areas/Web%20Development"
               }
             },
             {
@@ -122,7 +122,7 @@
               ],
               "utterance": "Welcome to Big Data & Analytics. Do you want to continue exploring?",
               "payload": {
-                "guide": "/areas/2"
+                "guide": "/areas/Big%20Data%20&%20Analytics"
               }
             },
             {
@@ -136,7 +136,7 @@
               ],
               "utterance": "This is Machine Learning, I really like this topic. There is more too see, wanna join me?",
               "payload": {
-                "guide": "/areas/3"
+                "guide": "/areas/Machine%20Learning"
               }
             },
             {
@@ -150,7 +150,7 @@
               ],
               "utterance": "Cyber security, that's an important one. Want to continue?",
               "payload": {
-                "guide": "/areas/4"
+                "guide": "/areas/Cyber%20Security"
               }
             }
           ],
