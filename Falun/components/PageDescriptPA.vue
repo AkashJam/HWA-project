@@ -32,7 +32,7 @@ h2 {
   font-weight: bold;
 }
 h3 {
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   font-weight: lighter;
   font-family: 'Roboto';
