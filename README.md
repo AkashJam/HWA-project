@@ -17,8 +17,8 @@ Ilaria Ronconi 10541302
 ## Contribution:
 Pietro:
  - Header
- - Breadcrumbs skeleton
- - UI
+ - UI & Breadcrumbs skeleton
+ - Data Analysis of Usability report
 
 Andres:
 - Contact us page with form
