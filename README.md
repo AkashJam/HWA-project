@@ -16,7 +16,9 @@ Ilaria Ronconi 10541302
 
 ## Contribution:
 Pietro:
-
+-Header
+-Breadcrumbs skeleton
+-UI 
 Andres:
 - Contact us page with form
 - Chatbot
