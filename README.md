@@ -16,9 +16,10 @@ Ilaria Ronconi 10541302
 
 ## Contribution:
 Pietro:
--Header
--Breadcrumbs skeleton
--UI 
+ - Header
+ - Breadcrumbs skeleton
+ - UI
+
 Andres:
 - Contact us page with form
 - Chatbot
@@ -27,9 +28,9 @@ Andres:
 Akash:
 
 Ilaria:
--Design report
--Help in service and area pages
--General part of the usability report
+ - Design report
+ - Help in service and area pages
+ - General part of the usability report
 
 ## Technical-documentation
 ### Server and DB technologies used 
