@@ -24,8 +24,14 @@ Andres:
 - Contact us page with form
 - Chatbot
 - Names in urls and breadcrumbs
+- Content of areas and services
 
 Akash:
+- Database creation
+- Components creation
+- Areas and services pages
+- Design throughout website
+- Deployment
 
 Ilaria:
  - Design report
